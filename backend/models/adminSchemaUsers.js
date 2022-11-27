@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const schema = mongoose.Schema;
 
-const usersschema = new schema({
+const adminSchema = new schema({
   
     name: { type: String, requied: true },
     email: { type: String, requied: true },
@@ -9,5 +9,5 @@ const usersschema = new schema({
     date:{type:Date,default:Date.now()}
 
 });
-let myDATA = mongoose.model("myLibraryUsers", usersschema);
-module.exports = myDATA;
+let adminUSERS = mongoose.model("adminUsers", adminSchema);
+module.exports = adminUSERS;
