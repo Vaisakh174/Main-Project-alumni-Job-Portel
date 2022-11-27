@@ -1,10 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const userDATA = require("../models/jobUsers");
-const DATA = require("../models/mainData");
+const userDATA = require("../models/admin/adminSchemaUsers");
+const DATA = require("../models/admin/adminSchemaMAIN.js");
 const jwt = require('jsonwebtoken')
- 
-
 
 function verifytoken (req, res, next) {
     console.log('headers=', req.headers.authorization);
