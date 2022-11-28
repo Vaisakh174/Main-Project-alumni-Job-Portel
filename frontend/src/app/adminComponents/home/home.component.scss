@@ -1,89 +1,77 @@
-body,
-html {
-    height: 100%;
+.bgnav {
+    background-color: rgb(47, 116, 116);
 }
 
-/* workaround modal-open padding issue */
+@media screen and (max-width: 550px) {
+    .adminWelcome {
+        display: none;
+    }
 
-body.modal-open {
-    padding-right: 0 !important;
 }
 
-#sidebar {
-    padding-left: 0;
-}
+@media screen and (max-width: 450px) {
+    .offcanvas {
 
-/*
-* Off Canvas at medium breakpoint
-* --------------------------------------------------
-*/
-
-@media screen and (max-width: 48em) {
-    .row-offcanvas {
-        position: relative;
-        -webkit-transition: all 0.25s ease-out;
-        -moz-transition: all 0.25s ease-out;
-        transition: all 0.25s ease-out;
-    }
-
-    .row-offcanvas-left .sidebar-offcanvas {
-        left: -33%;
-    }
-
-    .row-offcanvas-left.active {
-        left: 33%;
-        margin-left: -6px;
-    }
-
-    .sidebar-offcanvas {
-        position: absolute;
-        top: 0;
-        width: 33%;
-        height: 100%;
+        width: 150px !important;
     }
 }
 
-/*
-* Off Canvas wider at sm breakpoint
-* --------------------------------------------------
-*/
 
-@media screen and (max-width: 34em) {
-    .row-offcanvas-left .sidebar-offcanvas {
-        left: -45%;
-    }
 
-    .row-offcanvas-left.active {
-        left: 45%;
-        margin-left: -6px;
-    }
-
-    .sidebar-offcanvas {
-        width: 45%;
-    }
+.offcanvas {
+    background-color: rgb(47, 116, 116);
+    width: 210px;
+   
 }
 
-.card {
-    overflow: hidden;
+.nav-link {
+    color: rgb(255, 255, 255);
 }
 
-.card-block .rotate {
-    z-index: 8;
-    float: right;
-    height: 100%;
+.adminWelcome,
+.user {
+    background-color: rgb(0, 104, 104);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    padding: 7px;
+    // border: 1px solid rgb(255, 255, 255);
+    margin: 5px;
+    border: none;
+
 }
 
-.card-block .rotate i {
-    color: rgba(20, 20, 20, 0.15);
-    position: absolute;
-    left: 0;
-    left: auto;
-    right: -10px;
-    bottom: 0;
-    display: block;
-    -webkit-transform: rotate(-44deg);
-    -moz-transform: rotate(-44deg);
-    -o-transform: rotate(-44deg);
-    -ms-transform: rotate(-44deg);
-    transform: rotate(-44deg);
+.adminWelcome:hover {
+    background-color: rgb(0, 181, 133);
+    color: rgb(255, 255, 255);
+    // border: 1px solid rgb(255, 255, 255);
+}
+
+.user:hover {
+    background-color: rgb(0, 181, 133);
+    color: rgb(255, 255, 255);
+//   border: 1px solid rgb(255, 255, 255);
+
+}
+
+.nav-bg{
+// border: 1px solid rgb(255, 255, 255);
+border-radius: 10px;
+background-color:rgb(0, 104, 104);
+margin: 5px;
+padding: 5px;
+
+}
+
+.nav-bg:hover {
+    background-color: rgb(0, 181, 133);
+    color: rgb(255, 255, 255);
+//   border: 1px solid rgb(255, 255, 255);
+
+}
+
+.offcanvas-title{
+   color:rgb(182, 255, 184) ;
+}
+.offcanvas-title:hover{
+    color: rgb(255, 255, 255);
 }

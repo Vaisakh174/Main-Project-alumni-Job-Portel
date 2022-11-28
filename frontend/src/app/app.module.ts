@@ -10,6 +10,7 @@ import { ApiService } from './services/api.service';
 import { AuthService } from './services/auth.service';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { HomeComponent } from './adminComponents/home/home.component';
+import { ManageAlumniComponent } from './adminComponents/manage-alumni/manage-alumni.component';
 
 
 
@@ -18,6 +19,7 @@ import { HomeComponent } from './adminComponents/home/home.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
+    ManageAlumniComponent,
   ],
   imports: [
     BrowserModule,
