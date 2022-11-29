@@ -12,4 +12,6 @@ export class PostAjobComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
 }

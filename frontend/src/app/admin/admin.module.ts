@@ -17,6 +17,15 @@ import { ApiService } from './services/api.service';
 import { AddAlumniComponent } from './add-alumni/add-alumni.component';
 import { CRUDalumniComponent } from './crudalumni/crudalumni.component';
 import { ApproveAlumniReqComponent } from './approve-alumni-req/approve-alumni-req.component';
+import { ErrorComponent } from './error/error.component';
+import { AddFacultyComponent } from './add-faculty/add-faculty.component';
+import { CRUDFacultyComponent } from './crud-faculty/crud-faculty.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { CrudEmployeeComponent } from './crud-employee/crud-employee.component';
+import { AddEmployerComponent } from './add-employer/add-employer.component';
+import { CrudEmployerComponent } from './crud-employer/crud-employer.component';
+import { AddpostComponent } from './addpost/addpost.component';
+import { ViewallpostsComponent } from './viewallposts/viewallposts.component';
 
 
 
@@ -31,7 +40,16 @@ import { ApproveAlumniReqComponent } from './approve-alumni-req/approve-alumni-r
     ApproveJobComponent,
     AddAlumniComponent,
     CRUDalumniComponent,
-    ApproveAlumniReqComponent
+    ApproveAlumniReqComponent,
+    ErrorComponent,
+    AddFacultyComponent,
+    CRUDFacultyComponent,
+    AddEmployeeComponent,
+    CrudEmployeeComponent,
+    AddEmployerComponent,
+    CrudEmployerComponent,
+    AddpostComponent,
+    ViewallpostsComponent
     ],
   imports: [
     CommonModule,AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule

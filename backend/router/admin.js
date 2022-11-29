@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const userDATA = require("../models/admin/adminSchemaUsers");
-const DATA = require("../models/admin/adminSchemaMAIN.js");
+const userDATA = require("../models/admin/adminUsers");
+const DATA = require("../models/admin/createNewJob.js");
 const jwt = require('jsonwebtoken')
 
+
+//middleware
 function verifytoken (req, res, next) {
     console.log('headers=', req.headers.authorization);
     if (!req.headers.authorization) {
@@ -25,6 +27,8 @@ function verifytoken (req, res, next) {
 
 }
 
+
+//signup
 //add data (post) for users
 router.post('', async (req, res) => {
     let item = {
@@ -70,6 +74,8 @@ router.post('', async (req, res) => {
 
 });
 
+
+//login
 // let email = "vaishakh174@gmail.com"
 // let password = "12345"
 
@@ -148,15 +154,23 @@ router.get('/getsingle/:id', async (req, res) => {
 
 
 //add data (post)
-router.post('/post', verifytoken , async (req, res) => {
+router.post('/post' , async (req, res) => {
 
     try {
         let item = {
 
-            bookname: req.body.bookname,
-            bookimgaddress: req.body.bookimgaddress,
-            author: req.body.author,
-            content: req.body.content
+            Jobname: req.body.Jobname,
+            CompanyName: req.body.CompanyName,
+            Place: req.body.Place,
+            Salary: req.body.Salary,
+            JobType: req.body.JobType,
+            Qualifications: req.body.Qualifications,
+            JobDescription: req.body.JobDescription,
+            Experience: req.body.Experience,
+            Benefits: req.body.Benefits,
+            Schedule: req.body.Schedule,
+            Language: req.body.Language,
+            Contact: req.body.Contact
         }
         const newdata = new DATA(item);
         const savedata = await newdata.save();
