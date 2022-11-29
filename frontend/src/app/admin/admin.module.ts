@@ -14,6 +14,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { ApiService } from './services/api.service';
+import { AddAlumniComponent } from './add-alumni/add-alumni.component';
+import { CRUDalumniComponent } from './crudalumni/crudalumni.component';
+import { ApproveAlumniReqComponent } from './approve-alumni-req/approve-alumni-req.component';
 
 
 
@@ -25,7 +28,10 @@ import { ApiService } from './services/api.service';
     ManageEmployerComponent,
     ManageEmployeeComponent,
     PostAjobComponent,
-    ApproveJobComponent
+    ApproveJobComponent,
+    AddAlumniComponent,
+    CRUDalumniComponent,
+    ApproveAlumniReqComponent
     ],
   imports: [
     CommonModule,AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/adminModule/services/auth.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         // console.log("success from login  ", res.token,res.USER);   //to view token in browser
         alert("Login success");
         // localStorage.setItem('currentuser', res.USER);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/adminhome']);
 
     //   },
     //   error: (err) => {

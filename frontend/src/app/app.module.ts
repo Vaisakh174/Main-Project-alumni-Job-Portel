@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdminModule } from './adminModule/admin.module';
+import { AdminRoutingModule } from './admin/admin-routing.module';
+import { AdminModule } from './admin/admin.module';
 
 
 
@@ -15,7 +16,7 @@ import { AdminModule } from './adminModule/admin.module';
    
   ],
   imports: [
-    BrowserModule,AdminModule,
+    BrowserModule,AdminRoutingModule,AdminModule,
     AppRoutingModule
   ],
   providers: [
