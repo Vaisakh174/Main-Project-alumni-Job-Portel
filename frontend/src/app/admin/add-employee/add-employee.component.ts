@@ -23,7 +23,7 @@ export class AddEmployeeComponent implements OnInit {
     content: new FormControl("", [Validators.required, Validators.minLength(5)])
   })
   addbook() {
-    this.api.posts(this.addbookform.value).subscribe(res => {
+    this.api.post(this.addbookform.value).subscribe(res => {
       if (res) {
         alert("Data saved successfully");
         // console.log("incoming data from addbook", this.addbookform.value);

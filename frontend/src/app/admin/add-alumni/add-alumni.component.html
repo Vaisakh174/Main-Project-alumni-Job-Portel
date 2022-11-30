@@ -6,20 +6,23 @@
             <h2>Add An Alumni</h2>
             <form [formGroup]="addbookform" (ngSubmit)="addbook()">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Enter Alumni Name</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="minimum 5 letters required" formControlName="bookname">
-                    <label for="exampleInputEmail1">Enter Alumni age</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="minimum 5 letters required" formControlName="author">
-                    <label for="exampleInputEmail1">Enter Alumni Image Address</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="minimum 5 letters required eg:'https://learnwebtutorials.com/wp-content/uploads/2014/12/text-decoration-none.jpg'"
+                    <label>Enter Alumni Name</label>
+                    <input type="text" class="form-control" placeholder="minimum 5 letters required"
+                        formControlName="bookname">
+
+                    <label>Enter Alumni age</label>
+                    <input type="text" class="form-control" placeholder="minimum 5 letters required"
+                        formControlName="author">
+                        
+                    <label>Enter Alumni Image Address</label>
+                    <input type="text" class="form-control"
+                        placeholder="minimum 5 letters required "
                         formControlName="bookimgaddress">
-                    <label for="exampleInputEmail1">Enter Alumni Content</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="minimum 5 letters" formControlName="content">
-                        <small class="text-danger"> All input field must contain atleast 5 letters</small>
+
+                    <label>Enter Alumni Content</label>
+                    <input type="text" class="form-control" placeholder="minimum 5 letters" formControlName="content">
+                    <small class="text-danger"> All input field must contain atleast 5 letters</small>
+                    
                 </div>
 
                 <button *ngIf="auth.loggedin()" [disabled]="addbookform.invalid" type="submit"
@@ -30,4 +33,3 @@
         </div>
     </div>
 </div>
-

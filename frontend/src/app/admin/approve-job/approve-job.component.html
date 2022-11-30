@@ -1,29 +1,38 @@
-<table class="table table-success table-striped">
+
+<table class="table table-success table-striped ">
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Jobname</th>
+        <th scope="col">Qualifications</th>
+        <th scope="col">Alumni_qualification</th>
+        <th scope="col">Experience</th>
+        <th scope="col">Alumni_Experience</th>
+        <th scope="col">Response file</th>
+        <th scope="col">Alumni_course</th>
+        <th scope="col">Alumni_branch</th>
+        <th scope="col">Date</th>
+        <th scope="col">Function</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+      <tr *ngFor="let data of approveposts let i=index ">
+        <th scope="row">{{i+1}}</th>
+        <td>{{data.Jobname}}</td>
+        <td>{{data.Qualifications}}</td>
+        <td>{{data.Alumni_qualification}}</td>
+         <td>{{data.Experience}}</td>
+        <td>{{data.Alumni_Experience}}</td>
+        <td>{{data.Resfile}}</td> 
+        <td>{{data.Alumni_course}}</td>
+        <td>{{data.Alumni_branch}}</td>
+        <td>{{data.Date}}</td>
+        <td>
+            <button (click)="deletes(data._id)" type="button" class="btn w-100 m-1 btn-danger">Delete</button>
+            <button (click)="edit(data._id)" type="button" class="btn w-100 m-1 btn-success">Edit</button>
+            <button (click)="approve(data._id)" type="button" class="btn w-100 m-1 btn-warning">Approve</button>
+        </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
+      
     </tbody>
   </table>

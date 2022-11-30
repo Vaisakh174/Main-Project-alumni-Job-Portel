@@ -31,7 +31,7 @@ export class AddpostComponent implements OnInit {
     Contact: new FormControl("", [Validators.required, Validators.minLength(5)])
   })
   addpost() {
-    this.api.posts(this.addpostform.value).subscribe(res => {
+    this.api.post(this.addpostform.value).subscribe(res => {
       if (res) {
         alert("Data saved successfully");
         console.log("incoming data from addbook", this.addpostform.value);
