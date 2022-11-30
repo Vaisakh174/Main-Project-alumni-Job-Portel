@@ -1,14 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ApproveJobComponent } from './approve-job/approve-job.component';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './main-navigation/home/home.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { ManageAlumniComponent } from './manage-alumni/manage-alumni.component';
-import { ManageFacultyComponent } from './manage-faculty/manage-faculty.component';
-import { ManageEmployerComponent } from './manage-employer/manage-employer.component';
-import { ManageEmployeeComponent } from './manage-employee/manage-employee.component';
-import { PostAjobComponent } from './post-ajob/post-ajob.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
@@ -26,6 +20,14 @@ import { AddEmployerComponent } from './add-employer/add-employer.component';
 import { CrudEmployerComponent } from './crud-employer/crud-employer.component';
 import { AddpostComponent } from './addpost/addpost.component';
 import { ViewallpostsComponent } from './viewallposts/viewallposts.component';
+import { ReaedmorepostComponent } from './reaedmorepost/reaedmorepost.component';
+import { EditpostformComponent } from './editpostform/editpostform.component';
+import { ManagePostComponent } from './main-navigation/manage-post/manage-post.component';
+import { ManageAlumniComponent } from './main-navigation/manage-alumni/manage-alumni.component';
+import { ManageFacultyComponent } from './main-navigation/manage-faculty/manage-faculty.component';
+import { ManageEmployerComponent } from './main-navigation/manage-employer/manage-employer.component';
+import { ManageEmployeeComponent } from './main-navigation/manage-employee/manage-employee.component';
+import { ApproveJobComponent } from './approve-job/approve-job.component';
 
 
 
@@ -36,7 +38,6 @@ import { ViewallpostsComponent } from './viewallposts/viewallposts.component';
     ManageFacultyComponent,
     ManageEmployerComponent,
     ManageEmployeeComponent,
-    PostAjobComponent,
     ApproveJobComponent,
     AddAlumniComponent,
     CRUDalumniComponent,
@@ -49,7 +50,10 @@ import { ViewallpostsComponent } from './viewallposts/viewallposts.component';
     AddEmployerComponent,
     CrudEmployerComponent,
     AddpostComponent,
-    ViewallpostsComponent
+    ViewallpostsComponent,
+    ReaedmorepostComponent,
+    EditpostformComponent,
+    ManagePostComponent
     ],
   imports: [
     CommonModule,AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule

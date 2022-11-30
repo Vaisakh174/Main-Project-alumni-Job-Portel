@@ -35,7 +35,7 @@ export class AddpostComponent implements OnInit {
       if (res) {
         alert("Data saved successfully");
         console.log("incoming data from addbook", this.addpostform.value);
-        this.router.navigate(['adminhome/postjob/view']);
+        this.router.navigate(['adminhome/managepost/view']);
       }
       // console.log(res);
     })

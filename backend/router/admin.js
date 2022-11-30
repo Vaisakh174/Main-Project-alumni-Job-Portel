@@ -185,7 +185,7 @@ router.post('/post' , async (req, res) => {
 
 
 // delete data
-router.delete('/delete/:id',verifytoken, async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
 
     try {
         let id = req.params.id;
@@ -203,15 +203,25 @@ router.delete('/delete/:id',verifytoken, async (req, res) => {
 
 
 // update data
-router.put('/update',verifytoken, async (req, res) => {
+router.put('/update', async (req, res) => {
 
     try {
         let id = req.body._id;
         let item = { //remove 'data' from below if we not pass data object from frontend
-            bookname: req.body.data.bookname,
-            bookimgaddress: req.body.data.bookimgaddress,
-            author: req.body.data.author,
-            content: req.body.data.content
+
+            Jobname: req.body.data.Jobname,
+            CompanyName: req.body.data.CompanyName,
+            Place: req.body.data.Place,
+            Salary: req.body.data.Salary,
+            JobType: req.body.data.JobType,
+            Qualifications: req.body.data.Qualifications,
+            JobDescription: req.body.data.JobDescription,
+            Experience: req.body.data.Experience,
+            Benefits: req.body.data.Benefits,
+            Schedule: req.body.data.Schedule,
+            Language: req.body.data.Language,
+            Contact: req.body.data.Contact
+            
         }
         console.log("incoming data from update", item);
 

@@ -26,4 +26,32 @@ export class ViewallpostsComponent implements OnInit {
     });
   }
 
+  
+  readmore(_id: any) {
+
+    this.api.mydata = _id;
+    // console.log(_id)
+    this.router.navigate(['adminhome/managepost/readmore']);
+
+  }
+
+  deletes(_id: any) {
+
+    this.api.deletes(_id).subscribe((res) => {
+      // this.blogerDatas = res;
+      // console.log("incoming data from updatecount ", res);
+      alert("Data Deleted Successfully");
+      this.getdata()
+    })
+  }
+
+  edit(_id : any){
+    this.api.formupdate = _id;
+    this.router.navigate(['adminhome/managepost/editpost']);
+  }
+
+  
+
+  
+
 }
