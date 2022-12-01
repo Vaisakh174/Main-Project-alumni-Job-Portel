@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminRoutingModule } from './admin/admin-routing.module';
 import { AdminModule } from './admin/admin.module';
+import { NavComponent } from './main-home/nav/nav.component';
 
 
 
@@ -12,12 +13,13 @@ import { AdminModule } from './admin/admin.module';
 @NgModule({
   declarations: [
     AppComponent,
+    NavComponent,
    
    
   ],
   imports: [
-    BrowserModule,AdminRoutingModule,AdminModule,
-    AppRoutingModule
+    BrowserModule,
+    AppRoutingModule,AdminRoutingModule,AdminModule,
   ],
   providers: [
   

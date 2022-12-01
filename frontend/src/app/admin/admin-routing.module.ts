@@ -13,7 +13,6 @@ import { CRUDalumniComponent } from './crudalumni/crudalumni.component';
 import { EditpostformComponent } from './editpostform/editpostform.component';
 import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './main-navigation/home/home.component';
-import { LoginComponent } from './login/login.component';
 import { ManagePostComponent } from './main-navigation/manage-post/manage-post.component';
 import { ReaedmorepostComponent } from './reaedmorepost/reaedmorepost.component';
 import { ViewallpostsComponent } from './viewallposts/viewallposts.component';
@@ -23,7 +22,7 @@ import { ManageEmployerComponent } from './main-navigation/manage-employer/manag
 import { ManageFacultyComponent } from './main-navigation/manage-faculty/manage-faculty.component';
 import { ApproveJobComponent } from './approve-job/approve-job.component';
 
-const routes: Routes = [{ path: '', component: LoginComponent },
+const routes: Routes = [
 
 {
   path: "adminhome", component: HomeComponent,
