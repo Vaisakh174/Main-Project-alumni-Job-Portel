@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require('jsonwebtoken')
-
+const admin = require("../../models/admin/adminUsers.js");
 
 
 
 //signup
-//add data (post) for users
-router.post('', async (req, res) => {
+// add data (post) for users
+router.post('/signup', async (req, res) => {
     let item = {
 
         name: req.body.name,
@@ -17,7 +17,7 @@ router.post('', async (req, res) => {
     }
 
 
-    userDATA.findOne({ email: item.email }, async (err, foundResults) => {
+    admin.findOne({ email: item.email }, async (err, foundResults) => {
 
         console.log("data from signup body", foundResults, err)
         
@@ -26,7 +26,7 @@ router.post('', async (req, res) => {
 
             try {
 
-                const newdata = new userDATA(item);
+                const newdata = new admin(item);
                 const savedata = await newdata.save();
                 // console.log(`from post method, signup ${savedata}`);
                 // res.send(savedata);
@@ -43,7 +43,7 @@ router.post('', async (req, res) => {
             res.status(401).send("Email already registered");
 
 
-        }
+        } 
 
 
     });
@@ -64,7 +64,7 @@ router.post("", async (req, res) => {
 
     try {
 
-        userDATA.findOne({ email: emailf }, (err, foundResults) => {
+        admin.findOne({ email: emailf }, (err, foundResults) => {
 
             console.log("error 400", foundResults, err)
 

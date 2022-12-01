@@ -8,8 +8,8 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   loginuser(user: any) {
-    return this.http.post<any>("http://localhost:3000/api/admin/login", user); //for local
-    // return this.http.post<any>("/api/admin/login", user);   //for heroku
+    return this.http.post<any>("http://localhost:3000/api/login", user); //for local
+    // return this.http.post<any>("/api/login", user);   //for heroku
   }
 
 

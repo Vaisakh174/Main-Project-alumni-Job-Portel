@@ -14,8 +14,6 @@ import { ApproveAlumniReqComponent } from './approve-alumni-req/approve-alumni-r
 import { ErrorComponent } from './error/error.component';
 import { AddFacultyComponent } from './add-faculty/add-faculty.component';
 import { CRUDFacultyComponent } from './crud-faculty/crud-faculty.component';
-import { AddEmployeeComponent } from './add-employee/add-employee.component';
-import { CrudEmployeeComponent } from './crud-employee/crud-employee.component';
 import { AddEmployerComponent } from './add-employer/add-employer.component';
 import { CrudEmployerComponent } from './crud-employer/crud-employer.component';
 import { AddpostComponent } from './addpost/addpost.component';
@@ -26,8 +24,8 @@ import { ManagePostComponent } from './main-navigation/manage-post/manage-post.c
 import { ManageAlumniComponent } from './main-navigation/manage-alumni/manage-alumni.component';
 import { ManageFacultyComponent } from './main-navigation/manage-faculty/manage-faculty.component';
 import { ManageEmployerComponent } from './main-navigation/manage-employer/manage-employer.component';
-import { ManageEmployeeComponent } from './main-navigation/manage-employee/manage-employee.component';
 import { ApproveJobComponent } from './approve-job/approve-job.component';
+import { ApprovalFormComponent } from './approval-form/approval-form.component';
 
 
 
@@ -37,7 +35,6 @@ import { ApproveJobComponent } from './approve-job/approve-job.component';
     ManageAlumniComponent,
     ManageFacultyComponent,
     ManageEmployerComponent,
-    ManageEmployeeComponent,
     ApproveJobComponent,
     AddAlumniComponent,
     CRUDalumniComponent,
@@ -45,15 +42,14 @@ import { ApproveJobComponent } from './approve-job/approve-job.component';
     ErrorComponent,
     AddFacultyComponent,
     CRUDFacultyComponent,
-    AddEmployeeComponent,
-    CrudEmployeeComponent,
     AddEmployerComponent,
     CrudEmployerComponent,
     AddpostComponent,
     ViewallpostsComponent,
     ReaedmorepostComponent,
     EditpostformComponent,
-    ManagePostComponent
+    ManagePostComponent,
+    ApprovalFormComponent
     ],
   imports: [
     CommonModule,AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule

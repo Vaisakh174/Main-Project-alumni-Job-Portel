@@ -19,7 +19,7 @@ export class AuthgGuard implements CanActivate {
       
     }
     else {
-      this.router.navigate(['/login'])
+      this.router.navigate(['admin'])
       return false;
     }
   }

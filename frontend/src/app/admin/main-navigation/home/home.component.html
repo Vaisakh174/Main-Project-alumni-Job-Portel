@@ -5,11 +5,11 @@
             data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="d-flex justify-content-end ">
             <button class=" adminWelcome" type="button">Wecome To Admin Pannel</button>
             <button class="user " type="button">Admin Name: {{username}} </button>
-            <button class="user " type="button">Log out</button>
+            <button class="user " (click)="logout()" type="button">Log out</button>
         </div>
 
         <div class="offcanvas offcanvas-start " tabindex="-1" id="offcanvasNavbar"
@@ -24,25 +24,19 @@
 
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 
-                    
                     <li class="nav-item">
-                        <a class="nav-link nav-bg" routerLink="alumni">Manage Alumni</a>
+                        <a class="nav-link nav-bg" *ngIf="auth.loggedin()" routerLink="managepost">Manage Posts </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-bg" *ngIf="auth.loggedin()" routerLink="alumni">Manage Alumni</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link nav-bg" routerLink="faculty">Manage Faculty's</a>
+                        <a class="nav-link nav-bg" *ngIf="auth.loggedin()" routerLink="faculty">Manage Faculty's</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-bg" routerLink="employer">Manage Employer</a>
+                        <a class="nav-link nav-bg" *ngIf="auth.loggedin()" routerLink="employer">Manage Employer</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-bg" routerLink="employee">Manage Employee</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-bg" routerLink="managepost">Manage Posts </a>
-                    </li>
-                    
-                    
 
                 </ul>
 

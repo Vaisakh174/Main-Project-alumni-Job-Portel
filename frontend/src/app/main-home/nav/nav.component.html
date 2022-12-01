@@ -10,7 +10,7 @@
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link btn my-btn text-white m-2"  routerLink="admin">Log In As Admin</a>
+            <a class="nav-link btn my-btn text-white m-2" *ngIf="!auth.loggedin()"  routerLink="admin">Log In As Admin</a>
           </li>
           <li class="nav-item">
             <a class="nav-link btn my-btn text-white m-2"  routerLink="faculty">Log In As Faculty</a>
@@ -19,7 +19,7 @@
             <a class="nav-link btn my-btn text-white m-2"  routerLink="employer">Log In As Employer</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btn my-btn text-white m-2" routerLink="employee">Log In As Employee</a>
+            <a class="nav-link btn my-btn text-white m-2" routerLink="employee">Log In As Alumni</a>
            
           </li>
           

@@ -12,6 +12,8 @@
         <th scope="col">Alumni_course</th>
         <th scope="col">Alumni_branch</th>
         <th scope="col">Date</th>
+        <th scope="col">Alumni_Placement</th>
+        <th scope="col">Placed_company</th>
         <th scope="col">Function</th>
       </tr>
     </thead>
@@ -27,6 +29,8 @@
         <td>{{data.Alumni_course}}</td>
         <td>{{data.Alumni_branch}}</td>
         <td>{{data.Date}}</td>
+        <td>{{data.Alumni_Placement}}</td>
+        <td>{{data.Placed_company}}</td>
         <td>
             <button (click)="deletes(data._id)" type="button" class="btn w-100 m-1 btn-danger">Delete</button>
             <button (click)="edit(data._id)" type="button" class="btn w-100 m-1 btn-success">Edit</button>
