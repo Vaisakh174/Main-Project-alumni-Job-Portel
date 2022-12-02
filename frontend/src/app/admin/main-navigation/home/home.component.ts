@@ -8,16 +8,16 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit { 
+export class HomeComponent implements OnInit {
 
-constructor(private router: Router, public auth: AuthService, private api: ApiService) { }
-username:any
+  constructor(private router: Router, public auth: AuthService, private api: ApiService) { }
+  username: any
   ngOnInit(): void {
     this.username = localStorage.getItem('currentuser');
   }
 
-  
- 
+
+
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('currentuser');

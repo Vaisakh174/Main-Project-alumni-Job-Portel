@@ -28,7 +28,7 @@
     color: rgb(255, 255, 255);
 }
 
-.adminWelcome,
+.adminWelcome,.logout,
 .user {
     background-color: rgb(0, 104, 104);
     border-radius: 10px;
@@ -74,4 +74,14 @@ padding: 5px;
 }
 .offcanvas-title:hover{
     color: rgb(255, 255, 255);
+}
+
+.canvas-actived{
+    background-color: rgb(0, 181, 133);
+}
+
+.logout:hover{
+   background-color: rgb(28, 162, 126);
+   color: white;
+   cursor: pointer;
 }

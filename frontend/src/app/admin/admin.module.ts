@@ -26,6 +26,7 @@ import { ManageFacultyComponent } from './main-navigation/manage-faculty/manage-
 import { ManageEmployerComponent } from './main-navigation/manage-employer/manage-employer.component';
 import { ApproveJobComponent } from './approve-job/approve-job.component';
 import { ApprovalFormComponent } from './approval-form/approval-form.component';
+import { AddAdminFormComponent } from './add-admin-form/add-admin-form.component';
 
 
 
@@ -49,7 +50,8 @@ import { ApprovalFormComponent } from './approval-form/approval-form.component';
     ReaedmorepostComponent,
     EditpostformComponent,
     ManagePostComponent,
-    ApprovalFormComponent
+    ApprovalFormComponent,
+    AddAdminFormComponent
     ],
   imports: [
     CommonModule,AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule

@@ -53,6 +53,11 @@ export class ApiService {
     return this.http.post("http://localhost:3000/api/admin/post", data);//for local
     // return this.http.post('/api/admin/post', data);  //for heroku
   }
+  
+  postAddAdmin(data: any) {
+    return this.http.post("http://localhost:3000/api/login/signup", data);//for local
+    // return this.http.post('/api/login/signup', data);  //for heroku
+  }
 
   deletes(_id: any) {
     return this.http.delete(`http://localhost:3000/api/admin/delete/${_id}`);//for local

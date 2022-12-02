@@ -1,7 +1,7 @@
 
-<table class="table table-success table-striped ">
+<table class="table table-success table-striped text-center ">
     <thead>
-      <tr>
+      <tr class="text-danger">
         <th scope="col">#</th>
         <th scope="col">Jobname</th>
         <th scope="col">Qualifications</th>
@@ -33,8 +33,8 @@
         <td>{{data.Placed_company}}</td>
         <td>
             <button (click)="deletes(data._id)" type="button" class="btn w-100 m-1 btn-danger">Delete</button>
-            <button (click)="edit(data._id)" type="button" class="btn w-100 m-1 btn-success">Edit</button>
-            <button (click)="approve(data._id)" type="button" class="btn w-100 m-1 btn-warning">Approve</button>
+            <button (click)="edit(data._id)" type="button" class="btn w-100 m-1 btn-warning">Edit</button>
+            <button (click)="approve(data._id)" type="button" class="btn w-100 m-1 btn-success">Approve</button>
         </td>
       </tr>
       

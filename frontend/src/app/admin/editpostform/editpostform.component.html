@@ -1,26 +1,22 @@
-<div class=" p-3 rounded border m-4 ">
-
-
-    <div class="  rounded  p-3 ">
+<div class="d-flex justify-content-center p-3 rounded  m-4 ">
+    <div class=" rounded border wid p-4 ">
         <div class="col-12">
-            <h2>Crate New Post</h2>
+            <h2>Edit A Post</h2>
             <form [formGroup]="updatepostform" (ngSubmit)="updatepost()">
                 <div class="form-group">
                     <label>Enter Job Name</label>
-                    <input type="text" class="form-control"
-                        placeholder="minimum 5 letters required" formControlName="Jobname">
+                    <input type="text" class="form-control" placeholder="minimum 5 letters required"
+                        formControlName="Jobname">
                     <label>Enter company Name</label>
-                    <input type="text" class="form-control"
-                        placeholder="minimum 5 letters required" formControlName="CompanyName">
+                    <input type="text" class="form-control" placeholder="minimum 5 letters required"
+                        formControlName="CompanyName">
                     <label>Enter Job Place</label>
-                    <input type="text" class="form-control"
-                        placeholder="minimum 5 letters required" formControlName="Place">
+                    <input type="text" class="form-control" placeholder="minimum 5 letters required"
+                        formControlName="Place">
                     <label>Enter Job Salary</label>
-                    <input type="text" class="form-control" placeholder="minimum 5 letters"
-                        formControlName="Salary">
+                    <input type="text" class="form-control" placeholder="minimum 5 letters" formControlName="Salary">
                     <label>Enter Job Type</label>
-                    <input type="text" class="form-control" placeholder="minimum 5 letters"
-                        formControlName="JobType">
+                    <input type="text" class="form-control" placeholder="minimum 5 letters" formControlName="JobType">
                     <label>Enter Job Qualifications</label>
                     <input type="text" class="form-control" placeholder="minimum 5 letters"
                         formControlName="Qualifications">
@@ -31,28 +27,22 @@
                     <input type="text" class="form-control" placeholder="minimum 5 letters"
                         formControlName="Experience">
                     <label>Enter Job Benefits</label>
-                    <input type="text" class="form-control" placeholder="minimum 5 letters"
-                        formControlName="Benefits">
+                    <input type="text" class="form-control" placeholder="minimum 5 letters" formControlName="Benefits">
                     <label>Enter Work Schedule</label>
-                    <input type="text" class="form-control" placeholder="minimum 5 letters"
-                        formControlName="Schedule">
+                    <input type="text" class="form-control" placeholder="minimum 5 letters" formControlName="Schedule">
                     <label>Enter Job Prefered Language</label>
-                    <input type="text" class="form-control" placeholder="minimum 5 letters"
-                        formControlName="Language">
+                    <input type="text" class="form-control" placeholder="minimum 5 letters" formControlName="Language">
                     <label>Enter Contact Details</label>
-                    <input type="text" class="form-control" placeholder="minimum 5 letters"
-                        formControlName="Contact">
+                    <input type="text" class="form-control" placeholder="minimum 5 letters" formControlName="Contact">
                     <small class="text-danger"> All input field must contain atleast 5 letters</small>
                 </div>
 
-                <button  [disabled]="updatepostform.invalid" type="submit"
+                <button [disabled]="updatepostform.invalid" type="submit"
                     class="btn rounded my-2 btn-warning">Submit</button>
-                    <!-- *ngIf="auth.loggedin()" -->
+                <!-- *ngIf="auth.loggedin()" -->
             </form>
 
 
         </div>
     </div>
 </div>
-
-

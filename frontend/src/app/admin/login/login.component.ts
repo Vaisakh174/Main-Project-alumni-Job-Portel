@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', res.token);
         // console.log("success from login  ", res.token,res.USER);   //to view token in browser
         alert("Login success");
-        // localStorage.setItem('currentuser', res.USER);
+        localStorage.setItem('currentuser', res.USER);
         this.router.navigate(['/adminhome']);
 
       },
