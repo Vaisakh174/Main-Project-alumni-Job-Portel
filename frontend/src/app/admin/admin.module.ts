@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './main-navigation/home/home.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -26,12 +25,14 @@ import { ManageFacultyComponent } from './main-navigation/manage-faculty/manage-
 import { ManageEmployerComponent } from './main-navigation/manage-employer/manage-employer.component';
 import { ApproveJobComponent } from './approve-job/approve-job.component';
 import { ApprovalFormComponent } from './approval-form/approval-form.component';
-import { AddAdminFormComponent } from './add-admin-form/add-admin-form.component';
+import { VerifySignupComponent } from './verify-signup/verify-signup.component';
+import { AdminSignupComponent } from './admin-signup/admin-signup.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 
 
 @NgModule({
-  declarations: [ LoginComponent,
+  declarations: [ 
     HomeComponent,
     ManageAlumniComponent,
     ManageFacultyComponent,
@@ -51,7 +52,9 @@ import { AddAdminFormComponent } from './add-admin-form/add-admin-form.component
     EditpostformComponent,
     ManagePostComponent,
     ApprovalFormComponent,
-    AddAdminFormComponent
+    VerifySignupComponent,
+    AdminLoginComponent,
+    AdminSignupComponent
     ],
   imports: [
     CommonModule,AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule

@@ -1,14 +1,15 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-add-admin-form',
-  templateUrl: './add-admin-form.component.html',
-  styleUrls: ['./add-admin-form.component.scss']
+  selector: 'app-admin-signup',
+  templateUrl: './admin-signup.component.html',
+  styleUrls: ['./admin-signup.component.scss']
 })
-export class AddAdminFormComponent implements OnInit {
+export class AdminSignupComponent implements OnInit {
 
   constructor(private router: Router, private api: ApiService) { }
 

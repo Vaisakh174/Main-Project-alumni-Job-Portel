@@ -20,7 +20,7 @@ import { ManageFacultyComponent } from './main-navigation/manage-faculty/manage-
 import { ApproveJobComponent } from './approve-job/approve-job.component';
 import { ApprovalFormComponent } from './approval-form/approval-form.component';
 import { AuthgGuard } from './guard/authg.guard';
-import { AddAdminFormComponent } from './add-admin-form/add-admin-form.component';
+import { VerifySignupComponent } from './verify-signup/verify-signup.component';
 
 const routes: Routes = [
 
@@ -72,7 +72,7 @@ const routes: Routes = [
 
   },
 
-  { path: 'addAdmin', component: AddAdminFormComponent,canActivate:[AuthgGuard] }
+  { path: 'verifysignup', component: VerifySignupComponent,canActivate:[AuthgGuard] }
 
   ]
 },

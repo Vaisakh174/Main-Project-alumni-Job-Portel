@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddAdminFormComponent } from './add-admin-form.component';
+import { VerifySignupComponent } from './verify-signup.component';
 
-describe('AddAdminFormComponent', () => {
-  let component: AddAdminFormComponent;
-  let fixture: ComponentFixture<AddAdminFormComponent>;
+describe('VerifySignupComponent', () => {
+  let component: VerifySignupComponent;
+  let fixture: ComponentFixture<VerifySignupComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddAdminFormComponent ]
+      declarations: [ VerifySignupComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AddAdminFormComponent);
+    fixture = TestBed.createComponent(VerifySignupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
