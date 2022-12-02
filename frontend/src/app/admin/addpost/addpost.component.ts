@@ -17,18 +17,18 @@ export class AddpostComponent implements OnInit {
   }
 
   addpostform: any = new FormGroup({
-    Jobname: new FormControl("", [Validators.required, Validators.minLength(5)]),
-    CompanyName: new FormControl("", [Validators.required, Validators.minLength(5)]),
-    Place: new FormControl("", [Validators.required, Validators.minLength(5)]),
-    Salary: new FormControl("", [Validators.required, Validators.minLength(5)]),
-    JobType: new FormControl("", [Validators.required, Validators.minLength(5)]),
-    Qualifications: new FormControl("", [Validators.required, Validators.minLength(5)]),
-    JobDescription: new FormControl("", [Validators.required, Validators.minLength(5)]),
-    Experience: new FormControl("", [Validators.required, Validators.minLength(5)]),
-    Benefits: new FormControl("", [Validators.required, Validators.minLength(5)]),
-    Schedule: new FormControl("", [Validators.required, Validators.minLength(5)]),
-    Language: new FormControl("", [Validators.required, Validators.minLength(5)]),
-    Contact: new FormControl("", [Validators.required, Validators.minLength(5)])
+    Jobname: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    CompanyName: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    Place: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    Salary: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    JobType: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    Qualifications: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    JobDescription: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    Experience: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    Benefits: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    Schedule: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    Language: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    Contact: new FormControl("", [Validators.required, Validators.minLength(3)])
   })
   addpost() {
     this.api.post(this.addpostform.value).subscribe(res => {

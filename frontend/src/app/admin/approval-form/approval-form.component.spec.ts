@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CrudEmployeeComponent } from './crud-employee.component';
+import { ApprovalFormComponent } from './approval-form.component';
 
-describe('CrudEmployeeComponent', () => {
-  let component: CrudEmployeeComponent;
-  let fixture: ComponentFixture<CrudEmployeeComponent>;
+describe('ApprovalFormComponent', () => {
+  let component: ApprovalFormComponent;
+  let fixture: ComponentFixture<ApprovalFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CrudEmployeeComponent ]
+      declarations: [ ApprovalFormComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CrudEmployeeComponent);
+    fixture = TestBed.createComponent(ApprovalFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

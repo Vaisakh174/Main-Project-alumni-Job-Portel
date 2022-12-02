@@ -12,4 +12,6 @@ export class ManagePostComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
 }

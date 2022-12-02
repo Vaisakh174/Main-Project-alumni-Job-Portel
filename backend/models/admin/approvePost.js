@@ -14,6 +14,8 @@ const approveJob = new schema({
     Alumni_Experience: { type: String, requied: true },
     Alumni_course: { type: String, requied: true },
     Alumni_branch: { type: String, requied: true },
+    Alumni_Placement: { type: String, requied: true },
+    Placed_company: { type: String, requied: true },
     Date: { type: Date, default: Date.now() }
 
 });

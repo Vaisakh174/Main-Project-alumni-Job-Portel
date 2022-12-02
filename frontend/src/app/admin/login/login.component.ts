@@ -25,25 +25,25 @@ export class LoginComponent implements OnInit {
   }
 
   logincheck() {
-    // this.auth.loginuser(this.loginform.value).subscribe({
+    this.auth.loginuser(this.loginform.value).subscribe({
 
-    //   next: (res) => {
+      next: (res) => {
 
-    //     localStorage.setItem('token', res.token);
+        localStorage.setItem('token', res.token);
         // console.log("success from login  ", res.token,res.USER);   //to view token in browser
         alert("Login success");
-        // localStorage.setItem('currentuser', res.USER);
+        localStorage.setItem('currentuser', res.USER);
         this.router.navigate(['/adminhome']);
 
-    //   },
-    //   error: (err) => {
+      },
+      error: (err) => {
 
-    //     // console.log("error from login ", err.error);     //to view error in browser
-    //     alert(`Error...  ${err.error}`);
+         // console.log("error from login ", err.error);     //to view error in browser
+        alert(`Error...  ${err.error}`);
 
-    //   }
+      }
 
-    // });
+    });
   }
 
 

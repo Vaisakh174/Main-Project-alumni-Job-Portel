@@ -76,7 +76,9 @@ router.post('/post' , async (req, res) => {
             Alumni_ID: req.body.Alumni_ID,
             Alumni_Experience: req.body.Alumni_Experience,
             Alumni_course: req.body.Alumni_course,
-            Alumni_branch: req.body.Alumni_branch
+            Alumni_branch: req.body.Alumni_branch,
+            Alumni_Placement: req.body.Alumni_Placement,
+            Placed_company: req.body.Placed_company
            
         }
         const newdata = new approvePost(item);
@@ -106,7 +108,9 @@ router.post('/posted' , async (req, res) => {
             Alumni_ID: req.body.Alumni_ID,
             Alumni_Experience: req.body.Alumni_Experience,
             Alumni_course: req.body.Alumni_course,
-            Alumni_branch: req.body.Alumni_branch
+            Alumni_branch: req.body.Alumni_branch,
+            Alumni_Placement: req.body.Alumni_Placement,
+            Placed_company: req.body.Placed_company
            
         }
         const newdata = new approvedPost(item);
@@ -143,16 +147,18 @@ router.put('/update', async (req, res) => {
         let item = { //remove 'data' from below if we not pass data object from frontend
 
             Jobname: req.body.data.Jobname,
-            jobID: req.body.data.jobID,
+            Qualifications: req.body.data.Qualifications,
+            Experience: req.body.data.Experience,
+            JobID: req.body.data.JobID,
             Resfile: req.body.data.Resfile,
             Alumni_name: req.body.data.Alumni_name,
             Alumni_qualification: req.body.data.Alumni_qualification,
-            Qualifications: req.body.data.Qualifications,
-            Experience: req.body.data.Experience,
+            Alumni_ID: req.body.data.Alumni_ID,
             Alumni_Experience: req.body.data.Alumni_Experience,
             Alumni_course: req.body.data.Alumni_course,
             Alumni_branch: req.body.data.Alumni_branch,
-            Alumni_ID: req.body.data.Alumni_ID
+            Alumni_Placement: req.body.data.Alumni_Placement,
+            Placed_company: req.body.data.Placed_company
             
             
         }

@@ -18,7 +18,7 @@ export class ApproveJobComponent implements OnInit {
   approveposts: any = [{
     Jobname: "", jobID: "", Resfile: "", Alumni_name: "",
     Alumni_qualification: "", Qualifications: "", Alumni_ID: "", Experience: "",
-    Alumni_Experience: "", Alumni_course: "", Alumni_branch: ""
+    Alumni_Experience: "", Alumni_course: "", Alumni_branch: "",Alumni_Placement: "", Placed_company: ""
   }];
 
   getdata() {
@@ -53,8 +53,8 @@ export class ApproveJobComponent implements OnInit {
   }
 
   edit(_id: any) {
-    // this.api.formupdate = _id;
-    this.router.navigate(['/adminhome/managepost/approvejob']);
+    this.api.approveForm = _id;
+    this.router.navigate(['/adminhome/managepost/editApproval']);
   }
 
 

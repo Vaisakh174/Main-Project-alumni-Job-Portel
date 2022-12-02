@@ -1,0 +1,61 @@
+<div class=" rounded d-flex justify-content-center p-3  m-4 ">
+
+
+    <div class="  rounded border wid p-4 ">
+        <div class="col-12 ">
+            <h2>Edit Approval Request</h2>
+            <form [formGroup]="approvalform" (ngSubmit)="updateaApprovalReq()">
+                <div class="form-group">
+                    <label>Enter Job Name</label>
+                    <input type="text" class="form-control"
+                        placeholder="minimum 3 letters required" formControlName="Jobname">
+                    <label>Enter req Qualifications</label>
+                    <input type="text" class="form-control"
+                        placeholder="minimum 3 letters required" formControlName="Qualifications">
+                    <label>Enter req Experience</label>
+                    <input type="text" class="form-control"
+                        placeholder="minimum 3 letters required" formControlName="Experience">
+                    <label>Enter JobID</label>
+                    <input type="text" class="form-control" placeholder="minimum 3 letters"
+                        formControlName="JobID">
+                    <label>Enter Resp file</label>
+                    <input type="text" class="form-control" placeholder="minimum 3 letters"
+                        formControlName="Resfile">
+                    <label>Enter Alumni_name</label>
+                    <input type="text" class="form-control" placeholder="minimum 3 letters"
+                        formControlName="Alumni_name">
+                    <label>Enter Alumni_qualification</label>
+                    <input type="text" class="form-control" placeholder="minimum 3 letters"
+                        formControlName="JobAlumni_qualification">
+                    <label>Enter Alumni_ID</label>
+                    <input type="text" class="form-control" placeholder="minimum 3 letters"
+                        formControlName="Alumni_ID">
+                    <label>Enter Alumni_Experience</label>
+                    <input type="text" class="form-control" placeholder="minimum 3 letters"
+                        formControlName="Alumni_Experience">
+                    <label>Enter Alumni_course</label>
+                    <input type="text" class="form-control" placeholder="minimum 3 letters"
+                        formControlName="Alumni_course">
+                    <label>Enter Alumni_branch</label>
+                    <input type="text" class="form-control" placeholder="minimum 3 letters"
+                        formControlName="Alumni_branch">
+                    <label>Enter Alumni_Placement</label>
+                    <input type="text" class="form-control" placeholder="minimum 3 letters"
+                        formControlName="Alumni_Placement">
+                        <label>Enter Placed_company</label>
+                    <input type="text" class="form-control" placeholder="minimum 3 letters"
+                        formControlName="Placed_company">
+                    <small class="text-danger"> All input field must contain atleast 3 letters</small>
+                </div>
+
+                <button  [disabled]="approvalform.invalid" type="submit"
+                    class="btn rounded my-2 btn-warning">Submit</button>
+                    <!-- *ngIf="auth.loggedin()" -->
+            </form>
+
+
+        </div>
+    </div>
+</div>
+
+

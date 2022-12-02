@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddAlumniComponent } from './add-alumni/add-alumni.component';
-import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { AddEmployerComponent } from './add-employer/add-employer.component';
 import { AddFacultyComponent } from './add-faculty/add-faculty.component';
 import { AddpostComponent } from './addpost/addpost.component';
 import { ApproveAlumniReqComponent } from './approve-alumni-req/approve-alumni-req.component';
-import { CrudEmployeeComponent } from './crud-employee/crud-employee.component';
 import { CrudEmployerComponent } from './crud-employer/crud-employer.component';
 import { CRUDFacultyComponent } from './crud-faculty/crud-faculty.component';
 import { CRUDalumniComponent } from './crudalumni/crudalumni.component';
@@ -17,19 +15,21 @@ import { ManagePostComponent } from './main-navigation/manage-post/manage-post.c
 import { ReaedmorepostComponent } from './reaedmorepost/reaedmorepost.component';
 import { ViewallpostsComponent } from './viewallposts/viewallposts.component';
 import { ManageAlumniComponent } from './main-navigation/manage-alumni/manage-alumni.component';
-import { ManageEmployeeComponent } from './main-navigation/manage-employee/manage-employee.component';
 import { ManageEmployerComponent } from './main-navigation/manage-employer/manage-employer.component';
 import { ManageFacultyComponent } from './main-navigation/manage-faculty/manage-faculty.component';
 import { ApproveJobComponent } from './approve-job/approve-job.component';
+import { ApprovalFormComponent } from './approval-form/approval-form.component';
+import { AuthgGuard } from './guard/authg.guard';
+import { AddAdminFormComponent } from './add-admin-form/add-admin-form.component';
 
 const routes: Routes = [
 
 {
   path: "adminhome", component: HomeComponent,
-  children: [{ path: '', redirectTo: 'alumni', pathMatch: "full" },
+  children: [{ path: '', redirectTo: 'managepost', pathMatch: "full" },
 
   {
-    path: 'alumni', component: ManageAlumniComponent,
+    path: 'alumni', component: ManageAlumniComponent,canActivate:[AuthgGuard],
     children: [{ path: '', component: AddAlumniComponent },
     { path: 'add', component: AddAlumniComponent },
     { path: 'CRUD', component: CRUDalumniComponent },
@@ -38,17 +38,7 @@ const routes: Routes = [
 
 
   {
-    path: 'employee', component: ManageEmployeeComponent,
-
-    children: [{ path: '', component: AddEmployeeComponent },
-    { path: 'add', component: AddEmployeeComponent },
-    { path: 'CRUD', component: CrudEmployeeComponent }
-      // { path: 'approve', component: ApproveAlumniReqComponent }
-    ]
-
-  },
-  {
-    path: 'employer', component: ManageEmployerComponent,
+    path: 'employer', component: ManageEmployerComponent,canActivate:[AuthgGuard],
 
     children: [{ path: '', component: AddEmployerComponent },
     { path: 'add', component: AddEmployerComponent },
@@ -59,7 +49,7 @@ const routes: Routes = [
 
   },
   {
-    path: 'faculty', component: ManageFacultyComponent,
+    path: 'faculty', component: ManageFacultyComponent,canActivate:[AuthgGuard],
 
     children: [{ path: '', component: AddFacultyComponent },
     { path: 'add', component: AddFacultyComponent },
@@ -70,18 +60,19 @@ const routes: Routes = [
 
   },
   {
-    path: 'managepost', component: ManagePostComponent,
+    path: 'managepost', component: ManagePostComponent,canActivate:[AuthgGuard],
 
     children: [{ path: '', component: AddpostComponent },
     { path: 'add', component: AddpostComponent },
     { path: 'view', component: ViewallpostsComponent },
     { path: 'readmore', component: ReaedmorepostComponent },
     { path: 'editpost', component: EditpostformComponent },
-    { path: 'approvejob', component: ApproveJobComponent }]
+    { path: 'approvejob', component: ApproveJobComponent },
+    { path: 'editApproval', component: ApprovalFormComponent }]
 
   },
 
-
+  { path: 'addAdmin', component: AddAdminFormComponent,canActivate:[AuthgGuard] }
 
   ]
 },
