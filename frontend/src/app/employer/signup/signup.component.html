@@ -1,0 +1,77 @@
+<div class="container">
+
+
+<form [formGroup]="registerform" (ngSubmit)="sign()"class="border border-dark p-3">
+    <div class="row g-0">
+        <div class="col text-center p-2 mb-3 bg-light">
+           <span class="fs-3">Employer Register</span>
+        </div>
+    <div class="row">
+        <div class="col mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="name" class="form-control" id="name" formControlName="name">
+          <div class="form-text text-danger" *ngIf="name.errors?.['required'] && (name.touched || name.dirty)">Name is required.</div>
+          <div class="form-text text-danger" *ngIf="name.errors?.['minlength'] && (name.touched || name.dirty)">Name is too short.</div>
+          <div class="form-text text-danger" *ngIf="name.errors?.['pattern'] && (name.dirty || name.touched)">Name should start with alphabet.</div>
+        </div>
+        <div class="col mb-3">
+          <label for="company name" class="form-label">Company Name</label>
+          <input type="company name" class="form-control" id="company name" formControlName="cmpnyname">
+          <div class="form-text text-danger" *ngIf="cmpnyname.errors?.['required'] && (cmpnyname.touched || cmpnyname.dirty)">Name is required.</div>
+          <div class="form-text text-danger" *ngIf="cmpnyname.errors?.['minlength'] && (cmpnyname.touched || cmpnyname.dirty)">Name is too short.</div>
+          <div class="form-text text-danger" *ngIf="cmpnyname.errors?.['pattern'] && (cmpnyname.dirty || cmpnyname.touched)">Name should start with alphabet.</div>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="email" formControlName="email" formControlName="email" >
+        <div class="form-text text-danger" *ngIf="email.errors?.['required'] && (email.dirty || email.touched)">Email required.</div>
+        <div class="form-text text-danger" *ngIf="email.errors?.['email'] && (email.dirty || email.touched)">Email invalid.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-3">
+        <label for="phnno" class="form-label">Phone no.</label>
+        <input type="phnno" class="form-control" id="phnno" formControlName="phnno">
+        <div class="form-text text-danger" *ngIf="phnno.errors?.['required'] && (phnno.dirty || phnno.touched)">Phn no.required.</div>
+        <div class="form-text text-danger" *ngIf="phnno.errors?.['pattern'] && (phnno.dirty || phnno.touched)">Phn no.invalid.</div>
+        <div class="form-text text-danger" *ngIf="phnno.errors?.['minlength'] && (phnno.dirty || phnno.touched)">Phn no. is short.</div>
+        <div class="form-text text-danger" *ngIf="phnno.errors?.['maxlength'] && (phnno.dirty || phnno.touched)">Phn no. is long.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" formControlName="password">
+        <div class="form-text text-danger" *ngIf="password.errors?.['required'] && (password.dirty || password.touched)">Password required.</div>
+        <div class="form-text text-danger" *ngIf="password.errors?.['minlength'] && (password.dirty || password.touched)">Password is short.</div>
+        <div class="form-text text-danger" *ngIf="password.errors?.['maxlength'] && (password.dirty || password.touched)">Phn no. is long.</div>
+        
+      </div>
+      <div class="col mb-3">
+        <label for="designation" class="form-label">Designation</label>
+        <input type="designation" class="form-control" id="designation" formControlName="designation">
+        <div class="form-text text-danger" *ngIf="designation.errors?.['required'] && (designation.touched || designation.dirty)">required.</div>
+        <div class="form-text text-danger" *ngIf="designation.errors?.['minlength'] && (designation.touched || designation.dirty)">Name is too short.</div>
+        <div class="form-text text-danger" *ngIf="designation.errors?.['pattern'] && (designation.dirty || designation.touched)">Name should start with alphabet.</div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-6 offset-3">
+         <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+         </div>
+      </div>
+  </div>
+    </div>
+  <div class="row mb-3">
+    <div class="col">
+      <p>Already have an account?</p>
+      <a routerLink="login">Login</a>
+    </div>
+    
+  </div>
+</form>
+</div>

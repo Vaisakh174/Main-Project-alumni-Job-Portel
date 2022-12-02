@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { AdminRoutingModule } from './admin/admin-routing.module';
 import { AdminModule } from './admin/admin.module';
 import { NavComponent } from './main-home/nav/nav.component';
+import { EmployerRoutingModule } from './employer/employer-routing.module';
+import { EmployerModule } from './employer/employer.module';
 
 
 
@@ -20,6 +22,8 @@ import { NavComponent } from './main-home/nav/nav.component';
   imports: [
     BrowserModule,
     AppRoutingModule,AdminRoutingModule,AdminModule,
+    EmployerRoutingModule,EmployerModule,
+
   ],
   providers: [
   
