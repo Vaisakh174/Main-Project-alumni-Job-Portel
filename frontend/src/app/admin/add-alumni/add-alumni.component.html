@@ -2,12 +2,12 @@
 
 
     <div class="  rounded border wid p-4 ">
-        <div class="col-12">
+        <div class="col-12  ">
             <h2>Add An Alumni</h2>
             <form [formGroup]="addbookform" (ngSubmit)="addbook()">
-                <div class="form-group">
+                <div class="form-group  ">
                     <label>Enter Alumni Name</label>
-                    <input type="text" class="form-control" placeholder="minimum 5 letters required"
+                    <input type="text" class="form-control " placeholder="minimum 5 letters required"
                         formControlName="bookname">
 
                     <label>Enter Alumni age</label>
@@ -20,8 +20,9 @@
                         formControlName="bookimgaddress">
 
                     <label>Enter Alumni Content</label>
-                    <input type="text" class="form-control" placeholder="minimum 5 letters" formControlName="content">
-                    <small class="text-danger"> All input field must contain atleast 5 letters</small>
+                    <textarea class="form-control" placeholder="minimum 5 letters" formControlName="content" rows="4"></textarea>
+
+                    <small class="text-warning"> All input field must contain atleast 5 letters</small>
                     
                 </div>
 

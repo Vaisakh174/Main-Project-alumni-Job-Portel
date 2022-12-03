@@ -8,6 +8,7 @@ import { AdminModule } from './admin/admin.module';
 import { NavComponent } from './main-home/nav/nav.component';
 import { EmployerRoutingModule } from './employer/employer-routing.module';
 import { EmployerModule } from './employer/employer.module';
+import { FirstContentComponent } from './main-home/first-content/first-content.component';
 
 
 
@@ -16,6 +17,7 @@ import { EmployerModule } from './employer/employer.module';
   declarations: [
     AppComponent,
     NavComponent,
+    FirstContentComponent,
    
    
   ],

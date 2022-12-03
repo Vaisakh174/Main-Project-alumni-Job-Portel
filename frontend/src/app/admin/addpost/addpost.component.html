@@ -7,52 +7,46 @@
             <form [formGroup]="addpostform" (ngSubmit)="addpost()">
                 <div class="form-group">
                     <label>Enter Job Name</label>
-                    <input type="text" class="form-control"
-                        placeholder="minimum 3 letters required" formControlName="Jobname">
+                    <input type="text" class="form-control" placeholder="minimum 3 letters required"
+                        formControlName="Jobname">
                     <label>Enter company Name</label>
-                    <input type="text" class="form-control"
-                        placeholder="minimum 3 letters required" formControlName="CompanyName">
+                    <input type="text" class="form-control" placeholder="minimum 3 letters required"
+                        formControlName="CompanyName">
                     <label>Enter Job Place</label>
-                    <input type="text" class="form-control"
-                        placeholder="minimum 3 letters required" formControlName="Place">
+                    <input type="text" class="form-control" placeholder="minimum 3 letters required"
+                        formControlName="Place">
                     <label>Enter Job Salary</label>
-                    <input type="text" class="form-control" placeholder="minimum 3 letters"
-                        formControlName="Salary">
+                    <input type="text" class="form-control" placeholder="minimum 3 letters" formControlName="Salary">
                     <label>Enter Job Type</label>
-                    <input type="text" class="form-control" placeholder="minimum 3 letters"
-                        formControlName="JobType">
+                    <input type="text" class="form-control" placeholder="minimum 3 letters" formControlName="JobType">
                     <label>Enter Job Qualifications</label>
                     <input type="text" class="form-control" placeholder="minimum 3 letters"
                         formControlName="Qualifications">
-                    <label>Enter Job Description</label>
-                    <input type="text" class="form-control" placeholder="minimum 3 letters"
-                        formControlName="JobDescription">
                     <label>Enter Job Experience</label>
                     <input type="text" class="form-control" placeholder="minimum 3 letters"
                         formControlName="Experience">
                     <label>Enter Job Benefits</label>
-                    <input type="text" class="form-control" placeholder="minimum 3 letters"
-                        formControlName="Benefits">
+                    <input type="text" class="form-control" placeholder="minimum 3 letters" formControlName="Benefits">
                     <label>Enter Work Schedule</label>
-                    <input type="text" class="form-control" placeholder="minimum 3 letters"
-                        formControlName="Schedule">
+                    <input type="text" class="form-control" placeholder="minimum 3 letters" formControlName="Schedule">
                     <label>Enter Job Prefered Language</label>
-                    <input type="text" class="form-control" placeholder="minimum 3 letters"
-                        formControlName="Language">
+                    <input type="text" class="form-control" placeholder="minimum 3 letters" formControlName="Language">
                     <label>Enter Contact Details</label>
-                    <input type="text" class="form-control" placeholder="minimum 3 letters"
-                        formControlName="Contact">
-                    <small class="text-danger"> All input field must contain atleast 3 letters</small>
+                    <input type="text" class="form-control" placeholder="minimum 3 letters" formControlName="Contact">
+                    <label>Enter Job Description</label>
+                    <textarea class="form-control" placeholder="minimum 3 letters" formControlName="JobDescription"
+                        rows="3"></textarea>
+
+                    <small class="text-warning"> All input field must contain atleast 3 letters</small>
+                    
                 </div>
 
-                <button  [disabled]="addpostform.invalid" type="submit"
+                <button [disabled]="addpostform.invalid" type="submit"
                     class="btn rounded my-2 btn-warning">Submit</button>
-                    <!-- *ngIf="auth.loggedin()" -->
+                <!-- *ngIf="auth.loggedin()" -->
             </form>
 
 
         </div>
     </div>
 </div>
-
-

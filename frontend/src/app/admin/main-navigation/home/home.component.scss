@@ -21,6 +21,7 @@
 .offcanvas {
     background-color: rgb(47, 116, 116);
     width: 210px;
+    // z-index: 1;
    
 }
 
@@ -71,6 +72,7 @@ padding: 5px;
 
 .offcanvas-title{
    color:rgb(182, 255, 184) ;
+   
 }
 .offcanvas-title:hover{
     color: rgb(255, 255, 255);

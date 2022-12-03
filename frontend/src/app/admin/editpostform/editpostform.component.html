@@ -21,8 +21,8 @@
                     <input type="text" class="form-control" placeholder="minimum 5 letters"
                         formControlName="Qualifications">
                     <label>Enter Job Description</label>
-                    <input type="text" class="form-control" placeholder="minimum 5 letters"
-                        formControlName="JobDescription">
+                    <textarea class="form-control" placeholder="minimum 5 letters" formControlName="JobDescription"
+                        rows="3"></textarea>
                     <label>Enter Job Experience</label>
                     <input type="text" class="form-control" placeholder="minimum 5 letters"
                         formControlName="Experience">
@@ -34,7 +34,7 @@
                     <input type="text" class="form-control" placeholder="minimum 5 letters" formControlName="Language">
                     <label>Enter Contact Details</label>
                     <input type="text" class="form-control" placeholder="minimum 5 letters" formControlName="Contact">
-                    <small class="text-danger"> All input field must contain atleast 5 letters</small>
+                    <small class="text-warning"> All input field must contain atleast 5 letters</small>
                 </div>
 
                 <button [disabled]="updatepostform.invalid" type="submit"

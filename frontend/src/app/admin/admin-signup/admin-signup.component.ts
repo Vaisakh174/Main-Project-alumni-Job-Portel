@@ -30,7 +30,7 @@ export class AdminSignupComponent implements OnInit {
       next: (res) => {
 
         alert("Data saved successfully")
-        this.router.navigate(['adminhome/managepost']);
+        this.router.navigate(['admin']);
 
         // console.log("incoming data from signup res ",res);  //to view response in browser
 
@@ -47,4 +47,9 @@ export class AdminSignupComponent implements OnInit {
 
     );
   }
+
+  login(){
+    this.router.navigate(['admin'])
+  }
+
 }
