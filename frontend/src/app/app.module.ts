@@ -19,7 +19,7 @@ import { AlumSignupComponent } from './alumni/alum-signup/alum-signup.component'
   declarations: [
     AppComponent,
     NavComponent,
-    FirstContentComponent,
+    FirstContentComponent,ReadMoreComponent,AlumSignupComponent
    
    
   ],
