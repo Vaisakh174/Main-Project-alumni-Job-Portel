@@ -11,6 +11,7 @@ import { EmployerModule } from './employer/employer.module';
 import { FirstContentComponent } from './main-home/first-content/first-content.component';
 import { ReadMoreComponent } from './main-home/read-more/read-more.component';
 import { AlumSignupComponent } from './alumni/alum-signup/alum-signup.component';
+import { AlumniModule } from './alumni/alumni.module';
 
 
 
@@ -26,7 +27,7 @@ import { AlumSignupComponent } from './alumni/alum-signup/alum-signup.component'
   imports: [
     BrowserModule,
     AppRoutingModule,AdminRoutingModule,AdminModule,
-    EmployerRoutingModule,EmployerModule,
+    EmployerRoutingModule,EmployerModule,AlumniModule
 
   ],
   providers: [

@@ -10,7 +10,7 @@ import { AlumniRegisterComponent } from './alumni-register/alumni-register.compo
 @NgModule({
   declarations: [
     AlumLoginComponent,
-    AlumSignupComponent,
+
     AlumniRegisterComponent
   ],
   imports: [

@@ -8,6 +8,8 @@ import { SignupComponent } from './employer/signup/signup.component';
 import { FirstContentComponent } from './main-home/first-content/first-content.component';
 import { NavComponent } from './main-home/nav/nav.component';
 import { ReadMoreComponent } from './main-home/read-more/read-more.component';
+import { AlumLoginComponent } from './alumni/alum-login/alum-login.component';
+import { AlumniRegisterComponent } from './alumni/alumni-register/alumni-register.component';
 
 
 
@@ -28,7 +30,8 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
 
 
-      {path:'alumni',component:AlumSignupComponent}
+      {path:'alumni',component:AlumSignupComponent},
+      {path:'register',component:AlumniRegisterComponent}
       
     ]
 

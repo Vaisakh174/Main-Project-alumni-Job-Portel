@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-alum-signup',
@@ -9,9 +10,14 @@ export class AlumSignupComponent implements OnInit {
   
   course=["FSD",'PSA','ML-AI','RPA','ST','CSA']
 
-  constructor() { }
+  constructor(private router:Router) { }
   
   ngOnInit(): void {
+  }
+
+  submit(){
+    // this.router.navigate(["register"])
+    alert("Login successfull");
   }
 
 }
