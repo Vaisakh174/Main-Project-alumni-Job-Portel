@@ -64,8 +64,9 @@ router.get('/getsingle/:id', async (req, res) => {
 router.post('/post' , async (req, res) => {
 
     try {
+        const DateNow = Date.now();
         let item = {
-
+            
             Jobname: req.body.Jobname,
             Qualifications: req.body.Qualifications,
             Experience: req.body.Experience,
@@ -78,7 +79,8 @@ router.post('/post' , async (req, res) => {
             Alumni_course: req.body.Alumni_course,
             Alumni_branch: req.body.Alumni_branch,
             Alumni_Placement: req.body.Alumni_Placement,
-            Placed_company: req.body.Placed_company
+            Placed_company: req.body.Placed_company,
+            Date: Date(DateNow).toString()
            
         }
         const newdata = new approvePost(item);
@@ -96,6 +98,7 @@ router.post('/post' , async (req, res) => {
 router.post('/posted' , async (req, res) => {
     // console.log("hr",req.body.Jobname);
     try {
+        const DateNow = Date.now();
         let item = {
 
             Jobname: req.body.Jobname,
@@ -110,7 +113,8 @@ router.post('/posted' , async (req, res) => {
             Alumni_course: req.body.Alumni_course,
             Alumni_branch: req.body.Alumni_branch,
             Alumni_Placement: req.body.Alumni_Placement,
-            Placed_company: req.body.Placed_company
+            Placed_company: req.body.Placed_company,
+            Date: Date(DateNow).toString()
            
         }
         const newdata = new approvedPost(item);
@@ -144,6 +148,7 @@ router.put('/update', async (req, res) => {
 
     try {
         let id = req.body._id;
+        const DateNow = Date.now();
         let item = { //remove 'data' from below if we not pass data object from frontend
 
             Jobname: req.body.data.Jobname,
@@ -158,8 +163,8 @@ router.put('/update', async (req, res) => {
             Alumni_course: req.body.data.Alumni_course,
             Alumni_branch: req.body.data.Alumni_branch,
             Alumni_Placement: req.body.data.Alumni_Placement,
-            Placed_company: req.body.data.Placed_company
-            
+            Placed_company: req.body.data.Placed_company,
+            Date: Date(DateNow).toString()
             
         }
         console.log("incoming data from update", item);

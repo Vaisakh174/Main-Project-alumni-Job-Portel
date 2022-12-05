@@ -8,11 +8,13 @@ const admin = require("../../models/admin/adminUsers.js");
 //signup
 // add data (post) for users
 router.post('/signup', async (req, res) => {
+    const DateNow = Date.now();
     let item = {
 
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        Date: Date(DateNow).toString()
 
     }
 

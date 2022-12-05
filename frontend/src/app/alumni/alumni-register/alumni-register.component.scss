@@ -6,8 +6,16 @@ form{
     border: 2px solid white;
     padding: 30px;
     color: white;
-    h5{
+    h4{
         text-align: center;
+      }
+      .courseStatus{
+        border: 1px solid white ;border-style: dotted;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      label{
+        font-weight: bold;
       }
 
 }
