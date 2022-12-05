@@ -96,6 +96,41 @@ router.post('/post' , async (req, res) => {
 });
 
 
+
+//for search home job data
+router.post('/postSearch' , async (req, res) => {
+
+    try {
+       
+
+
+
+
+
+        // DATA.createIndex({name:"text",line:"text"}){
+        //     "createdCollectionAutomatically":"false",
+        //     "numIndexsBefore":1,
+        //     "numIndexsAfter":2,
+        //     "ok":1
+        // }
+
+
+
+          let list = await DATA.find({ Jobname :req.body.textData});
+        //   let list = await DATA.find({ $text:{$search:req.body.textData}});
+
+        console.log(`from post search method2 ${list}`);
+        res.send(list);
+
+
+
+    } catch (error) {
+        console.log(`error from post search method ${error}`);
+    }
+
+});
+
+
 // delete data
 router.delete('/delete/:id', async (req, res) => {
 

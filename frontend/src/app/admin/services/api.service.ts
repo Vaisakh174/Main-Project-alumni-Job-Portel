@@ -41,6 +41,9 @@ export class ApiService {
 
 
 
+
+
+
   // for login
   postAddAdmin(data: any) {
     return this.http.post("http://localhost:3000/api/login/signup", data);//for local
@@ -49,7 +52,19 @@ export class ApiService {
 
 
 
+
   
+//for home job search
+  postSearch(data: any) {
+    return this.http.post("http://localhost:3000/api/jobpost/postSearch", data);//for local
+    // return this.http.post('/api/jobpost/postSearch', data);  //for heroku
+    
+  }
+
+  
+
+
+
 
 
 // for job posts

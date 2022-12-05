@@ -17,6 +17,7 @@ import { AlumniRegisterComponent } from './alumni/alumni-register/alumni-registe
 const routes: Routes = [
   {
     path: "", component: NavComponent,
+    
     children: [
       { path: "", component: FirstContentComponent },
       {path:"readmore",component:ReadMoreComponent },
@@ -35,11 +36,11 @@ const routes: Routes = [
       {path:'alumniRegister',component:AlumniRegisterComponent}
       
     ]
+  },
 
 
 
 
-  }
 ]
 
 

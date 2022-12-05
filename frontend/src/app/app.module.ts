@@ -12,6 +12,7 @@ import { FirstContentComponent } from './main-home/first-content/first-content.c
 import { ReadMoreComponent } from './main-home/read-more/read-more.component';
 import { AlumSignupComponent } from './alumni/alum-signup/alum-signup.component';
 import { AlumniModule } from './alumni/alumni.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -27,7 +28,7 @@ import { AlumniModule } from './alumni/alumni.module';
   imports: [
     BrowserModule,
     AppRoutingModule,AdminRoutingModule,AdminModule,
-    EmployerRoutingModule,EmployerModule,AlumniModule
+    EmployerRoutingModule,EmployerModule,AlumniModule,FormsModule,ReactiveFormsModule
 
   ],
   providers: [
