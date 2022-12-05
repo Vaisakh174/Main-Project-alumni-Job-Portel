@@ -13,7 +13,7 @@ export class AlumniRegisterComponent implements OnInit {
     this.textBoxDisabled = !this.textBoxDisabled; //For Placement status 
   }
   alumniRegister(){
-    alert("")
+    alert("Hi There action update Soon")
   }
   constructor() { }
 
