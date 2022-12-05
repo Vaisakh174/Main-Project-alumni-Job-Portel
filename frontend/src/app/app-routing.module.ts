@@ -6,6 +6,7 @@ import { LoginComponent } from './employer/login/login.component';
 import { SignupComponent } from './employer/signup/signup.component';
 import { FirstContentComponent } from './main-home/first-content/first-content.component';
 import { NavComponent } from './main-home/nav/nav.component';
+import { ReadMoreComponent } from './main-home/read-more/read-more.component';
 
 
 
@@ -15,6 +16,9 @@ const routes: Routes = [
     path: "", component: NavComponent,
     children: [
       { path: "", component: FirstContentComponent },
+      {path:"readmore",component:ReadMoreComponent },
+
+
 
       { path: "admin", component: AdminLoginComponent },
       { path: "adminsignup", component: AdminSignupComponent },

@@ -19,28 +19,31 @@ export class ApproveJobComponent implements OnInit {
     Jobname: "", jobID: "", Resfile: "", Alumni_name: "",
     Alumni_qualification: "", Qualifications: "", Alumni_ID: "", Experience: "",
     Alumni_Experience: "", Alumni_course: "", Alumni_branch: "",Alumni_Placement: "", Placed_company: ""
-  }];
+}];
 
   getdata() {
     this.api.getallapprove().subscribe(res => {
       this.approveposts = res;
-      // console.log("incoming data from booklist getall", this.approveposts);
+      console.log("incoming data from booklist getall", this.approveposts);
     });
   }
 
 
-  approve(_id: any) {
-    this.api.postApprd(this.approveposts.value).subscribe(res => {
-
+  approve(_id: any,i:any) {
+    this.api.postApprd(this.approveposts[i]).subscribe(res => {
+      // console.log("incoming data from appr ", this.approveposts);
       // alert("Data saved successfully");
-
-      alert("Data Is Now Approved")
-      this.api.deletesAppr(_id).subscribe((res) => {
-        this.getdata()
-      })
-
     })
+
+    
+    this.api.deletesAppr(_id).subscribe((res) => {
+     
+    })
+    this.getdata()
+    alert("Data Is Now Approved")
   }
+
+
 
   deletes(_id: any) {
 

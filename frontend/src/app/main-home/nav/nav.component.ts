@@ -12,10 +12,20 @@ export class NavComponent implements OnInit {
   constructor(public auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    if (this.auth.loggedin()) {
-      this.router.navigate(['adminhome']);
-    }
+   
+   
+    // if (this.auth.loggedin()) {
+    //   this.router.navigate(['adminhome']);
+    // }
+
+
+
+
   }
+
+
+
+
 }
 
 

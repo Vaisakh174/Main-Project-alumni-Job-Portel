@@ -1,108 +1,36 @@
 <div class="d-flex justify-content-center m-3 mt-5 ">
-<form class="d-flex w-100" role="search">
+  <form class="d-flex w-100" role="search">
 
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <input class="form-control me-2" type="search" placeholder="Enter query to Search" aria-label="Search">
     <button class="btn btn-primary" type="submit">Search</button>
   </form>
 </div>
-
+<h3 class="mx-4 text-white">New jobs:</h3>
 
 <div class="row row-cols-1 m-2 row-cols-md-3 g-3">
-    <div class="col">
-      <div class="card h-100">
-  
-        <div class="card-body ">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-        </div>
+
+  <div class="col" *ngFor="let data of viewposts let i=index ">
+
+    <div class="card h-100">
+      
+      <div class="card-body ">
+        <h5 class="card-title ">{{data.Jobname}}</h5>
+        <p class="card-text">({{data.CompanyName}}) </p>
+        <hr>
+        <p class="card-text">{{data.Salary}} </p>
+        <p class="card-text">{{data.JobType}} </p>
+        <p class="card-text">{{data.Place}} </p>
+        <!-- <p class="card-text">{{data._id}} </p> -->
+
+<div class="d-flex justify-content-center">
+        <button (click)="readMore(data._id)" class="btn btn-light m-2">read more</button>
+        <button (click)="apply(data._id)" class="btn btn-light m-2" *ngIf="auth.loggedin()">Apply </button>
+      </div>
+
       </div>
     </div>
-    <div class="col">
-      <div class="card h-100">
-  
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a short card.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-  
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-  
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
-  
-  
-    <div class="col">
-      <div class="card h-100">
-  
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
-  
-    <div class="col">
-      <div class="card h-100">
-  
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
-  
-    <div class="col">
-      <div class="card h-100">
-  
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
-  
-    <div class="col">
-      <div class="card h-100">
-  
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
-  
-    <div class="col">
-      <div class="card h-100">
-  
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
-  
-  
   </div>
+
+
+
+</div>

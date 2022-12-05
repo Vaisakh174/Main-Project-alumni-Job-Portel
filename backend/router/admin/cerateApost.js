@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const userDATA = require("../../models/admin/adminUsers");
 const DATA = require("../../models/admin/createNewJob.js");
 
 const jwt = require('jsonwebtoken')

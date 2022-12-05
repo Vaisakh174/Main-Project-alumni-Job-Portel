@@ -22,11 +22,16 @@ import { ApprovalFormComponent } from './approval-form/approval-form.component';
 import { AuthgGuard } from './guard/authg.guard';
 import { VerifySignupComponent } from './verify-signup/verify-signup.component';
 
+
 const routes: Routes = [
 
 {
   path: "adminhome", component: HomeComponent,
   children: [{ path: '', redirectTo: 'managepost', pathMatch: "full" },
+
+
+
+  
 
   {
     path: 'alumni', component: ManageAlumniComponent,canActivate:[AuthgGuard],

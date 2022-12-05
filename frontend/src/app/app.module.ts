@@ -9,6 +9,7 @@ import { NavComponent } from './main-home/nav/nav.component';
 import { EmployerRoutingModule } from './employer/employer-routing.module';
 import { EmployerModule } from './employer/employer.module';
 import { FirstContentComponent } from './main-home/first-content/first-content.component';
+import { ReadMoreComponent } from './main-home/read-more/read-more.component';
 
 
 
@@ -18,6 +19,7 @@ import { FirstContentComponent } from './main-home/first-content/first-content.c
     AppComponent,
     NavComponent,
     FirstContentComponent,
+    ReadMoreComponent,
    
    
   ],

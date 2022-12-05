@@ -1,10 +1,10 @@
-<div class="d-flex justify-content-center p-3 rounded  m-4 ">
+<div class="d-flex justify-content-center   mt-5 mb-3 ">
     <div class="rounded border  p-4 ">
 
         <!-- <div class=" d-flex justify-content-center"> -->
         <!-- <div class="  rounded  p-3 "> -->
         <div class="col-12">
-            <h2>Add An Admin</h2>
+            <h2>Admin Sign Up</h2>
             <form [formGroup]="addAnAdmin" (ngSubmit)="signupcheck()">
                 <div class="form-group">
 
@@ -13,7 +13,7 @@
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                         formControlName="name">
 
-                    <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger mt-2">
                         <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
                         <div *ngIf="f['name'].errors && f['name'].errors['minlength']">Name should be 5
                             character.</div>
@@ -26,7 +26,7 @@
                     <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp"
                         formControlName="email">
 
-                    <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger mt-2">
                         <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
                         <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email
                             address.</div>
@@ -38,7 +38,7 @@
 
                     <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
 
-                    <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger mt-2">
                         <div *ngIf="f['password'].errors && f['password'].errors['required']">password is
                             required.</div>
                         <div *ngIf="f['password'].errors && f['password'].errors['minlength']">password should

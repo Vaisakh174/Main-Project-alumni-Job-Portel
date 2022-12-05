@@ -4,8 +4,8 @@ const router = express.Router();
 
 
 // for api calls
-const admin = require("./admin/admin.js");
-router.use("/admin", admin);
+const jobpost = require("./admin/cerateApost.js");
+router.use("/jobpost", jobpost);
 
 const approve = require("./admin/approvePostAPI.js");
 router.use("/approve", approve);

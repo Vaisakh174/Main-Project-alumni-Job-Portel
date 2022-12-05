@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../services/api.service';
-import { AuthService } from '../services/auth.service';
+import { ApiService } from 'src/app/admin/services/api.service';
+import { AuthService } from 'src/app/admin/services/auth.service';
 
 @Component({
-  selector: 'app-reaedmorepost',
-  templateUrl: './reaedmorepost.component.html',
-  styleUrls: ['./reaedmorepost.component.scss']
+  selector: 'app-read-more',
+  templateUrl: './read-more.component.html',
+  styleUrls: ['./read-more.component.scss']
 })
-export class ReaedmorepostComponent implements OnInit {
+export class ReadMoreComponent implements OnInit {
 
   constructor(public api: ApiService,public auth:AuthService) { }
 
@@ -18,7 +18,7 @@ export class ReaedmorepostComponent implements OnInit {
   JobType: "", Qualifications: "", JobDescription: "", Experience: "" ,
   Benefits: "", Schedule: "", Language: "", Contact: "" }];
 
-  _id=this.api.mydata;
+  _id=this.api.homeReadMoredata;
 
   getdata() {
     
@@ -26,7 +26,12 @@ export class ReaedmorepostComponent implements OnInit {
       this.viewposts = res;
       // console.log("incoming data from readbook getall", this._id);
     });
-  }
+
+}
+
+apply(_id:any){
+  alert("your post is now applied successfully")
+    }
 
 
 

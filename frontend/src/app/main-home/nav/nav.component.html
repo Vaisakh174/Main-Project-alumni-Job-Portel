@@ -1,51 +1,69 @@
 <nav class="navbar navbar-dark navbar-expand-lg  mynav">
-    <div class="container-fluid">
-      <a class="navbar-brand btn font" routerLink="" >
-        <img src="https://www.clipartkey.com/mpngs/m/115-1159142_job-portal-icon-in-png.png" alt="Logo" width="40" height="30" class=" d-inline-block align-text-top">
-        Alumni Job Portal
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse " id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link btn my-btn text-white m-2" *ngIf="!auth.loggedin()"  routerLink="admin">Log In As Admin</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn my-btn text-white m-2"  routerLink="faculty">Log In As Faculty</a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link btn my-btn text-white m-2"  routerLink="employer">Log In As Employer</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn my-btn text-white m-2" routerLink="alumni">Log In As Alumni</a>
-           
-          </li>
-          
-         
-        </ul>
-        
-      </div>
+  <div class="container-fluid">
+    <a class="navbar-brand btn font" routerLink="">
+      <img src="./assets/115-1159142_job-portal-icon-in-png.png" alt="Logo" width="40" height="30"
+        class=" d-inline-block align-text-top">
+      Alumni Job Portal
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link btn my-btn text-white m-2"  routerLink="admin">Log In As Admin</a>
+          <!-- *ngIf="!auth.loggedin()" -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn my-btn text-white m-2" routerLink="faculty">Log In As Faculty</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn my-btn text-white m-2" routerLink="employer">Log In As Employer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn my-btn text-white m-2" routerLink="alumni">Log In As Alumni</a>
+
+        </li>
+
+
+      </ul>
+
     </div>
-  </nav>
-  <router-outlet></router-outlet>
+  </div>
+</nav>
+<router-outlet></router-outlet>
 
-  
-<footer class="site-footer mt-3">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-md-6">
+
+
+
+
+
+
+
+
+
+
+<footer class="site-footer my-mar mt-md-3 p-4 ">
+  <div class="container-fluid">
+    <div class="d-flex justify-content-between">
+      <div>
         <h6>About</h6>
-        <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative to help the upcoming
-          programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code
-          wants to be simple. We will help programmers build up concepts in different programming languages that include
-          C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+        <p class="footer-text">ICT Academy of Kerala is a Social Enterprise created in a Public Private Partnership
+          model (PPP) for imparting ICT skills to the youths of Kerala and improve their employability opportunities in
+          the Industry. The Company is supported by Govt. of India , partnered by Govt. of Kerala and the IT industry.
+        </p>
+
+
+
       </div>
 
-      <div class="col-xs-6 col-md-3">
+
+
+
+      <div class="mx-5">
         <h6>More</h6>
-        <ul class="footer-links">
+        <ul class="footer-links ">
           <li><a href="#">C</a></li>
           <li><a href="#">UI Design</a></li>
           <li><a href="#">PHP</a></li>
@@ -53,37 +71,41 @@
           <li><a href="#">Android</a></li>
           <li><a href="# ">Templates</a></li>
         </ul>
+
+
       </div>
 
-      <div class="col-xs-6 col-md-3">
+
+
+
+
+
+      <div>
+
         <h6>Quick Links</h6>
         <ul class="footer-links">
           <li><a routerLink="">Home</a></li>
           <li><a routerLink="signin">Sign in</a></li>
           <li><a routerLink="login">Log in</a></li>
-          <!-- <li><a routerLink="#">Privacy Policy</a></li>
-          <li><a routerLink="#">Sitemap</a></li> -->
         </ul>
+
+
       </div>
+      
     </div>
     <hr>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-sm-6 col-xs-12">
-        <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
-          <a href="#">Vaisakh VS</a>.
-        </p>
-      </div>
 
-      <div class="col-md-4 col-sm-6 col-xs-12">
-        <ul class="social-icons">
-          <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-          <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-          <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-          <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-        </ul>
+    <div class="container ">
+      <div class="row ">
+        <div class="col-12">
+          <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
+            <a href="#">Vaisakh VS.</a>
+          </p>
+        </div>
+  
+  
       </div>
     </div>
+
   </div>
 </footer>

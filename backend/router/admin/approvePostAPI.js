@@ -94,7 +94,7 @@ router.post('/post' , async (req, res) => {
 
 //add data when approved (post)
 router.post('/posted' , async (req, res) => {
-
+    // console.log("hr",req.body.Jobname);
     try {
         let item = {
 
@@ -130,7 +130,7 @@ router.delete('/delete/:id', async (req, res) => {
     try {
         let id = req.params.id;
         let deletedata = await approvePost.findByIdAndDelete(id);
-        console.log(`from delete method ${deletedata}`);
+        // console.log(`from delete method ${deletedata}`);
         res.send(deletedata);
 
     } catch (error) {

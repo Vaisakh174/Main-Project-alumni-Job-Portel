@@ -3,7 +3,7 @@
 
     <div class="  rounded  p-3 ">
 
-        <div  class="col-12 ">
+        <div  class="col-12 line">
             <h2>{{viewposts.Jobname}}</h2>
             <p>Company : {{viewposts.CompanyName}}</p>
             <hr>
@@ -15,12 +15,15 @@
             <p>Benefits : {{viewposts.Benefits}}</p>
             <p>Schedule : {{viewposts.Schedule}}</p>
             <p>Language : {{viewposts.Language}}</p>
+            <p>Date Posted : {{viewposts.Date}}</p>
             <p>Contact : {{viewposts.Contact}}</p>
             <hr>
-            <h5 class="py-2 align ">Job Description</h5>
-            <p>{{viewposts.JobDescription}}</p>
+            <h5 class="py-2  ">Job Description</h5>
+            <p class="align">{{viewposts.JobDescription}}</p>
             <hr>
            
+            <button (click)="apply(viewposts._id)" class="btn btn-primary m-2 align-items-center" *ngIf="auth.loggedin()">Apply </button>
+            <hr  *ngIf="auth.loggedin()">
         </div>
 
     </div>
