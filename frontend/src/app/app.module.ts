@@ -10,6 +10,7 @@ import { EmployerRoutingModule } from './employer/employer-routing.module';
 import { EmployerModule } from './employer/employer.module';
 import { FirstContentComponent } from './main-home/first-content/first-content.component';
 import { ReadMoreComponent } from './main-home/read-more/read-more.component';
+import { AlumSignupComponent } from './alumni/alum-signup/alum-signup.component';
 
 
 
@@ -19,7 +20,6 @@ import { ReadMoreComponent } from './main-home/read-more/read-more.component';
     AppComponent,
     NavComponent,
     FirstContentComponent,
-    ReadMoreComponent,
    
    
   ],
