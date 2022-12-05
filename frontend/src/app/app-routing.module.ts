@@ -31,7 +31,8 @@ const routes: Routes = [
 
 
       {path:'alumni',component:AlumSignupComponent},
-      {path:'register',component:AlumniRegisterComponent}
+      {path:'register',component:AlumniRegisterComponent},
+      {path:'alumniRegister',component:AlumniRegisterComponent}
       
     ]
 
