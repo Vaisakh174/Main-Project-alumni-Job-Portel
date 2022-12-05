@@ -6,16 +6,25 @@ form{
     border: 2px solid white;
     padding: 30px;
     color: white;
-    h4{
+        h4{
         text-align: center;
+        }
+                .courseStatus{
+                          border: 1px solid white ;border-style: dotted;
+                          padding: 10px;
+                          border-radius: 10px;
+                                 input{
+                                       border-radius: 7px;
+                                         margin-left: 4px;
+                                        }
+       }
+          label{
+               font-weight: bold;
+               }
+         select{
+                 border-radius: 7px;
+                 background-color: violet;
+                 padding: 3px;
+                 margin-left: 3px;
       }
-      .courseStatus{
-        border: 1px solid white ;border-style: dotted;
-        padding: 10px;
-        border-radius: 10px;
-      }
-      label{
-        font-weight: bold;
-      }
-
 }

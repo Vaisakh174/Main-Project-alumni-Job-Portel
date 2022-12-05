@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./alumni-register.component.scss']
 })
 export class AlumniRegisterComponent implements OnInit {
+  
   textBoxDisabled = true;
 
   toggle(){
-    this.textBoxDisabled = !this.textBoxDisabled;
+    this.textBoxDisabled = !this.textBoxDisabled; //For Placement status 
+  }
+  alumniRegister(){
+    alert("")
   }
   constructor() { }
 
