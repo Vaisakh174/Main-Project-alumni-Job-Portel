@@ -6,8 +6,7 @@ const adminSchema = new schema({
     name: { type: String, requied: true },
     email: { type: String, requied: true },
     password: { type: String, requied: true },
-    date:{type:Date,default:Date.now()}
-
+    Date: { type: String, requied: true }
 });
 let adminUSERS = mongoose.model("adminUsers", adminSchema);
 module.exports = adminUSERS;

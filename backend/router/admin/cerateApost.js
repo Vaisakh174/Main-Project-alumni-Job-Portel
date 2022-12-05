@@ -66,6 +66,7 @@ router.get('/getsingle/:id', async (req, res) => {
 router.post('/post' , async (req, res) => {
 
     try {
+        const DateNow = Date.now();
         let item = {
 
             Jobname: req.body.Jobname,
@@ -79,11 +80,13 @@ router.post('/post' , async (req, res) => {
             Benefits: req.body.Benefits,
             Schedule: req.body.Schedule,
             Language: req.body.Language,
-            Contact: req.body.Contact
+            Contact: req.body.Contact,
+            Date: Date(DateNow).toString()
+
         }
         const newdata = new DATA(item);
         const savedata = await newdata.save();
-        console.log(`from post method ${savedata}`);
+        console.log(`from post method ${item.Date}`);
         res.send(savedata);
 
     } catch (error) {
@@ -116,6 +119,7 @@ router.put('/update', async (req, res) => {
 
     try {
         let id = req.body._id;
+        const DateNow = Date.now();
         let item = { //remove 'data' from below if we not pass data object from frontend
 
             Jobname: req.body.data.Jobname,
@@ -129,7 +133,8 @@ router.put('/update', async (req, res) => {
             Benefits: req.body.data.Benefits,
             Schedule: req.body.data.Schedule,
             Language: req.body.data.Language,
-            Contact: req.body.data.Contact
+            Contact: req.body.data.Contact,
+            Date: Date(DateNow).toString()
             
         }
         console.log("incoming data from update", item);

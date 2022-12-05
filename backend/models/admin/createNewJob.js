@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const schema = mongoose.Schema;
 
+
 const postAJob = new schema({
 
     Jobname: { type: String, requied: true },
@@ -15,8 +16,9 @@ const postAJob = new schema({
     Schedule: { type: String, requied: true },
     Language: { type: String, requied: true },
     Contact: { type: String, requied: true },
-    Date: { type: Date, default: Date.now() }
-
+    Date: { type: String, requied: true }
+   
+    
 });
 let jobDATA = mongoose.model("newJob", postAJob);
 module.exports = jobDATA;
