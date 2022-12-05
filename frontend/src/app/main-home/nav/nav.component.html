@@ -12,20 +12,20 @@
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link btn my-btn text-white m-2" routerLink="admin">Log In As Admin</a>
+          <a class="nav-link btn my-btn text-white m-2" routerLink="admin" routerLinkActive="activednav" [routerLinkActiveOptions]="{exact:true}">Log In As Admin</a>
           <!-- *ngIf="!auth.loggedin()" -->
         </li>
 
         <li class="nav-item">
-          <a class="nav-link btn my-btn text-white m-2" routerLink="employer">Log In As Employer</a>
+          <a class="nav-link btn my-btn text-white m-2" routerLink="employer" routerLinkActive="activednav">Log In As Employer</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link btn my-btn text-white m-2" routerLink="alumni">Log In As Alumni</a>
+          <a class="nav-link btn my-btn text-white m-2" routerLink="alumni" routerLinkActive="activednav">Log In As Alumni</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link btn my-btn text-white m-2" routerLink="faculty">Log In As Faculty</a>
+          <a class="nav-link btn my-btn text-white m-2" routerLink="faculty" routerLinkActive="activednav">Log In As Faculty</a>
         </li>
 
       </ul>
