@@ -1,26 +1,37 @@
 
+<div class="container">
 
-<!-- <mat-card>
-    <mat-card-content>
-        <div class="header">
-            <h2>Employee LogIn</h2>
+<form [formGroup]="loginform" (ngSubmit)="login()" class="MyBorder rounded  my-5 p-3">
+    <div class="row g-0">
+        <div class="col text-center  p-2 mb-3 bg-primary">
+          <span class="fs-3 ">Employer LogIn</span>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" formControlName="email">
+              <div class="form-text text-danger" *ngIf="email.errors?.['required'] && (email.dirty || email.touched)">Email
+                required.</div>
+              <div class="form-text text-danger" *ngIf="email.errors?.['email'] && (email.dirty || email.touched)">Email
+                invalid.</div>
+            </div>
+            </div>
+         <div class="row">
+                <div class="col mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" formControlName="password" >
+                  <div class="form-text text-danger" *ngIf="password.errors?.['required'] && (password.dirty || password.touched)">Password required
+                    <div class="form-text text-danger" *ngIf="password.errors?.['minlength'] && (password.dirty || password.touched)">Password invalid.</div>
+            </div>
+           </div>
+           <div class="row">
+            <div class="col-6 offset-3">
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </div>
 
-        </div>
-        <form (ngSubmit)="onLogin()" name="loginForm" [formGroup]="loginForm">
-    <div class="email-input">
-        <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Email</mat-label>
-        <input formControlName="email" matInput required/>
-         </mat-form-field>
-        </div>
-          <div class="password-input">
-            <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Password</mat-label>
-            <input formControlName="password" matInput required/>
-             </mat-form-field>
-        </div>
-              <button mat-raised-button color="primary">LOGIN</button>
-   
-        </form>
-    </mat-card-content>
-</mat-card> -->
+       
+</div>
+
