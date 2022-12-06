@@ -21,9 +21,9 @@
           <label for="company name" class="form-label">Company Name</label>
           <input type="company name" class="form-control" id="company name" formControlName="companyname">
           <div class="form-text text-danger"
-            *ngIf="cmpnyname.errors?.['required'] && (cmpnyname.touched || cmpnyname.dirty)">Name is required.</div>
+            *ngIf="cmpnyname.errors?.['required'] && (cmpnyname.touched || cmpnyname.dirty)">Company Name is required.</div>
           <div class="form-text text-danger"
-            *ngIf="cmpnyname.errors?.['minlength'] && (cmpnyname.touched || cmpnyname.dirty)">Name is too short.</div>
+            *ngIf="cmpnyname.errors?.['minlength'] && (cmpnyname.touched || cmpnyname.dirty)">too short.</div>
           <div class="form-text text-danger"
             *ngIf="cmpnyname.errors?.['pattern'] && (cmpnyname.dirty || cmpnyname.touched)">Name should start with
             alphabet.</div>

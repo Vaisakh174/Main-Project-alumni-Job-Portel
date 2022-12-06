@@ -13,6 +13,7 @@ import { AlumLoginComponent } from './alumni/alum-login/alum-login.component';
 import { AlumniRegisterComponent } from './alumni/alumni-register/alumni-register.component';
 import { PostjobComponent } from './employer/postjob/postjob.component';
 import { ViewjobComponent } from './employer/viewjob/viewjob.component';
+import { DashboardComponent } from './employer/dashboard/dashboard.component';
 
 
 
@@ -44,7 +45,23 @@ const routes: Routes = [
  
 
 
+  {
+  path: "", component: NavComponent,
+  children: [
+    { path: "admin", component: AdminLoginComponent },
+    { path: "adminsignup", component: AdminSignupComponent },
+    
+    { path: 'employer', component: SignupComponent },
+    { path: 'login', component: LoginComponent },
+   
+    
+  ]
+},
+ {path: 'employerhome', component:EmployerhomeComponent},
 
+ {path:'dashboard', component:DashboardComponent},
+  { path: 'postjob', component:PostjobComponent},
+  { path:'viewjob',component:ViewjobComponent}
 
 
 ]

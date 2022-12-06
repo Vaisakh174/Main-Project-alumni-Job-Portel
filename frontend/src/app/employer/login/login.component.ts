@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
 login(){
-  this.router.navigate(['/postjob'])
+  this.router.navigate(['/employerhome'])
 }
 
   get email(): FormControl{

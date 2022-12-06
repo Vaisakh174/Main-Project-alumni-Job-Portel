@@ -15,4 +15,8 @@ export class SignupapiService {
   addjob(data:any){
     return this.http.post(`${this.apiUrl}/employer/jobpost`,data)
   }
+
+  getjob(){
+    return this.http.get(`${this.apiUrl}/employer/joblist`)
+  }
 }
