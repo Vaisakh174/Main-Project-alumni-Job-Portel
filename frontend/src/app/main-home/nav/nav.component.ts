@@ -18,10 +18,15 @@ export class NavComponent implements OnInit {
     //   this.router.navigate(['adminhome']);
     // }
 
-
-
-
   }
+
+
+  gotohome(){
+ this.router.navigate(['home']);
+      
+  }
+
+
 
 
 

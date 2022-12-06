@@ -61,7 +61,8 @@ const routes: Routes = [
 
  {path:'dashboard', component:DashboardComponent},
   { path: 'postjob', component:PostjobComponent},
-  { path:'viewjob',component:ViewjobComponent}
+  { path:'viewjob',component:ViewjobComponent},
+{path:"home",redirectTo:"",pathMatch:'full'}
 
 
 ]
