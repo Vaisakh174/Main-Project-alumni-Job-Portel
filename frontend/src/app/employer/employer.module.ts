@@ -9,6 +9,7 @@ import { EmployerhomeComponent } from './employerhome/employerhome.component';
 import { PostjobComponent } from './postjob/postjob.component';
 import { ViewjobComponent } from './viewjob/viewjob.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EditComponent } from './edit/edit.component';
 
 
 
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     EmployerhomeComponent,
     PostjobComponent,
-    ViewjobComponent
+    ViewjobComponent,
+    EditComponent
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SignupapiService } from '../signupapi.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-viewjob',
@@ -9,12 +10,14 @@ import { SignupapiService } from '../signupapi.service';
 export class ViewjobComponent implements OnInit {
   jobs:any=[];
   data:any;
-  constructor(private api:SignupapiService) { }
+  constructor(private router:Router,private api:SignupapiService) { }
 
   ngOnInit(): void {
     this.getjob()
   }
-  
+  edit(){
+    this.router.navigate(['/edit'])
+  }
   getjob(){
     this.api.getjob().subscribe(res=>{
       this.jobs=res

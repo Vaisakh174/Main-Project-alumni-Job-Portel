@@ -14,6 +14,7 @@ import { AlumniRegisterComponent } from './alumni/alumni-register/alumni-registe
 import { PostjobComponent } from './employer/postjob/postjob.component';
 import { ViewjobComponent } from './employer/viewjob/viewjob.component';
 import { DashboardComponent } from './employer/dashboard/dashboard.component';
+import { EditComponent } from './employer/edit/edit.component';
 
 
 
@@ -62,6 +63,8 @@ const routes: Routes = [
  {path:'dashboard', component:DashboardComponent},
   { path: 'postjob', component:PostjobComponent},
   { path:'viewjob',component:ViewjobComponent},
+  { path:'edit',component:EditComponent},
+  
 {path:"home",redirectTo:"",pathMatch:'full'}
 
 
