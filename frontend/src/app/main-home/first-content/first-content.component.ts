@@ -25,7 +25,8 @@ export class FirstContentComponent implements OnInit {
   }
 
   searchForm: any = new FormGroup({
-    textData: new FormControl("", [Validators.required, Validators.minLength(1)])
+    textData: new FormControl("", [Validators.required, Validators.minLength(1)]),
+    filter: new FormControl("", )
   })
 
   data: any

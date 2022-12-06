@@ -99,12 +99,14 @@ router.post('/post' , async (req, res) => {
 
 //for search home job data
 router.post('/postSearch' , async (req, res) => {
-
+    console.log(`from post search method filter: ${req.body.filter}`);
     try {
        
 
+        // DATA.findOne({ Jobname: req.body.textData }, async (err, foundResults) => {
 
-
+            // console.log("data from signup body", foundResults, err)
+        // });
 
 
         // DATA.createIndex({name:"text",line:"text"}){
@@ -114,15 +116,44 @@ router.post('/postSearch' , async (req, res) => {
         //     "ok":1
         // }
 
-
-
-          let list = await DATA.find({ Jobname :req.body.textData});
         //   let list = await DATA.find({ $text:{$search:req.body.textData}});
 
+
+if((req.body.filter=="Jobname") || (req.body.filter=="")){
+
+    let list = await DATA.find({ Jobname :req.body.textData});
+    console.log(`from post search method1 ${list}`);
+    res.send(list);
+
+}
+else if(req.body.filter=="Place"){
+    let list = await DATA.find({ Place :req.body.textData});
         console.log(`from post search method2 ${list}`);
         res.send(list);
 
+}
+else if(req.body.filter=="Salary" ){
 
+    let list = await DATA.find({ Salary :req.body.textData});
+        console.log(`from post search method3 ${list}`);
+        res.send(list);
+
+
+}
+else{
+
+    let list = await DATA.find({ JobType :req.body.textData});
+        console.log(`from post search method4 ${list}`);
+        res.send(list);
+
+}
+
+
+
+
+
+
+        
 
     } catch (error) {
         console.log(`error from post search method ${error}`);

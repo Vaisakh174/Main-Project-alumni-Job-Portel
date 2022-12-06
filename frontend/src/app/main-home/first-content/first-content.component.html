@@ -1,9 +1,24 @@
 <div class="d-flex justify-content-center m-3 mt-5 ">
 
   <form class="d-flex w-100" [formGroup]="searchForm"  (ngSubmit)="searchData()">
-    <input class="form-control me-2" type="search" placeholder="Enter Job Name to Search" formControlName="textData" aria-label="Search">
+    <input class="form-control " type="search" placeholder="Enter Job Name to Search" formControlName="textData" aria-label="Search">
 
-    <button class="btn btn-primary" type="button" [disabled]="searchForm.invalid" (click)="searchData()">Search</button>
+
+    <div class=" mx-2">
+      <select class="btn btn-info text-white  " formControlName="filter"  aria-expanded="false"> value="aaa"
+        Filter
+      
+      <!-- <ul class="dropdown-menu"> -->
+       <option value="Jobname"[selected]="1" >Select a Filter</option>
+       <option value="Jobname"  >By Job Name</option>
+       <option value="Place" >By Place</option>
+       <option value="Salary" >By Salary</option>
+       <option value="JobType" >By Job Type</option></select>
+      <!-- </ul> -->
+    </div>
+
+
+    <button class="btn btn-info" type="button" [disabled]="searchForm.invalid" (click)="searchData()">Search</button>
   </form>
 </div>
 
