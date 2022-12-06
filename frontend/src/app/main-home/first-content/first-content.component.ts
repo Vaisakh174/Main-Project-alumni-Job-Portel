@@ -25,8 +25,8 @@ export class FirstContentComponent implements OnInit {
   }
 
   searchForm: any = new FormGroup({
-    textData: new FormControl("", [Validators.required, Validators.minLength(1)]),
-    filter: new FormControl("", )
+    textData: new FormControl("", [Validators.required, Validators.minLength(1)])
+
   })
 
   data: any
@@ -49,8 +49,7 @@ export class FirstContentComponent implements OnInit {
         this.job = 0;
         // alert("ohh... No Data Found")
       }
-      //   console.iog('complete') // to view error in req is completed or not
-      
+
     })
     this.job = 1;
   }
