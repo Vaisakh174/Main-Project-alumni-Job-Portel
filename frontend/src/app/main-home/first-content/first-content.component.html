@@ -1,19 +1,22 @@
 <div class="d-flex justify-content-center m-3 mt-5 ">
 
-  <form class="d-flex w-100" [formGroup]="searchForm"  (ngSubmit)="searchData()">
-    <input class="form-control me-2 " type="search" placeholder="Enter Job Name to Search" formControlName="textData" aria-label="Search">
+  <form class="d-flex w-100" [formGroup]="searchForm" (ngSubmit)="searchData()">
+    <input class="form-control me-2 " type="search" placeholder="Enter Job Name to Search" formControlName="textData"
+      aria-label="Search">
 
     <button class="btn btn-info" type="button" [disabled]="searchForm.invalid" (click)="searchData()">Search</button>
   </form>
 </div>
 
 
+<div class="d-flex justify-content-between mx-3 mt-4  ">
+ 
+    <h3 class=" text-white" *ngIf="job">New jobs: </h3>
+    <!-- <button (click)="back()" *ngIf="Back"  class="btn btn-light">Back </button> -->
 
+</div>
 
-<h3 class="mx-4 text-white" *ngIf="job">New jobs: </h3>
-
-
-  <h1 class="mt text-center text-danger bg-info" *ngIf="flag">{{message}}</h1>
+<h1 class="mt text-center text-danger bg-info mt-4" *ngIf="errmsg">{{message}}</h1>
 
 
 
@@ -23,7 +26,7 @@
   <div class="col" *ngFor="let data of viewposts let i=index ">
 
     <div class="card h-100">
-      
+
       <div class="card-body ">
         <h5 class="card-title ">{{data.Jobname}}</h5>
         <p class="card-text">({{data.CompanyName}}) </p>
@@ -33,10 +36,10 @@
         <p class="card-text">{{data.Place}} </p>
         <!-- <p class="card-text">{{data._id}} </p> -->
 
-<div class="d-flex justify-content-center">
-        <button (click)="readMore(data._id)" class="btn btn-light m-2">read more</button>
-        <button (click)="apply(data._id)" class="btn btn-light m-2" *ngIf="auth.loggedin()">Apply </button>
-      </div>
+        <div class="d-flex justify-content-center">
+          <button (click)="readMore(data._id)" class="btn btn-light m-2">read more</button>
+          <button (click)="apply(data._id)" class="btn btn-light m-2" *ngIf="auth.loggedin()">Apply </button>
+        </div>
 
       </div>
     </div>

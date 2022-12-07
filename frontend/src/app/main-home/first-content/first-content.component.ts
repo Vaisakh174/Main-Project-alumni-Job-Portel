@@ -10,12 +10,13 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./first-content.component.scss']
 })
 export class FirstContentComponent implements OnInit {
-  flag: any = 0;
+  errmsg: any = 0;
+  Back: any = 0;
   job: any = 1;
   constructor(private api: ApiService, private router: Router, public auth: AuthService) { }
 
   ngOnInit(): void {
-    // if(this.flag){
+    // if(this.errmsg){
 
     // }
     // else{
@@ -34,24 +35,30 @@ export class FirstContentComponent implements OnInit {
 
   searchData() {
     // console.log(this.searchForm.value)
-    // this.flag=1;
+    // this.errmsg=1;
+   
     this.api.postSearch(this.searchForm.value).subscribe(res => {
       this.data = res;
       if (this.data.length !== 0) {
         this.viewposts = res;
-        this.flag = 0;
+        this.errmsg = 0;
+        this.Back = 1;
         // console.log("incoming data from signup res ", res);  //to view response in browser
       }
       else {
-        this.viewposts = res;
-        this.message = "Ohh that Job Is Not Found";
-        this.flag = 1;
         this.job = 0;
+        this.viewposts = res;
+        this.errmsg = 1;
+        this.message = "Ohh that Job Is Not Found";  
         // alert("ohh... No Data Found")
+        this.Back = 1;
       }
 
     })
-    this.job = 1;
+    this.Back= 0;
+    this.job= 1;
+    this.errmsg = 0;
+    this.searchForm.reset();
   }
 
 
@@ -85,6 +92,12 @@ export class FirstContentComponent implements OnInit {
     alert("your post is now applied successfully")
   }
 
+  back(){
+    // this.Back= !this.Back;
+    // this.job= !this.job;
+    // this.errmsg = 0;
+    // this.getdata();
+  }
 
 
 }
