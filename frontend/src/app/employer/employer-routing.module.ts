@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EditComponent } from './edit/edit.component';
 import { EmployerhomeComponent } from './employerhome/employerhome.component';
 import { LoginComponent } from './login/login.component';
 import { PostjobComponent } from './postjob/postjob.component';
@@ -12,7 +13,23 @@ const routes: Routes = [
 //   {path: 'employerhome', component: EmployerhomeComponent,children: [{ path: 'postjob', component:PostjobComponent },{ path: 'viewjob', component: ViewjobComponent },
 // ]
 // }
-  
+
+{path: '', component:EmployerhomeComponent },
+
+// children:[
+
+{path:'dashboard', component:DashboardComponent},
+ { path: 'postjob', component:PostjobComponent},
+ { path:'viewjob',component:ViewjobComponent},
+ { path:'edit',component:EditComponent},
+ 
+//  {path:"",redirectTo:"/",pathMatch:'full'},
+
+ 
+// ]}
+
+
+
 ];
 
 @NgModule({

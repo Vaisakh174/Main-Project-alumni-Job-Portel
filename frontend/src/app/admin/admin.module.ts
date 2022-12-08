@@ -59,7 +59,8 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
   imports: [
     CommonModule,AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule
   ],
-   providers: [ApiService,AuthService,
+   providers: [
+    ApiService,AuthService,
     
     {
       provide: HTTP_INTERCEPTORS,

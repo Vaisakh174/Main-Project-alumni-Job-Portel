@@ -15,6 +15,7 @@ import { PostjobComponent } from './employer/postjob/postjob.component';
 import { ViewjobComponent } from './employer/viewjob/viewjob.component';
 import { DashboardComponent } from './employer/dashboard/dashboard.component';
 import { EditComponent } from './employer/edit/edit.component';
+import { AuthgGuard } from './admin/guard/authg.guard';
 
 
 
@@ -22,10 +23,10 @@ import { EditComponent } from './employer/edit/edit.component';
 const routes: Routes = [
   {
     path: "", component: NavComponent,
-    
+
     children: [
       { path: "", component: FirstContentComponent },
-      {path:"readmore",component:ReadMoreComponent },
+      { path: "readmore", component: ReadMoreComponent },
 
 
 
@@ -34,38 +35,24 @@ const routes: Routes = [
 
       { path: 'employer', component: SignupComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'postjob', component:PostjobComponent},
-      { path:'viewjob',component:ViewjobComponent},
 
-      {path:'alumni',component:AlumSignupComponent},
-      {path:'register',component:AlumniRegisterComponent},
-      {path:'alumniRegister',component:AlumniRegisterComponent}
-      
+
+      { path: 'alumni', component: AlumSignupComponent },
+      { path: 'register', component: AlumniRegisterComponent },
+      { path: 'alumniRegister', component: AlumniRegisterComponent }
+
     ]
   },
- 
-
+  // {path:"employerhome",redirectTo:"",pathMatch:'full'},
 
   {
-  path: "", component: NavComponent,
-  children: [
-    { path: "admin", component: AdminLoginComponent },
-    { path: "adminsignup", component: AdminSignupComponent },
-    
-    { path: 'employer', component: SignupComponent },
-    { path: 'login', component: LoginComponent },
-   
-    
-  ]
-},
- {path: 'employerhome', component:EmployerhomeComponent},
+    path: 'employerhome',
+    loadChildren: () => import('./employer/employer.module').then(m => m.EmployerModule)
+  },
 
- {path:'dashboard', component:DashboardComponent},
-  { path: 'postjob', component:PostjobComponent},
-  { path:'viewjob',component:ViewjobComponent},
-  { path:'edit',component:EditComponent},
-  
-{path:"home",redirectTo:"",pathMatch:'full'}
+
+
+
 
 
 ]

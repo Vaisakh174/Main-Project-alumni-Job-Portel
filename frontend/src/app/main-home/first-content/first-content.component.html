@@ -11,14 +11,15 @@
 
 <div class="d-flex justify-content-between mx-3 mt-4  ">
  
-    <h3 class=" text-white" *ngIf="job">New jobs: </h3>
-    <!-- <button (click)="back()" *ngIf="Back"  class="btn btn-light">Back </button> -->
+    <h3 class=" text-white" *ngIf="job"><i class="text-warning">{{JobSearchMsg}}</i> </h3>
+    <button (click)="back()" *ngIf="Back"  class="btn btn-light">Back </button>
 
 </div>
 
-<h1 class="mt text-center text-danger bg-info mt-4" *ngIf="errmsg">{{message}}</h1>
-
-
+<div class="mt text-center text-warning  mt-4"*ngIf="errmsg">
+<h1 >{{message}}</h1>
+<h4><i>(Please search meaningful keywords)</i></h4>
+</div>
 
 
 <div class="row row-cols-1 m-2 row-cols-md-3 g-3">

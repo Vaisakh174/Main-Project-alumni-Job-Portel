@@ -10,11 +10,13 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./first-content.component.scss']
 })
 export class FirstContentComponent implements OnInit {
+  
+  constructor(private api: ApiService, private router: Router, public auth: AuthService) { }
   errmsg: any = 0;
   Back: any = 0;
   job: any = 1;
-  constructor(private api: ApiService, private router: Router, public auth: AuthService) { }
-
+  // homeJobMsg:any="New jobs : "
+  JobSearchMsg:any="New jobs : "
   ngOnInit(): void {
     // if(this.errmsg){
 
@@ -22,7 +24,7 @@ export class FirstContentComponent implements OnInit {
     // else{
     this.getdata();
     // }
-
+  
   }
 
   searchForm: any = new FormGroup({
@@ -34,22 +36,20 @@ export class FirstContentComponent implements OnInit {
   message: any;
 
   searchData() {
-    // console.log(this.searchForm.value)
-    // this.errmsg=1;
-   
     this.api.postSearch(this.searchForm.value).subscribe(res => {
       this.data = res;
       if (this.data.length !== 0) {
         this.viewposts = res;
+        // this.JobSearchMsg=`Your Search Result For ${this.searchForm.value.textData}`;
         this.errmsg = 0;
         this.Back = 1;
-        // console.log("incoming data from signup res ", res);  //to view response in browser
+        // console.log("incoming data from signup res ", this.searchForm.value.textData);  //to view response in browser
       }
       else {
         this.job = 0;
         this.viewposts = res;
         this.errmsg = 1;
-        this.message = "Ohh that Job Is Not Found";  
+        this.message = "Ohh That Job Is Not Found";  
         // alert("ohh... No Data Found")
         this.Back = 1;
       }
@@ -78,6 +78,9 @@ export class FirstContentComponent implements OnInit {
       this.viewposts = res;
       // console.log("incoming data from booklist getall", this.viewposts);
     });
+    this.errmsg = 0;
+    this.Back = 0;
+    this.job = 1;
   }
 
 
@@ -96,7 +99,8 @@ export class FirstContentComponent implements OnInit {
     // this.Back= !this.Back;
     // this.job= !this.job;
     // this.errmsg = 0;
-    // this.getdata();
+    this.getdata();
+    // this.router.navigate(["home"]);
   }
 
 
