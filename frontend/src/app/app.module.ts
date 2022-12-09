@@ -38,13 +38,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
   ],
   providers: [
-    ApiService,AuthService,
-    
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass:TokenInterceptorService ,
-      multi:true
-    }
+
   
     ],
   bootstrap: [AppComponent]

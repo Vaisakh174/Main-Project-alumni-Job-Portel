@@ -16,7 +16,7 @@ export class ViewjobComponent implements OnInit {
     this.getjob()
   }
   edit(){
-    this.router.navigate(['/edit'])
+    this.router.navigate(['/employerhome/edit'])
   }
   getjob(){
     this.api.getjob().subscribe(res=>{

@@ -60,7 +60,13 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     CommonModule,AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule
   ],
    providers: [
-   
+    ApiService,AuthService,
+    
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass:TokenInterceptorService ,
+      multi:true
+    }
   
     ],
 })

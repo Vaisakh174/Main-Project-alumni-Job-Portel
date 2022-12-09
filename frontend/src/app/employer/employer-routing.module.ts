@@ -21,7 +21,7 @@ const routes: Routes = [
       { path: 'viewjob', component: ViewjobComponent },
       { path: 'edit', component: EditComponent },
 
-      { path: "", redirectTo: "postjob", pathMatch: 'full' },
+      { path: "", redirectTo: "dashboard", pathMatch: 'full' },
 
 
     ]
