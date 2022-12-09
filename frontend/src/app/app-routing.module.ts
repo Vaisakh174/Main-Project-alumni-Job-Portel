@@ -16,6 +16,7 @@ import { ViewjobComponent } from './employer/viewjob/viewjob.component';
 import { DashboardComponent } from './employer/dashboard/dashboard.component';
 import { EditComponent } from './employer/edit/edit.component';
 import { AuthgGuard } from './admin/guard/authg.guard';
+import { ApplyJobComponent } from './main-home/apply-job/apply-job.component';
 
 
 
@@ -27,6 +28,7 @@ const routes: Routes = [
     children: [
       { path: "", component: FirstContentComponent },
       { path: "readmore", component: ReadMoreComponent },
+      { path: "apply", component: ApplyJobComponent },
 
 
 

@@ -21,6 +21,16 @@ export class ApiService {
     // return this.http.post('/api/approve/posted', data);  //for heroku
     
   }
+  applypost(data: any) {
+    return this.http.post("http://localhost:3000/api/approve/apply", data);//for local
+    // return this.http.post('/api/approve/apply', data);  //for heroku
+    
+  } 
+  uploadpost(data: any) {
+    return this.http.post("http://localhost:3000/api/approve/file", data);//for local
+    // return this.http.post('/api/approve/file', data);  //for heroku
+    
+  }
 
   deletesAppr(_id: any) {
     return this.http.delete(`http://localhost:3000/api/approve/delete/${_id}`);//for local
@@ -106,6 +116,8 @@ export class ApiService {
   public approveForm: any;  //to pass id for updating a form
   public username: any;//to pass username 
   public homeReadMoredata :any;//read post main home
+  public applyDataFromHome :any;//read post main home
+  public applyDataFromRead :any;//read post main home
 
 
 }
