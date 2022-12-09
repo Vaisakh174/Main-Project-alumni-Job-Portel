@@ -14,6 +14,8 @@ export class ViewjobComponent implements OnInit {
 
   ngOnInit(): void {
     this.getjob()
+      
+  
   }
   edit(){
     this.router.navigate(['/employerhome/edit'])

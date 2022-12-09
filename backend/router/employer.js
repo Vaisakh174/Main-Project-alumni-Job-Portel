@@ -4,10 +4,10 @@ const DATA= require('../models/employer/employerSchema');
 //enter your code here 
 const ITEM = require('../models/employer/jobpost')
 
-router.post('/employersignup',async(req,res)=>{
+
+router.post('/employersignup', async (req, res) => {
     try {
-        console.log(req.body)
-        let item={
+        let item = {
             name :req.body.name,
             companyname:req.body.companyname,
             email:req.body.email,
@@ -15,10 +15,27 @@ router.post('/employersignup',async(req,res)=>{
             password:req.body.password,
             designation:req.body.designation
         }
-        
-        const newEmployer=new DATA(item)
-        const saveEmployer=await newEmployer.save()
-        res.send(saveEmployer)
+        let user = await DATA.findOne({ email: req.body.email })
+        if (!user) {
+            const newuser = new DATA(item)
+            const saveuser = await newuser.save()
+            res.send(saveuser)
+        }
+        return res.json({ message:"Email already registered" });
+    } catch (error)
+           {
+        console.log('post error:',error)
+           }
+})
+router.post('/emplogin', async (req, res) => {
+    try {
+        let user = await DATA.findOne({ 
+            email: req.body.email, 
+            password: req.body.password})
+        if (!user) {
+            return res.json({ message: "Invalid username or password" });
+}
+        res.send(user)
     } catch (error) {
         console.log(error)
     }

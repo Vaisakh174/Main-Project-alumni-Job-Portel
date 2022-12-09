@@ -35,6 +35,8 @@ const routes: Routes = [
 
       { path: 'employer', component: SignupComponent },
       { path: 'login', component: LoginComponent },
+      // { path: 'postjob', component:PostjobComponent},
+      // { path:'viewjob',component:ViewjobComponent},
 
 
       { path: 'alumni', component: AlumSignupComponent },
@@ -55,6 +57,33 @@ const routes: Routes = [
 
 
 
+  {
+  path: "", component: NavComponent,
+  children: [
+    { path: "admin", component: AdminLoginComponent },
+    { path: "adminsignup", component: AdminSignupComponent },
+    
+    { path: 'employer', component: SignupComponent },
+    { path: 'login', component: LoginComponent },
+   
+    
+  ]
+},
+ {path: 'employerhome', component:EmployerhomeComponent},
+
+ {path:'dashboard', component:DashboardComponent},
+  { path: 'postjob', component:PostjobComponent},
+  { path:'viewjob',component:ViewjobComponent},
+  { path:'edit',component:EditComponent},
+
+// {path:"employerhome",component:EmployerhomeComponent,
+//    children:[
+//     { path:'dashboard',component:EmployerhomeComponent },
+//     { path:'postjob',component:PostjobComponent},
+//     { path:'viewjob', component:ViewjobComponent}
+//    ]},
+
+{path:"home",redirectTo:"",pathMatch:'full'}
 
 
 ]

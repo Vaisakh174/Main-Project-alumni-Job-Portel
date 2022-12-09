@@ -9,7 +9,11 @@ export class SignupapiService {
   constructor(private http:HttpClient) { }
 
   addemployer(data:any){
-    return this.http.post(`${this.apiUrl}/employer/employersignup`,data)
+    return this.http.post<any>(`${this.apiUrl}/employer/employersignup`,data)
+  }
+
+  login(data:any){
+    return this.http.post<any>(`${this.apiUrl}/employer/emplogin`,data)
   }
   
   addjob(data:any){
