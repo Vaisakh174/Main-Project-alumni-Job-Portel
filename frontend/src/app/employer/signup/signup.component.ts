@@ -11,12 +11,12 @@ import { SignupapiService } from '../signupapi.service';
 })
 export class SignupComponent implements OnInit {
   registerform = new FormGroup({
-    name: new FormControl("",[Validators.required,Validators.minLength(2),Validators.pattern("[a-zA-Z].*")]),
+    name: new FormControl("",[Validators.required,Validators.minLength(3),Validators.pattern("[a-zA-Z].*")]),
     email: new FormControl("",[Validators.required,Validators.minLength(2)]),
     phnno: new FormControl("",[Validators.required,Validators.pattern("[0-9]*"),Validators.minLength(10),Validators.maxLength(10)]),
     password: new FormControl("",[Validators.required,Validators.minLength(6),Validators.maxLength(15)]),
-    companyname: new FormControl("",[Validators.required,Validators.minLength(2),Validators.pattern("[a-zA-Z].*")]),
-    designation: new FormControl("",[Validators.required,Validators.minLength(2),Validators.pattern("[a-zA-Z].*")]),
+    companyname: new FormControl("",[Validators.required,Validators.minLength(3),Validators.pattern("[a-zA-Z].*")]),
+    designation: new FormControl("",[Validators.required,Validators.minLength(3),Validators.pattern("[a-zA-Z].*")]),
    });
 
   constructor(private router:Router,private api:SignupapiService) { }
@@ -26,9 +26,16 @@ export class SignupComponent implements OnInit {
   sign(){
     
     this.api.addemployer(this.registerform.value).subscribe(res=>{
-      console.log(this.registerform.value)
-      alert('Successfully Registered')
-      this.router.navigate(['/login'])
+     
+      if(res.message){
+        alert(res.message)
+          this.router.navigate(['/employer'])
+      }
+      else{
+        alert('registerd successfully')
+        this.router.navigate(['/login'])
+  
+      }
     })
     
   }

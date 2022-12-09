@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from'@angular/forms';
 import { Router } from '@angular/router';
+import { SignupapiService } from '../signupapi.service';
 
 @Component({
   selector: 'app-login',
@@ -16,15 +17,23 @@ export class LoginComponent implements OnInit {
     
   
  
-  constructor(private router: Router) { }
+  constructor(private router: Router,private api:SignupapiService) { }
 
   ngOnInit(): void {
   }
 
-login(){
-  this.router.navigate(['/employerhome'])
+login(){this.api.login(this.loginform.value).subscribe(res=>{
+  if(res.message){
+    alert(res.message)
+    this.router.navigate(['/login'])
+  }
+  else{
+    alert("Successfully logged in")
+    this.router.navigate(['/employerhome'])
+  }
+  // this.router.navigate(['/employerhome'])
+})
 }
-
   get email(): FormControl{
     return this.loginform.get("email") as FormControl;
   }
