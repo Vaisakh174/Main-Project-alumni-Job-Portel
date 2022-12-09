@@ -10,6 +10,7 @@ import { PostjobComponent } from './postjob/postjob.component';
 import { ViewjobComponent } from './viewjob/viewjob.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditComponent } from './edit/edit.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -22,13 +23,13 @@ import { EditComponent } from './edit/edit.component';
     EmployerhomeComponent,
     PostjobComponent,
     ViewjobComponent,
-    EditComponent
+    EditComponent,
   ],
   imports: [
     CommonModule,
     EmployerRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    HttpClientModule,RouterModule
   ]
 })
 export class EmployerModule { }

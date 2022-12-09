@@ -43,13 +43,15 @@ const routes: Routes = [
 
     ]
   },
-  // {path:"employerhome",redirectTo:"",pathMatch:'full'},
-
+ 
+  // {
+  //   path: 'adminhome',
+  //   loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  // },
   {
     path: 'employerhome',
     loadChildren: () => import('./employer/employer.module').then(m => m.EmployerModule)
   },
-
 
 
 

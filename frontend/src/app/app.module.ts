@@ -14,7 +14,10 @@ import { AlumSignupComponent } from './alumni/alum-signup/alum-signup.component'
 import { AlumniModule } from './alumni/alumni.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlumniRoutingModule } from './alumni/alumni-routing.module';
-
+import { ApiService } from './admin/services/api.service';
+import { AuthService } from './admin/services/auth.service';
+import { TokenInterceptorService } from './admin/services/token-interceptor.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 
@@ -27,14 +30,21 @@ import { AlumniRoutingModule } from './alumni/alumni-routing.module';
    
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
+    BrowserModule,HttpClientModule, AppRoutingModule,
+   
     AdminRoutingModule,AdminModule,EmployerRoutingModule,EmployerModule,
     AlumniRoutingModule,AlumniModule,
    FormsModule,ReactiveFormsModule
 
   ],
   providers: [
+    ApiService,AuthService,
+    
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass:TokenInterceptorService ,
+      multi:true
+    }
   
     ],
   bootstrap: [AppComponent]

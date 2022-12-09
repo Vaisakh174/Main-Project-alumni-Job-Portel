@@ -9,24 +9,24 @@ import { SignupComponent } from './signup/signup.component';
 import { ViewjobComponent } from './viewjob/viewjob.component';
 
 const routes: Routes = [
-//   {path: 'employerhome', component: EmployerhomeComponent},
-//   {path: 'employerhome', component: EmployerhomeComponent,children: [{ path: 'postjob', component:PostjobComponent },{ path: 'viewjob', component: ViewjobComponent },
-// ]
-// }
 
-{path: '', component:EmployerhomeComponent },
 
-// children:[
+  {
+    path: '', component: EmployerhomeComponent,
 
-{path:'dashboard', component:DashboardComponent},
- { path: 'postjob', component:PostjobComponent},
- { path:'viewjob',component:ViewjobComponent},
- { path:'edit',component:EditComponent},
- 
-//  {path:"",redirectTo:"/",pathMatch:'full'},
+    children: [
 
- 
-// ]}
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'postjob', component: PostjobComponent },
+      { path: 'viewjob', component: ViewjobComponent },
+      { path: 'edit', component: EditComponent },
+
+      { path: "", redirectTo: "postjob", pathMatch: 'full' },
+
+
+    ]
+  }
+
 
 
 
