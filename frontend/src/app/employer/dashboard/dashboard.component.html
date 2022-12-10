@@ -1,1 +1,63 @@
-<p>dashboard works!</p>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 fw-bold fs-3 ">Dashboard</div>
+    </div>
+    <div class="row g-20 my-4">
+    <div class="col-md-3 ">
+    <div class="card text-white text-bg-success  h-100 " style="max-width: 35rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h5 class="card-title">Primary card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white text-bg-warning mb-3 h-100" style="max-width: 35rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h5 class="card-title">Primary card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white text-bg-info mb-3 h-100" style="max-width: 35rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h5 class="card-title">Primary card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>
+   <div class="row my-5">
+         <h3 class="fs-4 mb-3 ">Recently Added</h3>
+         <div class="col ">
+            <table class="table bg-white rounded shadow-sm table-hover">
+                <thead >
+                    <tr>
+                        <th scope="col" width="50">#</th>
+                        <th scope="col" width="50">Job Role</th>
+                        <th scope="col" width="50">Company Name</th>
+                        <th scope="col" width="50">Location</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let job of jobs">
+                    <tr>
+                        <th scope="row"></th>
+                        <td>{{job.jobrole}}</td>
+                        <td>{{job.companyname}}</td>
+                        <td>{{job.location}}</td>
+                    </tr>
+                </tbody>
+            </table>
+         </div>
+
+   </div>
+</div>
+
+</div>
+
+
+

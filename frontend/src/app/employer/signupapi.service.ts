@@ -23,4 +23,10 @@ export class SignupapiService {
   getjob(){
     return this.http.get(`${this.apiUrl}/employer/joblist`)
   }
+  getsingledata(id:any){
+    return this.http.get(`${this.apiUrl}/employer/getOneJob/${id}`)
+  }
+  updatejob(data:any,id:any){
+    return this.http.put(`${this.apiUrl}/employer/editJob`,{data,id})
+  }
 }

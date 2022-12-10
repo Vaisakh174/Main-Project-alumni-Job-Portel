@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SignupapiService } from '../signupapi.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
+  jobs:any=[];
+  constructor(private api:SignupapiService) { }
 
   ngOnInit(): void {
+    this.getjob()
   }
-
+  getjob(){
+    this.api.getjob().subscribe(res=>{
+      this.jobs=res
+    })
+  }
 }

@@ -19,7 +19,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'postjob', component: PostjobComponent },
       { path: 'viewjob', component: ViewjobComponent },
-      { path: 'edit', component: EditComponent },
+      { path: 'edit/:id', component: EditComponent },
 
       { path: "", redirectTo: "dashboard", pathMatch: 'full' },
 

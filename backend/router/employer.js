@@ -90,14 +90,14 @@ router.put('/editJob', async(req, res)=>{  // update Job
     try {
         let id = req.body.id
         let updates = {
-            jobrole:req.body.jobrole,
-            companyname:req.body.companyname,
-            education:req.body.education,
-            experience:req.body.experience,
-            skills:req.body.skills,
-            location:req.body.location,
-            salary:req.body.salary,
-            jobdescription:req.body.jobdescription// data of updated jobs
+            jobrole:req.body.data.jobrole,
+            companyname:req.body.data.companyname,
+            education:req.body.data.education,
+            experience:req.body.data.experience,
+            skills:req.body.data.skills,
+            location:req.body.data.location,
+            salary:req.body.data.salary,
+            jobdescription:req.body.data.jobdescription// data of updated jobs
         }
         let updateJob = {$set: updates}
         let updatedJob = await ITEM.findByIdAndUpdate({"_id": id}, updateJob,{new:true})

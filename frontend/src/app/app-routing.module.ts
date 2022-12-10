@@ -54,7 +54,7 @@ const routes: Routes = [
     path: 'employerhome',
     loadChildren: () => import('./employer/employer.module').then(m => m.EmployerModule)
   },
-
+   
 
 
   {
@@ -69,19 +69,13 @@ const routes: Routes = [
     
   ]
 },
- {path: 'employerhome', component:EmployerhomeComponent},
+//  {path: 'employerhome', component:EmployerhomeComponent},
 
- {path:'dashboard', component:DashboardComponent},
-  { path: 'postjob', component:PostjobComponent},
-  { path:'viewjob',component:ViewjobComponent},
-  { path:'edit',component:EditComponent},
+//  {path:'dashboard', component:DashboardComponent},
+//   { path: 'postjob', component:PostjobComponent},
+//   { path:'viewjob',component:ViewjobComponent},
+//   { path:'edit',component:EditComponent},
 
-// {path:"employerhome",component:EmployerhomeComponent,
-//    children:[
-//     { path:'dashboard',component:EmployerhomeComponent },
-//     { path:'postjob',component:PostjobComponent},
-//     { path:'viewjob', component:ViewjobComponent}
-//    ]},
 
 {path:"home",redirectTo:"",pathMatch:'full'}
 

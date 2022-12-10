@@ -3,35 +3,35 @@
         <h2 class="text-center text-white  m-2">Post Job Form</h2>
         <div  class="form-group">
             <label for="jobrole" class="form-label">Job Role</label>
-            <input type="jobrole" class="form-control" id="jobrole" formControlName="jobrole">
+            <input type="text" class="form-control" id="jobrole"  formControlName="jobrole">
         </div>
         <div class="form-group" >
             <label for="companyname" class="form-label">Company Name</label>
-            <input type="companyname" class="form-control" id="companyname" formControlName="companyname">
+            <input type="text" class="form-control" id="companyname" formControlName="companyname">
         </div>
         <div class="form-group">
             <label for="education" class="form-label">Education</label>
-            <input type="education" class="form-control" id="education" formControlName="education">
+            <input type="text" class="form-control" id="education" formControlName="education">
         </div>
         <div class="form-group">
             <label for="experience" class="form-label">Experience</label>
-            <input type="experience" class="form-control" id="experience" formControlName="experience">
+            <input type="text" class="form-control" id="experience" formControlName="experience">
         </div>
         <div class="form-group">
             <label for="skills" class="form-label">Skills</label>
-            <input type="skills" class="form-control" id="skills" formControlName="skills">
+            <input type="text" class="form-control" id="skills" formControlName="skills">
         </div>
         <div class="form-group ">
             <label for="location" class="form-label">Location</label>
-            <input type="location" class="form-control" id="location" formControlName="location">
+            <input type="text" class="form-control" id="location" formControlName="location">
         </div>
         <div class="form-group ">
             <label for="salary" class="form-label">Salary</label>
-            <input type="salary" class="form-control" id="salary" formControlName="salary">
+            <input type="text" class="form-control" id="salary" formControlName="salary">
         </div>
         <div class="form-group ">
             <label for="jobdescription" class="form-label">Job Description</label>
-            <input type="jobdescription" class="form-control" id="jobdescription" formControlName="jobdescription">
+            <input type="text" class="form-control" id="jobdescription" formControlName="jobdescription">
         </div><br>
         <button type="submit" [disabled]="!jobpostform.valid" class="btn btn-success btn-lg btn-block">Post Job</button>
       </form>
