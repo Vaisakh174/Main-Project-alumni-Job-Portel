@@ -71,12 +71,7 @@ const routes: Routes = [
     
   ]
 },
-//  {path: 'employerhome', component:EmployerhomeComponent},
 
-//  {path:'dashboard', component:DashboardComponent},
-//   { path: 'postjob', component:PostjobComponent},
-//   { path:'viewjob',component:ViewjobComponent},
-//   { path:'edit',component:EditComponent},
 
 
 {path:"home",redirectTo:"",pathMatch:'full'}

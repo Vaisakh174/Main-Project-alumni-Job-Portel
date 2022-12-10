@@ -1,0 +1,36 @@
+.value_cards_sec{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.value_card{
+    border-radius: 20px;
+    color: #fff;
+    background-color: #ddd;
+    height: 150px;
+    box-shadow:0px 16px 20px #FFCEB9;
+    padding: 1.2rem;
+}
+.value_card p{
+    color: #fff !important;
+    font-size: 14px;
+}
+.value_card h3{
+    color: #fff !important;
+    font-weight: 700;
+}
+.card_1{
+    height: 150px;
+    background: transparent linear-gradient(109deg, #27e099 0%,#338062 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+.card_2{
+    height: 150px;
+    background: transparent linear-gradient(109deg, #ec55b7 0%, rgba(220, 6, 202, 0.737) 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+.card_3{
+    height: 150px;
+    background: transparent linear-gradient(109deg, #fa455d 0%, rgba(241, 59, 77, 0.737) 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
