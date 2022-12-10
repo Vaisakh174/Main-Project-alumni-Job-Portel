@@ -16,28 +16,30 @@ export class ApproveJobComponent implements OnInit {
   }
 
   approveposts: any = [{
-    Jobname: "", jobID: "", Resfile: "", Alumni_name: "",
-    Alumni_qualification: "", Qualifications: "", Alumni_ID: "", Experience: "",
-    Alumni_Experience: "", Alumni_course: "", Alumni_branch: "",Alumni_Placement: "", Placed_company: ""
-}];
+    Alumni_Placement: "", Placed_company: "", Alumni_branch: "", Alumni_course: "",
+    Alumni_Experience: "", Alumni_qualification: "", Alumni_email: "", Alumni_phone: "",
+    Alumni_name: "", CompanyName: "", Contact: "", Language: "", Schedule: "", Benefits: "",
+    Experience: "", JobDescription: "", Qualifications: "", JobType: "", Salary: "",
+    Place: "", Jobname: "", _id: ""
+  }];
 
   getdata() {
     this.api.getallapprove().subscribe(res => {
       this.approveposts = res;
-      console.log("incoming data from booklist getall", this.approveposts);
+      // console.log("incoming data from booklist getall", this.approveposts);
     });
   }
 
 
-  approve(_id: any,i:any) {
+  approve(_id: any, i: any) {
     this.api.postApprd(this.approveposts[i]).subscribe(res => {
       // console.log("incoming data from appr ", this.approveposts);
       // alert("Data saved successfully");
     })
 
-    
+
     this.api.deletesAppr(_id).subscribe((res) => {
-     
+
     })
     this.getdata()
     alert("Data Is Now Approved")
@@ -59,7 +61,10 @@ export class ApproveJobComponent implements OnInit {
     this.api.approveForm = _id;
     this.router.navigate(['/adminhome/managepost/editApproval']);
   }
-
+  readmore(_id:any){
+    this.api.readapproovalform=_id;
+    this.router.navigate(['/adminhome/managepost/readmore2']);
+  }
 
 
 }

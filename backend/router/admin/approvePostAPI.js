@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken')
 const multer = require('multer');
 
 //middleware
-function verifytoken (req, res, next) {
+function verifytoken(req, res, next) {
     console.log('headers=', req.headers.authorization);
     if (!req.headers.authorization) {
         return res.status(401).send('Unautherized request');
@@ -15,7 +15,7 @@ function verifytoken (req, res, next) {
     if (token == 'null') {
         return res.status(401).send('Unautherized request');
     }
-    let payload = jwt. verify(token , 'secretkey');
+    let payload = jwt.verify(token, 'secretkey');
     console.log("payload=", payload);
     if (!payload) {
         return res.status(401).send('Unautherized request');
@@ -61,27 +61,41 @@ router.get('/getsingle/:id', async (req, res) => {
 
 
 //add data (post)
-router.post('/post' , async (req, res) => {
+router.post('/post', async (req, res) => {
 
     try {
         const DateNow = Date.now();
         let item = {
-            
+
+           
+            JobID: req.body._id,
             Jobname: req.body.Jobname,
+            Place: req.body.Place,
+            Salary: req.body.Salary,
+            JobType: req.body.JobType,
             Qualifications: req.body.Qualifications,
+            JobDescription: req.body.JobDescription,
             Experience: req.body.Experience,
-            JobID: req.body.JobID,
-            Resfile: req.body.Resfile,
+            Benefits: req.body.Benefits,
+            Schedule: req.body.Schedule,
+            Language: req.body.Language,
+            Contact: req.body.Contact,
+            CompanyName: req.body.CompanyName,
+
+
             Alumni_name: req.body.Alumni_name,
+            Alumni_phone: req.body.Alumni_phone,
+            Alumni_email: req.body.Alumni_email,
             Alumni_qualification: req.body.Alumni_qualification,
-            Alumni_ID: req.body.Alumni_ID,
             Alumni_Experience: req.body.Alumni_Experience,
             Alumni_course: req.body.Alumni_course,
             Alumni_branch: req.body.Alumni_branch,
             Alumni_Placement: req.body.Alumni_Placement,
             Placed_company: req.body.Placed_company,
             Date: Date(DateNow).toString()
-           
+
+            
+
         }
         const newdata = new approvePost(item);
         const savedata = await newdata.save();
@@ -95,27 +109,39 @@ router.post('/post' , async (req, res) => {
 });
 
 //add data when approved (post)
-router.post('/posted' , async (req, res) => {
+router.post('/posted', async (req, res) => {
     // console.log("hr",req.body.Jobname);
     try {
         const DateNow = Date.now();
         let item = {
 
-            Jobname: req.body.Jobname,
-            Qualifications: req.body.Qualifications,
-            Experience: req.body.Experience,
+           
             JobID: req.body.JobID,
-            Resfile: req.body.Resfile,
+            Jobname: req.body.Jobname,
+            Place: req.body.Place,
+            Salary: req.body.Salary,
+            JobType: req.body.JobType,
+            Qualifications: req.body.Qualifications,
+            JobDescription: req.body.JobDescription,
+            Experience: req.body.Experience,
+            Benefits: req.body.Benefits,
+            Schedule: req.body.Schedule,
+            Language: req.body.Language,
+            Contact: req.body.Contact,
+            CompanyName: req.body.CompanyName,
+
+
             Alumni_name: req.body.Alumni_name,
+            Alumni_phone: req.body.Alumni_phone,
+            Alumni_email: req.body.Alumni_email,
             Alumni_qualification: req.body.Alumni_qualification,
-            Alumni_ID: req.body.Alumni_ID,
             Alumni_Experience: req.body.Alumni_Experience,
             Alumni_course: req.body.Alumni_course,
             Alumni_branch: req.body.Alumni_branch,
             Alumni_Placement: req.body.Alumni_Placement,
             Placed_company: req.body.Placed_company,
             Date: Date(DateNow).toString()
-           
+
         }
         const newdata = new approvedPost(item);
         const savedata = await newdata.save();
@@ -127,61 +153,78 @@ router.post('/posted' , async (req, res) => {
     }
 
 });
-router.post('/apply' , async (req, res) => {
-    console.log("*****",req.body);
-    // try {
-    //     const DateNow = Date.now();
-    //     let item = {
+router.post('/apply', async (req, res) => {
+    console.log("*****", req.body.alumniData);
+    console.log("*****", req.body.postData);
+    try {
+        const DateNow = Date.now();
+        let item = {
 
-    //         Jobname: req.body.Jobname,
-    //         Qualifications: req.body.Qualifications,
-    //         Experience: req.body.Experience,
-    //         JobID: req.body.JobID,
-    //         Resfile: req.body.Resfile,
-    //         Alumni_name: req.body.Alumni_name,
-    //         Alumni_qualification: req.body.Alumni_qualification,
-    //         Alumni_ID: req.body.Alumni_ID,
-    //         Alumni_Experience: req.body.Alumni_Experience,
-    //         Alumni_course: req.body.Alumni_course,
-    //         Alumni_branch: req.body.Alumni_branch,
-    //         Alumni_Placement: req.body.Alumni_Placement,
-    //         Placed_company: req.body.Placed_company,
-    //         Date: Date(DateNow).toString()
-           
-    //     }
-    //     const newdata = new approvedPost(item);
-    //     const savedata = await newdata.save();
-    //     // console.log(`from post method ${savedata}`);
-    //     res.send(savedata);
+      
 
-    // } catch (error) {
-    //     console.log(`error from get method ${error}`);
-    // }
+            JobID: req.body.postData._id,
+            Jobname: req.body.postData.Jobname,
+            Place: req.body.postData.Place,
+            Salary: req.body.postData.Salary,
+            JobType: req.body.postData.JobType,
+            Qualifications: req.body.postData.Qualifications,
+            JobDescription: req.body.postData.JobDescription,
+            Experience: req.body.postData.Experience,
+            Benefits: req.body.postData.Benefits,
+            Schedule: req.body.postData.Schedule,
+            Language: req.body.postData.Language,
+            Contact: req.body.postData.Contact,
+            CompanyName: req.body.postData.CompanyName,
+
+
+            Alumni_name: req.body.alumniData.Alumni_name,
+            Alumni_phone: req.body.alumniData.Alumni_phone,
+            Alumni_email: req.body.alumniData.Alumni_email,
+            Alumni_qualification: req.body.alumniData.Alumni_qualification,
+            Alumni_Experience: req.body.alumniData.Alumni_Experience,
+            Alumni_course: req.body.alumniData.Alumni_course,
+            Alumni_branch: req.body.alumniData.Alumni_branch,
+            Alumni_Placement: req.body.alumniData.Alumni_Placement,
+            Placed_company: req.body.alumniData.Placed_company,
+            Date: Date(DateNow).toString()
+
+        }
+        const newdata = new approvePost(item);
+        const savedata = await newdata.save();
+        // console.log(`from post method ${savedata}`);
+        res.send(savedata);
+
+    } catch (error) {
+        console.log(`error from get method ${error}`);
+    }
 
 });
 
 
 //file upload
 const storage = multer.diskStorage({
+    
     destination: (req, file, callBack) => {
         callBack(null, 'Uploaded_Files')
     },
     filename: (req, file, callBack) => {
-        callBack(null, `alumni_resp__${file.originalname}`)
+        // const DateNow = Date.now();
+        callBack(null, `alumni_resp ${file.originalname} ${Date.now()}.pdf`)
     }
-  })
-  
+})
+
 const upload = multer({ storage: storage })
 
-router.post('/file', upload.single('file'), (req, res, next) => {
+router.post('/upload',upload.single('file'), (req, res, next) => {
     const file = req.file;
-    console.log(file.filename);
+    console.log("########",file.filename);
+   
     if (!file) {
-      const error = new Error('No File')
-      error.httpStatusCode = 400
-      return next(error)
+        const error = new Error('No File')
+        error.httpStatusCode = 400
+        return next(error)
     }
-      res.send(file);
+    res.send(file);
 
 })
 
@@ -211,21 +254,33 @@ router.put('/update', async (req, res) => {
         const DateNow = Date.now();
         let item = { //remove 'data' from below if we not pass data object from frontend
 
-            Jobname: req.body.data.Jobname,
-            Qualifications: req.body.data.Qualifications,
-            Experience: req.body.data.Experience,
+            
             JobID: req.body.data.JobID,
-            Resfile: req.body.data.Resfile,
+            Jobname: req.body.data.Jobname,
+            Place: req.body.data.Place,
+            Salary: req.body.data.Salary,
+            JobType: req.body.data.JobType,
+            Qualifications: req.body.data.Qualifications,
+            JobDescription: req.body.data.JobDescription,
+            Experience: req.body.data.Experience,
+            Benefits: req.body.data.Benefits,
+            Schedule: req.body.data.Schedule,
+            Language: req.body.data.Language,
+            Contact: req.body.data.Contact,
+            CompanyName: req.body.data.CompanyName,
+
+
             Alumni_name: req.body.data.Alumni_name,
+            Alumni_phone: req.body.data.Alumni_phone,
+            Alumni_email: req.body.data.Alumni_email,
             Alumni_qualification: req.body.data.Alumni_qualification,
-            Alumni_ID: req.body.data.Alumni_ID,
             Alumni_Experience: req.body.data.Alumni_Experience,
             Alumni_course: req.body.data.Alumni_course,
             Alumni_branch: req.body.data.Alumni_branch,
             Alumni_Placement: req.body.data.Alumni_Placement,
             Placed_company: req.body.data.Placed_company,
             Date: Date(DateNow).toString()
-            
+
         }
         console.log("incoming data from update", item);
 

@@ -7,18 +7,21 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  url = "http://localhost:3000";
+  // url="" ;  //for hosting
+
+
   loginuser(user: any) {
-    return this.http.post<any>("http://localhost:3000/api/login", user); //for local
-    // return this.http.post<any>("/api/login", user);   //for heroku
+    return this.http.post<any>(`${this.url}/api/login`, user);
   }
 
 
-loggedin(){
-  return !!localStorage.getItem('token')
-}
+  loggedin() {
+    return !!localStorage.getItem('token')
+  }
 
-getToken(){
-  return  localStorage.getItem('token');
-}
+  getToken() {
+    return localStorage.getItem('token');
+  }
 
 }

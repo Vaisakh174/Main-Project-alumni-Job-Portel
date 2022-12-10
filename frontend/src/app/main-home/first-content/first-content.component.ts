@@ -93,7 +93,7 @@ export class FirstContentComponent implements OnInit {
 
   apply(_id: any) {
     // alert("your post is now applied successfully")
-    this.api.applyDataFromHome=_id;
+    this.api.applyAjobID=_id;
     this.router.navigate(["/apply"]);
   }
 

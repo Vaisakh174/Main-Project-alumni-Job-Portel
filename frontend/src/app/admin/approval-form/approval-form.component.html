@@ -3,59 +3,77 @@
 
     <div class="  rounded MyBorder wid p-4 ">
         <div class="col-12 ">
-            <h2>Edit Approval Request</h2>
+            <h2>Update Approval Request</h2>
             <form [formGroup]="approvalform" (ngSubmit)="updateaApprovalReq()">
                 <div class="form-group">
                     <label>Enter Job Name</label>
-                    <input type="text" class="form-control"
-                        placeholder="minimum 3 letters required" formControlName="Jobname">
-                    <label>Enter req Qualifications</label>
-                    <input type="text" class="form-control"
-                        placeholder="minimum 3 letters required" formControlName="Qualifications">
-                    <label>Enter req Experience</label>
-                    <input type="text" class="form-control"
-                        placeholder="minimum 3 letters required" formControlName="Experience">
-                    <label>Enter JobID</label>
-                    <input type="text" class="form-control" placeholder="minimum 3 letters"
-                        formControlName="JobID">
-                    <label>Enter Resp file</label>
-                    <input type="text" class="form-control" placeholder="minimum 3 letters"
-                        formControlName="Resfile">
-                    <label>Enter Alumni_name</label>
-                    <input type="text" class="form-control" placeholder="minimum 3 letters"
+                    <input type="text" class="form-control" placeholder="minimum 3 letters required"
+                        formControlName="Jobname">
+                    <label>Enter job Place</label>
+                    <input type="text" class="form-control" placeholder="minimum 3 letters required"
+                        formControlName="Place">
+                    <label>Enter job Salary</label>
+                    <input type="text" class="form-control" placeholder="minimum 3 letters required"
+                        formControlName="Salary">
+                    <label>Enter Job Type</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters" formControlName="JobType">
+                    <label>Enter Job Qualifications</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters"
+                        formControlName="Qualifications">
+                    <label>Enter Job Discriptions</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters"
+                        formControlName="JobDescription">
+                    <label>Enter Job Experience</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters"
+                        formControlName="Experience">
+                    <label>Enter Job Benefits</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters" formControlName="Benefits">
+                    <label>Enter Job Schedule</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters" formControlName="Schedule">
+                    <label>Enter Job Language</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters" formControlName="Language">
+                    <label>Enter Job Contact Details</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters" formControlName="Contact">
+                    <label>Enter Job Company</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters"
+                        formControlName="CompanyName">
+                    <label>Enter Alumni Name</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters"
                         formControlName="Alumni_name">
-                    <label>Enter Alumni_qualification</label>
-                    <input type="text" class="form-control" placeholder="minimum 3 letters"
-                        formControlName="JobAlumni_qualification">
-                    <label>Enter Alumni_ID</label>
-                    <input type="text" class="form-control" placeholder="minimum 3 letters"
-                        formControlName="Alumni_ID">
-                    <label>Enter Alumni_Experience</label>
-                    <input type="text" class="form-control" placeholder="minimum 3 letters"
+                    <label>Enter Alumni Phone</label>
+                    <input type="text" class="form-control" placeholder="minimum 3 letters required"
+                        formControlName="Alumni_phone">
+                    <label>Enter Alumni Email</label>
+                    <input type="text" class="form-control" placeholder="minimum 3 letters required"
+                        formControlName="Alumni_email">
+                    <label>Enter Alumni Qualifications</label>
+                    <input type="text" class="form-control" placeholder="minimum 3 letters required"
+                        formControlName="Alumni_qualification">
+                    <label>Enter Alumni Experience</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters"
                         formControlName="Alumni_Experience">
-                    <label>Enter Alumni_course</label>
-                    <input type="text" class="form-control" placeholder="minimum 3 letters"
+                    <label>Enter Alumni Course</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters"
                         formControlName="Alumni_course">
-                    <label>Enter Alumni_branch</label>
-                    <input type="text" class="form-control" placeholder="minimum 3 letters"
+                    <label>Enter Alumni Branch</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters"
                         formControlName="Alumni_branch">
-                    <label>Enter Alumni_Placement</label>
-                    <input type="text" class="form-control" placeholder="minimum 3 letters"
+                    <label>Enter Alumni Placement</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters"
                         formControlName="Alumni_Placement">
-                        <label>Enter Placed_company</label>
-                    <input type="text" class="form-control" placeholder="minimum 3 letters"
+                    <label>Enter Alumni Placed Company</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters"
                         formControlName="Placed_company">
-                    <small class="text-warning"> All input field must contain atleast 3 letters</small>
+
+                    <small class="text-warning"> All input field must contain atleast 2 letters</small>
                 </div>
 
-                <button  [disabled]="approvalform.invalid" type="submit"
+                <button [disabled]="approvalform.invalid" type="submit"
                     class="btn rounded my-2 btn-warning">Submit</button>
-                    <!-- *ngIf="auth.loggedin()" -->
+                <!-- *ngIf="auth.loggedin()" -->
             </form>
 
 
         </div>
     </div>
 </div>
-
-

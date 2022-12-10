@@ -37,8 +37,8 @@ const routes: Routes = [
     path: 'alumni', component: ManageAlumniComponent,canActivate:[AuthgGuard],
     children: [{ path: '', component: AddAlumniComponent },
     { path: 'add', component: AddAlumniComponent },
-    { path: 'CRUD', component: CRUDalumniComponent },
-    { path: 'approve', component: ApproveAlumniReqComponent }]
+    { path: 'CRUD', component: CRUDalumniComponent }]
+    // { path: 'approve', component: ApproveAlumniReqComponent }
   },
 
 
@@ -73,7 +73,8 @@ const routes: Routes = [
     { path: 'readmore', component: ReaedmorepostComponent },
     { path: 'editpost', component: EditpostformComponent },
     { path: 'approvejob', component: ApproveJobComponent },
-    { path: 'editApproval', component: ApprovalFormComponent }]
+    { path: 'editApproval', component: ApprovalFormComponent },
+    { path: 'readmore2', component: ApproveAlumniReqComponent }]
 
   },
 

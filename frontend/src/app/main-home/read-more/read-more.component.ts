@@ -31,7 +31,7 @@ export class ReadMoreComponent implements OnInit {
 }
 
 apply(_id:any){
-  this.api.applyDataFromRead=_id;
+  this.api.applyAjobID=_id;
   this.router.navigate(["/apply"]);
   // alert("your post is now applied successfully")
     }

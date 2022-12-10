@@ -1,29 +1,47 @@
-<table class="table table-success table-striped">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
+
+<div class="p-3 rounded MyBorder m-4">
+
+  <div class="  rounded  p-3 ">
+
+      <div  class="col-12 line">
+          <h2>{{datas.Jobname}}</h2>
+          <p>Company : {{datas.CompanyName}}</p>
+         
+          <hr>
+
+          <p>Job Place : {{datas.Place}}</p>
+          <p>Job Salary : {{datas.Salary}}</p>
+          <p>Job Type : {{datas.JobType}}</p>
+          <p>Job Qualifications : {{datas.Qualifications}}</p>
+          <p>Job Experience : {{datas.Experience}}</p>
+          <p>Job Benefits : {{datas.Benefits}}</p>
+          <p>Job Schedule : {{datas.Schedule}}</p>
+          <p>Job Language : {{datas.Language}}</p>
+          <p>Job Posted Date: {{datas.Date}}</p>
+          <p>Job ID: {{datas.JobID}}</p>
+          <p>Job Contact Details : {{datas.Contact}}</p> 
+          
+          <hr>
+
+          <p>Alumni Name : {{datas.Alumni_name}}</p>
+          <p>Alumni Phone : {{datas.Alumni_phone}}</p>
+          <p>Alumni Email : {{datas.Alumni_email}}</p>
+          <p>Alumni Qualifications : {{datas.Alumni_qualification}}</p>
+          <p>Alumni Experience : {{datas.Alumni_Experience}}</p>
+          <p>Alumni Course : {{datas.Alumni_course}}</p>
+          <p>Alumni Branch : {{datas.Alumni_branch}}</p>
+          <p>Alumni Placement Status : {{datas.Alumni_Placement}}</p>
+          <p>Alumni Placed Company: {{datas.Placed_company}}</p>
+         
+          <hr>
+          <h5 class="py-2  ">Job Description</h5>
+          <p class="align">{{datas.JobDescription}}</p>
+          <hr>
+         
+          <!-- <button (click)="edit(datas._id)" class="btn btn-primary m-2 align-items-center" *ngIf="auth.loggedin()">Apply </button>
+          <hr  *ngIf="auth.loggedin()"> -->
+      </div>
+
+  </div>
+
+</div>

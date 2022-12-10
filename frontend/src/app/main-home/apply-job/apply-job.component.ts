@@ -14,33 +14,33 @@ export class ApplyJobComponent implements OnInit {
   constructor(private api: ApiService, private router: Router, public auth: AuthService) { }
 
   ngOnInit(): void {
-    // this.getdata();
+    this.getdata();
   }
 
-  _id = this.api.applyDataFromHome;
+  _id = this.api.applyAjobID;
   pdf: any;
-  fullData:any;
+  postDetails: any;
 
   applyform: any = new FormGroup({
-    Alumni_phone: new FormControl("", [Validators.required, Validators.minLength(3)]),
-    Alumni_email: new FormControl("", [Validators.required, Validators.minLength(3)]),
-    Alumni_name: new FormControl("", [Validators.required, Validators.minLength(3)]),
-    Alumni_qualification: new FormControl("", [Validators.required, Validators.minLength(3)]),
-    Alumni_Experience: new FormControl("", [Validators.required, Validators.minLength(3)]),
-    Alumni_course: new FormControl("", [Validators.required, Validators.minLength(3)]),
-    Alumni_branch: new FormControl("", [Validators.required, Validators.minLength(3)]),
-    Alumni_Placement: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    Alumni_phone: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    Alumni_email: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    Alumni_name: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    Alumni_qualification: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    Alumni_Experience: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    Alumni_course: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    Alumni_branch: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    Alumni_Placement: new FormControl("", [Validators.required, Validators.minLength(2)]),
     Resume: new FormControl("", [Validators.required]),
-    Placed_company: new FormControl("", [Validators.required, Validators.minLength(3)])
+    Placed_company: new FormControl("", [Validators.required, Validators.minLength(2)])
   })
 
 
 
   getdata() {
-    
-    this.api.getbyidappr(this._id).subscribe(res => {
-      this.fullData = res;
-      // console.log("incoming data from readbook getall", this._id);
+
+    this.api.getbyid(this._id).subscribe(res => {
+      this.postDetails = res;
+
     });
 
   }
@@ -51,17 +51,18 @@ export class ApplyJobComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', this.pdf);
     // console.log(formData)
-    this.api.uploadpost(formData).subscribe(res => {
-      console.log(res)
+
+    this.api.uploadPost(formData).subscribe(res => {
+      // console.log(res)f
     });
 
+    this.api.applypost(this.postDetails, this.applyform.value).subscribe(res => {
+      // console.log(res)
+    });
 
-    // this.api.applypost(this.applyform.value).subscribe(res => {
-    // this.blogerDatas = res;
-    console.log("incoming data from update form ", this.applyform.value);
-    // alert("Data Updated Successfully");
-    // this.router.navigate(['adminhome/managepost/approvejob']);
-    // });
+    alert("Data saved Successfully");
+    this.router.navigate(['/']);
+    
   }
 
 

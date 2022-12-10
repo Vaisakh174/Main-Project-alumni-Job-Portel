@@ -9,115 +9,96 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  
+  url = "http://localhost:3000";
+  // url="";  //for hosting
 
-   getallapprove() {
-    return this.http.get("http://localhost:3000/api/approve/getall"); //for local
-    // return this.http.get('/api/approve/getall');  //for heroku
+  //for approoval of alumni response
+  getallapprove() {
+    return this.http.get(`${this.url}/api/approve/getall`);
   }
 
   postApprd(data: any) {
-    return this.http.post("http://localhost:3000/api/approve/posted", data);//for local
-    // return this.http.post('/api/approve/posted', data);  //for heroku
-    
-  }
-  applypost(data: any) {
-    return this.http.post("http://localhost:3000/api/approve/apply", data);//for local
-    // return this.http.post('/api/approve/apply', data);  //for heroku
-    
-  } 
-  uploadpost(data: any) {
-    return this.http.post("http://localhost:3000/api/approve/file", data);//for local
-    // return this.http.post('/api/approve/file', data);  //for heroku
-    
+    return this.http.post(`${this.url}/api/approve/posted`, data);
   }
 
   deletesAppr(_id: any) {
-    return this.http.delete(`http://localhost:3000/api/approve/delete/${_id}`);//for local
-    // return this.http.delete(`/api/approve/delete/${_id}`);  //for heroku
+    return this.http.delete(`${this.url}/api/approve/delete/${_id}`);
   }
+
   getbyidappr(_id: any) {
-    return this.http.get(`http://localhost:3000/api/approve/getsingle/${_id}`);//for local
-    //  return this.http.get(`/api/approve/getsingle/${_id}`);  //for heroku
+    return this.http.get(`${this.url}/api/approve/getsingle/${_id}`);
   }
+
   updateappr(data: any, _id: any) {
-    // return this.http.put('/api/approve/update', { data, _id });  //for heroku
+    return this.http.put(`${this.url}/api/approve/update`, { data, _id });
+  }
 
-    return this.http.put('http://localhost:3000/api/approve/update', { data, _id }); //for local
 
+  // //for job apply
+  applypost(postData: any,alumniData:any) {
+    return this.http.post(`${this.url}/api/approve/apply`,{postData,alumniData});
+  }
+  
+  //for file upload
+  uploadPost(file: any) {
+    return this.http.post(`${this.url}/api/approve/upload`,file);
   }
 
 
 
 
-
-
-
-
-  // for login
+  // for admin signup
   postAddAdmin(data: any) {
-    return this.http.post("http://localhost:3000/api/login/signup", data);//for local
-    // return this.http.post('/api/login/signup', data);  //for heroku
+    return this.http.post(`${this.url}/api/login/signup`, data);
   }
 
 
 
 
-  
-//for home job search
+
+  //for home job search
   postSearch(data: any) {
-    return this.http.post("http://localhost:3000/api/jobpost/postSearch", data);//for local
-    // return this.http.post('/api/jobpost/postSearch', data);  //for heroku
-    
+    return this.http.post(`${this.url}/api/jobpost/postSearch`, data);
   }
 
-  
 
 
 
 
 
-// for job posts
+
+  // for creating new posts
   getall() {
-
-    return this.http.get("http://localhost:3000/api/jobpost/getall"); //for local
-    // return this.http.get('/api/jobpost/getall');  //for heroku
+    return this.http.get(`${this.url}/api/jobpost/getall`);
   }
 
   getbyid(_id: any) {
-    return this.http.get(`http://localhost:3000/api/jobpost/getsingle/${_id}`);//for local
-    //  return this.http.get(`/api/jobpost/getsingle/${_id}`);  //for heroku
+    return this.http.get(`${this.url}/api/jobpost/getsingle/${_id}`);
   }
 
   post(data: any) {
-    return this.http.post("http://localhost:3000/api/jobpost/post", data);//for local
-    // return this.http.post('/api/jobpost/post', data);  //for heroku
+    return this.http.post(`${this.url}/api/jobpost/post`, data);
   }
-  
 
   deletes(_id: any) {
-    return this.http.delete(`http://localhost:3000/api/admin/delete/${_id}`);//for local
-    // return this.http.delete(`/api/jobpost/delete/${_id}`);  //for heroku
+    return this.http.delete(`${this.url}/api/jobpost/delete/${_id}`);
   }
-
 
   updates(data: any, _id: any) {
-    // return this.http.put('/api/jobpost/update', { data, _id });  //for heroku
-
-    return this.http.put('http://localhost:3000/api/jobpost/update', { data, _id }); //for local
+    return this.http.put(`${this.url}/api/jobpost/update`, { data, _id });
 
   }
 
-  
+
 
   //for data transfer
   public mydata: any;//to pass id for reading a data insie admin
   public formupdate: any;  //to pass id for updating a form
   public approveForm: any;  //to pass id for updating a form
   public username: any;//to pass username 
-  public homeReadMoredata :any;//read post main home
-  public applyDataFromHome :any;//read post main home
-  public applyDataFromRead :any;//read post main home
+  public homeReadMoredata: any;//read post main home
+  public applyAjobID: any;//read post main home
+  public readapproovalform: any;//read post main home
 
 
 }
