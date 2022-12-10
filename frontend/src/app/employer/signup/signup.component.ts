@@ -12,7 +12,7 @@ import { SignupapiService } from '../signupapi.service';
 export class SignupComponent implements OnInit {
   registerform = new FormGroup({
     name: new FormControl("",[Validators.required,Validators.minLength(3),Validators.pattern("[a-zA-Z].*")]),
-    email: new FormControl("",[Validators.required,Validators.minLength(2)]),
+    email: new FormControl("",[Validators.required,Validators.pattern('^([A-Za-z0-9\-.]+)@([A-Za-z0-9\-]+).([a-z]{2,3})(.[a-z]{2,3}?)$')]),
     phnno: new FormControl("",[Validators.required,Validators.pattern("[0-9]*"),Validators.minLength(10),Validators.maxLength(10)]),
     password: new FormControl("",[Validators.required,Validators.minLength(6),Validators.maxLength(15)]),
     companyname: new FormControl("",[Validators.required,Validators.minLength(3),Validators.pattern("[a-zA-Z].*")]),
@@ -65,3 +65,5 @@ get designation(): FormControl{
   return this.registerform.get("designation") as FormControl;
 }
 } 
+
+// Validators.pattern('([A-Za-z0-9\-.]+]@(A-Za-z0-9\-]+).([a-z]{2,3})(.[a-z]{2,3}?)$')]

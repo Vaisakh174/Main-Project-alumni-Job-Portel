@@ -36,7 +36,7 @@
           <input type="email" class="form-control" id="email" formControlName="email" formControlName="email">
           <div class="form-text text-danger" *ngIf="email.errors?.['required'] && (email.dirty || email.touched)">Email
             required.</div>
-          <div class="form-text text-danger" *ngIf="email.errors?.['email'] && (email.dirty || email.touched)">Email
+          <div class="form-text text-danger" *ngIf="email.errors?.['pattern'] && (email.dirty || email.touched)">Email
             invalid.</div>
         </div>
       </div>

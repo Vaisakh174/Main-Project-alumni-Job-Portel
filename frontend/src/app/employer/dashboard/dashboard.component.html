@@ -1,54 +1,29 @@
 
 <div class="container-fluid">
-    <div class="row mt-3">
+    <div class="row mt-3 ">
         <div class="col-md-12 fw-bold fs-3 text-white ">Dashboard</div>
     </div>
-    <!-- <div class="row g-20 my-4">
-    <div class="col-md-3 ">
-    <div class="card text-white text-bg-success  h-100 " style="max-width: 35rem;">
-        <div class="card-header">Header</div>
-        <div class="card-body">
-          <h5 class="card-title">Primary card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card text-white text-bg-warning mb-3 h-100" style="max-width: 35rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h5 class="card-title">Primary card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card text-white text-bg-info mb-3 h-100" style="max-width: 35rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                  <h5 class="card-title">Primary card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-            </div> -->
             <div class="value_cards_sec">
               <div class="row">
                   <div class="col-lg-3">
-                      <div class="value_card card_1">
-                          <p>Links</p>
+                      <div class="value_card card_1 text-center">
                           <h3>56</h3>
+                          <p class="class fs-5">Jobs posted</p>
+                          
                       </div>
                   </div>
                   <div class="col-lg-3">
-                      <div class="value_card card_2">
-                          <p>companies</p>
-                          <h3>56</h3>
+                      <div class="value_card card_2 text-center">
+                          <h3>20</h3>
+                          <p class="class fs-5">Companies</p>
+                          
                       </div>
                   </div>
                   <div class="col-lg-3">
-                      <div class="value_card card_3">
-                          <p>posts</p>
-                          <h3>56</h3>
+                      <div class="value_card card_3 text-center">
+                        <h3>70</h3>                         
+                        <p class="class fs-5">Users</p>
+                          
                       </div>
                   </div>
               </div>
@@ -66,9 +41,9 @@
                         <th scope="col" width="50">Location</th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let job of jobs">
-                    <tr>
-                        <th scope="row"></th>
+                <tbody >
+                    <tr *ngFor="let job of jobs;let i= index">
+                        <th scope="row">{{i+1}}</th>
                         <td>{{job.jobrole}}</td>
                         <td>{{job.companyname}}</td>
                         <td>{{job.location}}</td>
