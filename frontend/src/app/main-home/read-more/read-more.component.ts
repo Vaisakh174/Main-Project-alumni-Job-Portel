@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/admin/services/api.service';
 import { AuthService } from 'src/app/admin/services/auth.service';
 
@@ -9,7 +10,7 @@ import { AuthService } from 'src/app/admin/services/auth.service';
 })
 export class ReadMoreComponent implements OnInit {
 
-  constructor(public api: ApiService,public auth:AuthService) { }
+  constructor(public api: ApiService,public auth:AuthService,private router:Router) { }
 
   ngOnInit(): void {this. getdata();
   }
@@ -30,7 +31,9 @@ export class ReadMoreComponent implements OnInit {
 }
 
 apply(_id:any){
-  alert("your post is now applied successfully")
+  this.api.applyDataFromRead=_id;
+  this.router.navigate(["/apply"]);
+  // alert("your post is now applied successfully")
     }
 
 

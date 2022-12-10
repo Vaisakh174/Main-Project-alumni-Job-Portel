@@ -18,6 +18,7 @@ import { ApiService } from './admin/services/api.service';
 import { AuthService } from './admin/services/auth.service';
 import { TokenInterceptorService } from './admin/services/token-interceptor.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ApplyJobComponent } from './main-home/apply-job/apply-job.component';
 
 
 
@@ -25,7 +26,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
   declarations: [
     AppComponent,
     NavComponent,
-    FirstContentComponent,ReadMoreComponent,AlumSignupComponent
+    FirstContentComponent,ReadMoreComponent,AlumSignupComponent, ApplyJobComponent
    
    
   ],

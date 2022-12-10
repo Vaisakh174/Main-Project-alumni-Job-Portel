@@ -3,7 +3,7 @@ const router = express.Router();
 const approvePost = require("../../models/admin/approvePost.js");
 const approvedPost = require("../../models/admin/approvedpost.js");
 const jwt = require('jsonwebtoken')
-
+const multer = require('multer');
 
 //middleware
 function verifytoken (req, res, next) {
@@ -127,6 +127,66 @@ router.post('/posted' , async (req, res) => {
     }
 
 });
+router.post('/apply' , async (req, res) => {
+    console.log("*****",req.body);
+    // try {
+    //     const DateNow = Date.now();
+    //     let item = {
+
+    //         Jobname: req.body.Jobname,
+    //         Qualifications: req.body.Qualifications,
+    //         Experience: req.body.Experience,
+    //         JobID: req.body.JobID,
+    //         Resfile: req.body.Resfile,
+    //         Alumni_name: req.body.Alumni_name,
+    //         Alumni_qualification: req.body.Alumni_qualification,
+    //         Alumni_ID: req.body.Alumni_ID,
+    //         Alumni_Experience: req.body.Alumni_Experience,
+    //         Alumni_course: req.body.Alumni_course,
+    //         Alumni_branch: req.body.Alumni_branch,
+    //         Alumni_Placement: req.body.Alumni_Placement,
+    //         Placed_company: req.body.Placed_company,
+    //         Date: Date(DateNow).toString()
+           
+    //     }
+    //     const newdata = new approvedPost(item);
+    //     const savedata = await newdata.save();
+    //     // console.log(`from post method ${savedata}`);
+    //     res.send(savedata);
+
+    // } catch (error) {
+    //     console.log(`error from get method ${error}`);
+    // }
+
+});
+
+
+//file upload
+const storage = multer.diskStorage({
+    destination: (req, file, callBack) => {
+        callBack(null, 'Uploaded_Files')
+    },
+    filename: (req, file, callBack) => {
+        callBack(null, `alumni_resp__${file.originalname}`)
+    }
+  })
+  
+const upload = multer({ storage: storage })
+
+router.post('/file', upload.single('file'), (req, res, next) => {
+    const file = req.file;
+    console.log(file.filename);
+    if (!file) {
+      const error = new Error('No File')
+      error.httpStatusCode = 400
+      return next(error)
+    }
+      res.send(file);
+
+})
+
+
+
 
 // delete data
 router.delete('/delete/:id', async (req, res) => {
