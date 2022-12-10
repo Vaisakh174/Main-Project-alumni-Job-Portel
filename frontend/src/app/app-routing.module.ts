@@ -59,18 +59,7 @@ const routes: Routes = [
    
 
 
-  {
-  path: "", component: NavComponent,
-  children: [
-    { path: "admin", component: AdminLoginComponent },
-    { path: "adminsignup", component: AdminSignupComponent },
-    
-    { path: 'employer', component: SignupComponent },
-    { path: 'login', component: LoginComponent },
-   
-    
-  ]
-},
+  
 
 
 
