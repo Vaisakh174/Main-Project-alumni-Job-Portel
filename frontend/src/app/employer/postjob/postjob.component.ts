@@ -9,14 +9,19 @@ import { SignupapiService } from '../signupapi.service';
 })
 export class PostjobComponent implements OnInit {
   jobpostform:any = new FormGroup({
-    jobrole: new FormControl("",[Validators.required]),
-    companyname: new FormControl("",[Validators.required]),
-    education: new FormControl("",[Validators.required]),
-    experience: new FormControl("",[Validators.required]),
-    skills:new FormControl("",[Validators.required]),
-    location:new FormControl("",[Validators.required]),
-    salary:new FormControl("",[Validators.required]),
-    jobdescription:new FormControl("",[Validators.required]),
+    Jobname: new FormControl("",[Validators.required]),
+    CompanyName: new FormControl("",[Validators.required]),
+    Place: new FormControl("",[Validators.required]),
+    Salary: new FormControl("",[Validators.required]),
+    JobType:new FormControl("",[Validators.required]),
+    Qualifications:new FormControl("",[Validators.required]),
+    JobDescription:new FormControl("",[Validators.required]),
+    Experience:new FormControl("",[Validators.required]),
+    Benefits:new FormControl("",[Validators.required]),
+    Schedule:new FormControl("",[Validators.required]),
+    Language:new FormControl("",[Validators.required]),
+    Contact:new FormControl("",[Validators.required]),
+    Date:new FormControl("",[Validators.required]),
   })
   constructor(private api:SignupapiService) { }
 
