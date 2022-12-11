@@ -41,9 +41,11 @@ const routes: Routes = [
       // { path:'viewjob',component:ViewjobComponent},
 
 
-      { path: 'alumni', component: AlumSignupComponent },
+      { path: 'alumni', component: AlumSignupComponent},
       { path: 'register', component: AlumniRegisterComponent },
-      { path: 'alumniRegister', component: AlumniRegisterComponent }
+      { path: 'alumniRegister', component: AlumniRegisterComponent },
+      {path:'alumnilogin',component:AlumLoginComponent}
+      
 
     ]
   },

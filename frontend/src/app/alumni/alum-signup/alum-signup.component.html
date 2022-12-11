@@ -1,27 +1,65 @@
-<div class="login">
-<form>
-    <h3>Alumni Login <img src="https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Lock-512.png" alt=""></h3>
-        <div class="form-group">
-         <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <br>
-                    </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                           <input type="password" class="form-control" id="exampleInputPassword1">
-                             </div>
-                                <br>
-<button (click)="submit()" type="button" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
-        <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-            </svg> Submit</button>
-               <br>
-                  <br>
-    <a routerLink="/register">Register Alumni</a>
-    <br>
-         <!-- <p>
-             <a routerLink="alumniRegister">Register Alumni</a>
-        </p> -->
-        <router-outlet></router-outlet>
- </form>
+
+<div class="d-flex justify-content-center p-3 rounded  m-4 ">
+
+
+    <div class="  rounded MyBorder wid p-4 ">
+        <div class="col-12  ">
+            <h2>Add An Alumni</h2>
+            <form [formGroup]="addalumniform" (ngSubmit)="addalumni()">
+                <div class="form-group  ">
+
+
+                    <label>Enter Alumni Name</label>
+                    <input type="text" class="form-control " placeholder="minimum 2 letters required"
+                        formControlName="name">
+
+                    <label>Enter Email Address</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters required"
+                        formControlName="email">
+
+                    <label>Enter Mobile Number</label>
+                    <input type="number" class="form-control" placeholder="minimum 2 letters required "
+                        formControlName="mobile">
+
+                    <label>Enter Course</label>
+                    <input class="form-control" placeholder="minimum 2 letters" formControlName="course"
+                        >
+                        
+                        <label>Enter Qualification</label>
+                    <input type="text" class="form-control " placeholder="minimum 2 letters required"
+                        formControlName="qualification">
+
+                    <label>Enter Batch</label><br>
+                    <select type="text" class="form-control" placeholder="minimum 2 letters required"
+                        formControlName="batch">
+                      
+                        <option >KKEM</option>
+                        <option >NORKA</option>
+                        <option >KDISC</option>
+                      
+                        
+                        </select>
+
+                    <label>Enter Placement Status</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters required "
+                        formControlName="placement">
+
+                    <label>Enter Password</label>
+                    <input class="form-control" placeholder="minimum 2 letters" formControlName="password">
+                        
+
+
+                    <small class="text-warning"> All input field must contain atleast 2 letters</small>
+
+                </div>
+
+                <button  [disabled]="addalumniform.invalid" type="submit"
+                    class="btn rounded my-2 btn-warning">Submit</button>
+                    <a routerLink="alumnilogin" style="text-decoration: none;"><h4 style="color:white">Click Here  to Login</h4></a>
+            
+                </form>
+
+
+        </div>
+    </div>
 </div>
