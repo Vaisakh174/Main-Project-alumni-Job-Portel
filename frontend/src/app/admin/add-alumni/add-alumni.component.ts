@@ -16,22 +16,27 @@ export class AddAlumniComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addbookform: any = new FormGroup({
-    bookname: new FormControl("", [Validators.required, Validators.minLength(5)]),
-    author: new FormControl("", [Validators.required, Validators.minLength(5)]),
-    bookimgaddress: new FormControl("", [Validators.required, Validators.minLength(5)]),
-    content: new FormControl("", [Validators.required, Validators.minLength(5)])
+  addalumniform: any = new FormGroup({
+    name: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    email: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    mobile: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    course: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    qualification: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    batch: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    placement: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    password: new FormControl("", [Validators.required, Validators.minLength(2)])
   })
-  addbook() {
-    this.api.post(this.addbookform.value).subscribe(res => {
+  
+  addalumni() {
+    this.api.postalumni(this.addalumniform.value).subscribe(res => {
       if (res) {
         alert("Data saved successfully");
-        // console.log("incoming data from addbook", this.addbookform.value);
-        this.router.navigate(['/books/booksList']);
+        // console.log("incoming data from addbook", this.addalumniform.value);
+        this.router.navigate(['adminhome/alumni']);
       }
-      // console.log(res);
+
     })
-    // console.log("incoming data from addbook", this.addbookform.value);
+    this.addalumniform.reset()
   };
 
 

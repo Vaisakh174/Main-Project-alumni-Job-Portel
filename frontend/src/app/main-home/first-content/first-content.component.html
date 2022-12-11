@@ -39,7 +39,7 @@
 
         <div class="d-flex justify-content-center">
           <button (click)="readMore(data._id)" class="btn btn-light m-2">read more</button>
-          <button (click)="apply(data._id)" class="btn btn-light m-2" *ngIf="auth.loggedin()">Apply </button>
+          <button (click)="apply(data._id)" [disabled]=!data.ApplyStatus class="btn btn-light m-2" *ngIf="auth.loggedin()">Apply </button>
         </div>
 
       </div>

@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken')
 
 
 //middleware
-function verifytoken (req, res, next) {
+function verifytoken(req, res, next) {
     console.log('headers=', req.headers.authorization);
     if (!req.headers.authorization) {
         return res.status(401).send('Unautherized request');
@@ -15,7 +15,7 @@ function verifytoken (req, res, next) {
     if (token == 'null') {
         return res.status(401).send('Unautherized request');
     }
-    let payload = jwt. verify(token , 'secretkey');
+    let payload = jwt.verify(token, 'secretkey');
     console.log("payload=", payload);
     if (!payload) {
         return res.status(401).send('Unautherized request');
@@ -29,13 +29,36 @@ function verifytoken (req, res, next) {
 
 
 
+
+async function checkDate() {
+
+    let data = await DATA.find({ Date: { $lt: "2023-11-28T17:29:40.862+00:00" } })
+    if (data) {
+        for (let i = 0; i < data.length; i++) {
+            console.log(`error from check method ${data[i].ApplyStatus}`);
+            data[i].ApplyStatus = "false"
+            // console.log(`error from check method ${data}`);
+
+            await DATA.findByIdAndUpdate(
+                { "_id": data[i]._id },
+                { $set: data[i] }
+
+            );
+        }
+
+    }
+
+
+}
+
 //get all list (get) for data
 router.get('/getall', async (req, res) => {
 
     try {
+        // let ApplyStatus = await checkDate()
         let list = await DATA.find();
 
-        console.log(`from get method ${list}`);
+        // console.log(`from get method ${list}`);
         res.send(list);
     }
     catch (error) {
@@ -63,7 +86,7 @@ router.get('/getsingle/:id', async (req, res) => {
 
 
 //add data (post)
-router.post('/post' , async (req, res) => {
+router.post('/post', async (req, res) => {
 
     try {
         const DateNow = Date.now();
@@ -98,34 +121,34 @@ router.post('/post' , async (req, res) => {
 
 
 //for search home job data
-router.post('/postSearch' , async (req, res) => {
+router.post('/postSearch', async (req, res) => {
 
     console.log(`from post search method : ${req.body.textData}`);
 
     try {
-       
-
-const result=await DATA.aggregate(
-[
-    {
-      $search: {
-        index: 'search',
-        text: {
-          query: req.body.textData,
-          path: {
-            'wildcard': '*'
-          }
-        }
-      }
-    }
-  ]
-
-)
-
-res.send(result);
 
 
-        
+        const result = await DATA.aggregate(
+            [
+                {
+                    $search: {
+                        index: 'search',
+                        text: {
+                            query: req.body.textData,
+                            path: {
+                                'wildcard': '*'
+                            }
+                        }
+                    }
+                }
+            ]
+
+        )
+
+        res.send(result);
+
+
+
 
     } catch (error) {
         console.log(`error from post search method ${error}`);
@@ -174,7 +197,7 @@ router.put('/update', async (req, res) => {
             Language: req.body.data.Language,
             Contact: req.body.data.Contact,
             Date: Date(DateNow).toString()
-            
+
         }
         console.log("incoming data from update", item);
 

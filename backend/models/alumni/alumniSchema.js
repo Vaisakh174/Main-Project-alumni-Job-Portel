@@ -11,7 +11,8 @@ const alumniSchema = new schema({
     batch:{type:String,required:true},
     placement:{type:String},
     password: { type: String, requied: true },
+    Date:{type:String,default:Date.now()}
 
 });
 let alumniUSERS = mongoose.model("alumniUsers", alumniSchema);
-module.exports = adminUSERS;
+module.exports = alumniUSERS;

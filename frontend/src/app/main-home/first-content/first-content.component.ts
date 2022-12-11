@@ -10,21 +10,20 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./first-content.component.scss']
 })
 export class FirstContentComponent implements OnInit {
-  
+
   constructor(private api: ApiService, private router: Router, public auth: AuthService) { }
   errmsg: any = 0;
   Back: any = 0;
   job: any = 1;
+  // dateIsValid:any=1;
   // homeJobMsg:any="New jobs : "
-  JobSearchMsg:any="New jobs : "
+  JobSearchMsg: any = "New jobs : "
   ngOnInit(): void {
-    // if(this.errmsg){
 
-    // }
-    // else{
     this.getdata();
-    // }
-  
+    // setTimeout(this.checkDate, 1000);
+   
+
   }
 
   searchForm: any = new FormGroup({
@@ -49,14 +48,14 @@ export class FirstContentComponent implements OnInit {
         this.job = 0;
         this.viewposts = res;
         this.errmsg = 1;
-        this.message = "Ohh That Job Is Not Found";  
+        this.message = "Ohh That Job Is Not Found";
         // alert("ohh... No Data Found")
         this.Back = 1;
       }
 
     })
-    this.Back= 0;
-    this.job= 1;
+    this.Back = 0;
+    this.job = 1;
     this.errmsg = 0;
     this.searchForm.reset();
   }
@@ -64,25 +63,55 @@ export class FirstContentComponent implements OnInit {
 
 
 
-
-
   viewposts: any = [{
     Jobname: "", CompanyName: "", Place: "", Salary: "",
     JobType: "", Qualifications: "", JobDescription: "", Experience: "",
-    Benefits: "", Schedule: "", Language: "", Contact: ""
+    Benefits: "", Schedule: "", Language: "", Contact: "", _id: ""
   }];
 
 
-  getdata() {
-    this.api.getall().subscribe(res => {
+  async getdata() {
+    await this.api.getall().subscribe(res => {
       this.viewposts = res;
-      // console.log("incoming data from booklist getall", this.viewposts);
+      
     });
     this.errmsg = 0;
     this.Back = 0;
     this.job = 1;
+    await this.checkDate()
   }
 
+
+   checkDate() {
+    //set current date 
+    var currentDate = new Date()
+    console.log("getall - ", this.viewposts)
+    for (let i of this.viewposts) {
+
+      //get date from db as string and convert into date obj and add 1day  to it
+
+      let FixedDate = new Date(i.Date);
+      FixedDate.setDate(FixedDate.getDate() + 1);
+
+      // if (FixedDate.getTime() > currentDate.getTime()) {
+      if (currentDate.getTime() > FixedDate.getTime()) {
+        i.ApplyStatus = "false";
+        // console.log('post is invalid')
+
+      }
+      else {
+        i.ApplyStatus = "true";
+        // console.log('post is valid')
+      }
+      console.log("qqq", i)
+      this.api.updates(i.ApplyStatus, i._id).subscribe();
+      // console.log("aaaa", currentDate, FixedDate)
+      // console.log("ssss", typeof (currentDate), typeof (FixedDate))
+      
+
+    }
+
+  }
 
   readMore(_id: any) {
     this.api.homeReadMoredata = _id;
@@ -93,11 +122,11 @@ export class FirstContentComponent implements OnInit {
 
   apply(_id: any) {
     // alert("your post is now applied successfully")
-    this.api.applyAjobID=_id;
+    this.api.applyAjobID = _id;
     this.router.navigate(["/apply"]);
   }
 
-  back(){
+  back() {
     // this.Back= !this.Back;
     // this.job= !this.job;
     // this.errmsg = 0;

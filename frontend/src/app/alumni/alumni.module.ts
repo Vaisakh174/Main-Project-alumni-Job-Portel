@@ -7,17 +7,20 @@ import { AlumSignupComponent } from './alum-signup/alum-signup.component';
 import { FormsModule } from '@angular/forms';
 import { AlumniRegisterComponent } from './alumni-register/alumni-register.component';
 import { AlumniHomeComponent } from './alumni-home/alumni-home.component';
+import { ViewjobsComponent } from './viewjobs/viewjobs.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AlumLoginComponent,
 
     AlumniRegisterComponent,
-      AlumniHomeComponent
+      AlumniHomeComponent,
+      ViewjobsComponent
   ],
   imports: [
     CommonModule,
-    AlumniRoutingModule,FormsModule
+    AlumniRoutingModule,FormsModule,RouterModule
   ]
 })
 export class AlumniModule { }

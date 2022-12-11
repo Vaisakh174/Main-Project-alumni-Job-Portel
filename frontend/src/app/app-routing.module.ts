@@ -50,22 +50,23 @@ const routes: Routes = [
     ]
   },
  
-  // {
-  //   path: 'adminhome',
-  //   loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
-  // },
+
   {
     path: 'employerhome',
     loadChildren: () => import('./employer/employer.module').then(m => m.EmployerModule)
+  },
+  {
+    path: 'alumnihome',
+    loadChildren: () => import('./alumni/alumni.module').then(m => m.AlumniModule)
   },
    
 
 
   
+  { path: "home", redirectTo: "/", pathMatch: 'full' },
 
 
 
-{path:"home",redirectTo:"",pathMatch:'full'}
 
 
 ]

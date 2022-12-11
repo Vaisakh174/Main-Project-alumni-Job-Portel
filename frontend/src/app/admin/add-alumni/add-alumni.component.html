@@ -4,29 +4,48 @@
     <div class="  rounded MyBorder wid p-4 ">
         <div class="col-12  ">
             <h2>Add An Alumni</h2>
-            <form [formGroup]="addbookform" (ngSubmit)="addbook()">
+            <form [formGroup]="addalumniform" (ngSubmit)="addalumni()">
                 <div class="form-group  ">
+
+
                     <label>Enter Alumni Name</label>
-                    <input type="text" class="form-control " placeholder="minimum 5 letters required"
-                        formControlName="bookname">
+                    <input type="text" class="form-control " placeholder="minimum 2 letters required"
+                        formControlName="name">
 
-                    <label>Enter Alumni age</label>
-                    <input type="text" class="form-control" placeholder="minimum 5 letters required"
-                        formControlName="author">
+                    <label>Enter Email Address</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters required"
+                        formControlName="email">
+
+                    <label>Enter Mobile Number</label>
+                    <input type="number" class="form-control" placeholder="minimum 2 letters required "
+                        formControlName="mobile">
+
+                    <label>Enter Course</label>
+                    <input class="form-control" placeholder="minimum 2 letters" formControlName="course"
+                        >
                         
-                    <label>Enter Alumni Image Address</label>
-                    <input type="text" class="form-control"
-                        placeholder="minimum 5 letters required "
-                        formControlName="bookimgaddress">
+                        <label>Enter Qualification</label>
+                    <input type="text" class="form-control " placeholder="minimum 2 letters required"
+                        formControlName="qualification">
 
-                    <label>Enter Alumni Content</label>
-                    <textarea class="form-control" placeholder="minimum 5 letters" formControlName="content" rows="4"></textarea>
+                    <label>Enter Batch</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters required"
+                        formControlName="batch">
 
-                    <small class="text-warning"> All input field must contain atleast 5 letters</small>
-                    
+                    <label>Enter Placement Status</label>
+                    <input type="text" class="form-control" placeholder="minimum 2 letters required "
+                        formControlName="placement">
+
+                    <label>Enter Password</label>
+                    <input class="form-control" placeholder="minimum 2 letters" formControlName="password"
+                        >
+
+
+                    <small class="text-warning"> All input field must contain atleast 2 letters</small>
+
                 </div>
 
-                <button *ngIf="auth.loggedin()" [disabled]="addbookform.invalid" type="submit"
+                <button *ngIf="auth.loggedin()" [disabled]="addalumniform.invalid" type="submit"
                     class="btn rounded my-2 btn-warning">Submit</button>
             </form>
 

@@ -3,7 +3,7 @@ const schema = mongoose.Schema;
 
 const approvedJob = new schema({
 
-    _id: { type: String, requied: true },
+    JobID: { type: String, requied: true },
     Jobname: { type: String, requied: true },
     Place: { type: String, requied: true },
     Salary: { type: String, requied: true },

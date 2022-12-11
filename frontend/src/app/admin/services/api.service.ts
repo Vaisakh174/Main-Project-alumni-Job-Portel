@@ -64,6 +64,27 @@ export class ApiService {
 
 
 
+ //for new alumni
+  postalumni(data: any) {
+    return this.http.post(`${this.url}/api/alumni/new`, data);
+  }
+
+
+
+ //for new employer
+  postemployer(data: any) {
+    return this.http.post(`${this.url}/api/employer/employersignup`, data);
+  }
+  
+  
+  //for new faculty
+  postfaculty(data: any) {
+    return this.http.post(`${this.url}/api/faculty/new`, data);
+  }
+
+
+
+
 
 
 

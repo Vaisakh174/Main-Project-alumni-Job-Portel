@@ -27,11 +27,13 @@ function verifytoken(req, res, next) {
 
 }
 
+
+
 //get all list (get) for data
-router.get('/getall', async (req, res) => {
+router.get('/getApproved', async (req, res) => {
 
     try {
-        let list = await approvePost.find();
+        let list = await approvedPost.find();
 
         console.log(`from get method ${list}`);
         res.send(list);
@@ -44,14 +46,66 @@ router.get('/getall', async (req, res) => {
 });
 
 
-// fetch single data (get)
-router.get('/getsingle/:id', async (req, res) => {
+
+
+
+
+
+//add data when approved (post)
+router.post('/posted', async (req, res) => {
+    // console.log("hr",req.body.Jobname);
+    try {
+        const DateNow = Date.now();
+        let item = {
+
+           
+            JobID: req.body.JobID,
+            Jobname: req.body.Jobname,
+            Place: req.body.Place,
+            Salary: req.body.Salary,
+            JobType: req.body.JobType,
+            Qualifications: req.body.Qualifications,
+            JobDescription: req.body.JobDescription,
+            Experience: req.body.Experience,
+            Benefits: req.body.Benefits,
+            Schedule: req.body.Schedule,
+            Language: req.body.Language,
+            Contact: req.body.Contact,
+            CompanyName: req.body.CompanyName,
+
+
+            Alumni_name: req.body.Alumni_name,
+            Alumni_phone: req.body.Alumni_phone,
+            Alumni_email: req.body.Alumni_email,
+            Alumni_qualification: req.body.Alumni_qualification,
+            Alumni_Experience: req.body.Alumni_Experience,
+            Alumni_course: req.body.Alumni_course,
+            Alumni_branch: req.body.Alumni_branch,
+            Alumni_Placement: req.body.Alumni_Placement,
+            Placed_company: req.body.Placed_company,
+            Date: Date(DateNow).toString()
+
+        }
+        const newdata = new approvedPost(item);
+        const savedata = await newdata.save();
+        // console.log(`from post method ${savedata}`);
+        res.send(savedata);
+
+    } catch (error) {
+        console.log(`error from get method ${error}`);
+    }
+
+});
+
+// delete data
+router.delete('/deleted/:id', async (req, res) => {
 
     try {
         let id = req.params.id;
-        const singledata = await approvePost.findById(id);
-        console.log(`from get with id method ${singledata}`);
-        res.send(singledata)
+        let deletedata = await approvedPost.findByIdAndDelete(id);
+        // console.log(`from delete method ${deletedata}`);
+        res.send(deletedata);
+
     } catch (error) {
         console.log(`error from get method ${error}`);
     }
@@ -60,7 +114,18 @@ router.get('/getsingle/:id', async (req, res) => {
 
 
 
-//add data (post)
+
+
+
+
+
+
+
+
+
+//appvrove section
+
+//add data posting  (through postman)
 router.post('/post', async (req, res) => {
 
     try {
@@ -108,51 +173,38 @@ router.post('/post', async (req, res) => {
 
 });
 
-//add data when approved (post)
-router.post('/posted', async (req, res) => {
-    // console.log("hr",req.body.Jobname);
+
+//get all list (get) for data
+router.get('/getall', async (req, res) => {
+
     try {
-        const DateNow = Date.now();
-        let item = {
+        let list = await approvePost.find();
 
-           
-            JobID: req.body.JobID,
-            Jobname: req.body.Jobname,
-            Place: req.body.Place,
-            Salary: req.body.Salary,
-            JobType: req.body.JobType,
-            Qualifications: req.body.Qualifications,
-            JobDescription: req.body.JobDescription,
-            Experience: req.body.Experience,
-            Benefits: req.body.Benefits,
-            Schedule: req.body.Schedule,
-            Language: req.body.Language,
-            Contact: req.body.Contact,
-            CompanyName: req.body.CompanyName,
+        console.log(`from get method ${list}`);
+        res.send(list);
+    }
+    catch (error) {
+        console.log(`error from get method ${error}`);
 
+    }
 
-            Alumni_name: req.body.Alumni_name,
-            Alumni_phone: req.body.Alumni_phone,
-            Alumni_email: req.body.Alumni_email,
-            Alumni_qualification: req.body.Alumni_qualification,
-            Alumni_Experience: req.body.Alumni_Experience,
-            Alumni_course: req.body.Alumni_course,
-            Alumni_branch: req.body.Alumni_branch,
-            Alumni_Placement: req.body.Alumni_Placement,
-            Placed_company: req.body.Placed_company,
-            Date: Date(DateNow).toString()
+});
 
-        }
-        const newdata = new approvedPost(item);
-        const savedata = await newdata.save();
-        // console.log(`from post method ${savedata}`);
-        res.send(savedata);
+// fetch single data (get)
+router.get('/getsingle/:id', async (req, res) => {
 
+    try {
+        let id = req.params.id;
+        const singledata = await approvePost.findById(id);
+        console.log(`from get with id method ${singledata}`);
+        res.send(singledata)
     } catch (error) {
         console.log(`error from get method ${error}`);
     }
 
 });
+
+//apply job
 router.post('/apply', async (req, res) => {
     console.log("*****", req.body.alumniData);
     console.log("*****", req.body.postData);

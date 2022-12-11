@@ -35,7 +35,7 @@ export class AlumSignupComponent implements OnInit {
       if (res) {
         alert("Data saved successfully");
         // console.log("incoming data from addbook", this.addalumniform.value);
-        this.router.navigate(['adminhome/alumni']);
+        this.router.navigate(['/alumnilogin']);
       }
 
     })
