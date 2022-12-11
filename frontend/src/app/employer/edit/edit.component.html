@@ -3,7 +3,7 @@
     
     <form  #editform="ngForm" (ngSubmit)="update()" class="MyBorder rounded  my-5 p-3" >
         <h2 class="text-center text-white  m-2">Edit Form</h2>
-        <div  class="form-group">
+        <!-- <div  class="form-group">
             <label for="jobrole" class="form-label">Job Role</label>
             <input type="text" class="form-control" name="jobrole" [(ngModel)]="data.jobrole" >
         </div>
@@ -34,7 +34,61 @@
         <div class="form-group ">
             <label for="jobdescription" class="form-label">Job Description</label>
             <input type="text" class="form-control" name="jobdescription" [(ngModel)]="data.jobdescription" >
-        </div><br>
+        </div><br> -->
+        <div  class="form-group">
+            <label>Job Name</label>
+            <!-- <label for="jobrole" class="form-label">Job Name</label> -->
+            <input type="text" class="form-control" id="Jobname"  formControlName="Jobname">
+        </div>
+        <div class="form-group" >
+            <label>Company Name</label>
+            <input type="text" class="form-control" id="CompanyName" formControlName="CompanyName">
+        </div>
+        <div class="form-group">
+            <label>Location</label>
+            <input type="text" class="form-control" id="Place" formControlName="Place">
+        </div>
+        <div class="form-group">
+           <label>Salary</label>
+            <input type="text" class="form-control" id="Salary" formControlName="Salary">
+        </div>
+        <div class="form-group">
+            <label>Job Type</label>
+            <input type="text" class="form-control" id="JobType" formControlName="JobType">
+        </div>
+        <div class="form-group ">
+            <label>Qualifications</label>
+            <input type="text" class="form-control" id="Qualifications" formControlName="Qualifications">
+        </div>
+        
+        <div class="form-group ">
+            <label>Job Description</label>
+            <input type="text" class="form-control" id="JobDescription" formControlName="JobDescription">
+            </div>
+        <div class="form-group ">
+                <label>Experience</label>
+                <input type="text" class="form-control" id="Experience" formControlName="Experience">
+            </div>
+            <div class="form-group ">
+                <label >Benefits</label>
+                <input type="text" class="form-control" id="Benefits" formControlName="Benefits">
+            </div>
+            <div class="form-group ">
+                <label>Schedule</label>
+                <input type="text" class="form-control" id="Schedule" formControlName="Schedule">
+            </div>
+            <div class="form-group ">
+                <label >Language</label>
+                <input type="text" class="form-control" id="Language" formControlName="Language">
+            </div>
+            <div class="form-group ">
+                <label>Contact</label>
+                <input type="text" class="form-control" id="Contact" formControlName="Contact">
+            </div>
+            <div class="form-group ">
+                <label> Closing Date</label>
+                <input type="text" class="form-control" id="Date" formControlName="Date">
+            </div><br>
         <button type="submit"  class="btn btn-success btn-lg btn-block">UPDATE</button>
       </form>
 </div>

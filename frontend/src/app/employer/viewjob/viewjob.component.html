@@ -3,16 +3,21 @@
 <!-- <div class="container "> -->
 <h2 class="text-center text-white  mt-4">View All Jobs</h2>
 
- <div class="card  mt-3 " *ngFor="let job of jobs" style="width: 50rem; height:20em;"  >
+ <div class="card  mt-5 " *ngFor="let job of jobs" style="width: 50rem; height:28em;"  >
     <div class="card-body">
-      <h5 class="card-title text-center">{{job.jobrole}}</h5>
-      <h6 class="card-subtitle mb-2 ">Company Name:{{job.companyname}}</h6>
-      <h6 class="card-subtitle mb-2 ">Qualification:{{job.education}}</h6>
-      <h6 class="card-subtitle mb-2 ">Experience:{{job.experience}}</h6>
-      <h6 class="card-subtitle mb-2 ">Skills:{{job.skills}}</h6>
-      <h6 class="card-subtitle mb-2 ">Location:{{job.location}}</h6>
-      <h6 class="card-subtitle mb-2 ">Salary:{{job.salary}}</h6>
-      <p class="card-text">Description:{{job.jobdescription}}</p>
+      <h5 class="card-title text-center">{{job.Jobname}}</h5><br>
+      <h6 class="card-subtitle mb-2 ">Company Name:{{job.CompanyName}}</h6>
+      <h6 class="card-subtitle mb-2 ">Location:{{job.Place}}</h6>
+      <h6 class="card-subtitle mb-2 ">Salary:{{job.Salary}}</h6>
+      <h6 class="card-subtitle mb-2 ">Job Type:{{job.JobType}}</h6>
+      <h6 class="card-subtitle mb-2 ">Qualifications:{{job.Qualifications}}</h6>
+      <h6 class="card-subtitle mb-2 ">Experience:{{job.Experience}}</h6>
+      <h6 class="card-subtitle mb-2 ">Benefits:{{job.Benefits}}</h6>
+      <h6 class="card-subtitle mb-2 ">Schedule:{{job.Schedule}}</h6>
+      <h6 class="card-subtitle mb-2 ">Language:{{job.Language}}</h6>
+      <h6 class="card-subtitle mb-2 ">Contact:{{job.Contact}}</h6>
+      <h6 class="card-subtitle mb-2 ">Closing Date:{{job.Date}}</h6>
+      <p class="card-text">Description:{{job.JobDescription}}</p>
       <button type="submit" class="btn btn-success" (click)="edit(job._id)">EDIT</button>
        
     </div>
