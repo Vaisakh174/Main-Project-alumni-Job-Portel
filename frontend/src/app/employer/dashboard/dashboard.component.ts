@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
     this.getjob()
   }
   getjob(){
-    this.api.getjob().subscribe(res=>{
+    this.api.getall().subscribe(res=>{
       this.jobs=res
     })
   }

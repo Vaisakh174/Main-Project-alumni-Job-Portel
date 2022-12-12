@@ -22,7 +22,7 @@ export class ViewjobComponent implements OnInit {
   }
   
   getjob(){
-    this.api.getjob().subscribe(res=>{
+    this.api.getall().subscribe(res=>{
       this.jobs=res
     })
   }

@@ -20,21 +20,39 @@ export class SignupapiService {
   //   return this.http.post(`${this.apiUrl}/employer/jobpost`,data)
   // }
 
-  getjob(){
-    return this.http.get(`${this.apiUrl}/employer/joblist`)
-  }
-  getsingledata(id:any){
-    return this.http.get(`${this.apiUrl}/employer/getOneJob/${id}`)
-  }
-  updatejob(data:any,id:any){
-    return this.http.put(`${this.apiUrl}/employer/editJob`,{data,id})
-  }
+  // getjob(){
+  //   return this.http.get(`${this.apiUrl}/employer/joblist`)
+  // }
+  // getsingledata(id:any){
+  //   return this.http.get(`${this.apiUrl}/employer/getOneJob/${id}`)
+  // }
+  // updatejob(data:any,id:any){
+  //   return this.http.put(`${this.apiUrl}/employer/editJob`,{data,id})
+  // }
 
 
 
-  
+
+
+  //for job posts
+
+  getall() {
+    return this.http.get(`${this.apiUrl}/jobpost/getall`);
+  }
+
+
   addjob(data: any) {
     return this.http.post(`${this.apiUrl}/jobpost/post`, data);
+  }
+
+  
+  updates(data: any, _id: any) {
+    return this.http.put(`${this.apiUrl}/jobpost/update`, { data, _id });
+
+  }
+
+  getbyid(_id: any) {
+    return this.http.get(`${this.apiUrl}/jobpost/getsingle/${_id}`);
   }
 
 }
