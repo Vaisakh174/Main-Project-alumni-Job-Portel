@@ -1,8 +1,36 @@
-<nav class="navbar fixed-top bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Fixed top</a>
+<nav class="navbar navbar-dark navbar-expand-lg  mynav">
+  <div class="container-fluid">
+    <a class="navbar-brand btn font" routerLink="/">
+      <img src="./assets/115-1159142_job-portal-icon-in-png.png" alt="Logo" width="40" height="30"
+        class=" d-inline-block align-text-top">
+      Alumni Job Portal
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link btn my-btn text-white m-2" routerLink="viewjob" routerLinkActive="activednav" [routerLinkActiveOptions]="{exact:true}">View New Posts</a>
+          <!-- *ngIf="!auth.loggedin()" -->
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link btn my-btn text-white m-2" (click)="logout()" routerLinkActive="activednav">Logout Alumni</a>
+        </li>
+
+     
+
+      </ul>
+
     </div>
-  </nav>
+  </div>
+</nav>
+
+
+
+<router-outlet></router-outlet>
 
 
 
@@ -11,14 +39,74 @@
 
 
 
+<footer class="site-footer my-mar mt-md-3 p-4 ">
+  <div class="container-fluid">
+    <div class="d-flex justify-content-between">
+      <div>
+        <h6>About</h6>
+        <p class="footer-text">ICT Academy of Kerala is a Social Enterprise created in a Public Private Partnership
+          model (PPP) for imparting ICT skills to the youths of Kerala and improve their employability opportunities in
+          the Industry. The Company is supported by Govt. of India , partnered by Govt. of Kerala and the IT industry.
+        </p>
+
+
+
+      </div>
+
+
+
+
+      <div class="mx-5">
+        <h6>More</h6>
+        <ul class="footer-links ">
+          <li><a href="#">C</a></li>
+          <li><a href="#">UI Design</a></li>
+          <li><a href="#">PHP</a></li>
+          <li><a href="#">Java</a></li>
+          <li><a href="#">Android</a></li>
+          <li><a href="# ">Templates</a></li>
+        </ul>
+
+
+      </div>
 
 
 
 
 
 
+      <div>
+
+        <h6>Quick Links</h6>
+        <ul class="footer-links">
+          <li><a routerLink="">Home</a></li>
+          <li><a routerLink="signin">Sign in</a></li>
+          <li><a routerLink="login">Log in</a></li>
+        </ul>
+
+
+      </div>
+
+    </div>
+    <hr>
+
+    <div class="container ">
+      <div class="row ">
+        <div class="col-12">
+          <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
+            <a href="#">Alumni Job Portal.</a>
+          </p>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</footer>
 
 
 
 
-  <router-outlet></router-outlet>
+
+

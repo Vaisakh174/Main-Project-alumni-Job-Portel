@@ -1,10 +1,9 @@
-
 <div class="d-flex justify-content-center p-3 rounded  m-4 ">
 
 
     <div class="  rounded MyBorder wid p-4 ">
         <div class="col-12  ">
-            <h2>Add An Alumni</h2>
+            <h2>Alumni Signup</h2>
             <form [formGroup]="addalumniform" (ngSubmit)="addalumni()">
                 <div class="form-group  ">
 
@@ -12,52 +11,95 @@
                     <label>Enter Alumni Name</label>
                     <input type="text" class="form-control " placeholder="minimum 2 letters required"
                         formControlName="name">
+                    <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger mt-2">
+                        <div *ngIf="f['name'].errors && f['name'].errors['required']">Filed is required.</div>
+                        <div *ngIf="f['name'].errors && f['name'].errors['minlength']">This should be 2
+                            character.</div>
+                    </div>
 
                     <label>Enter Email Address</label>
                     <input type="text" class="form-control" placeholder="minimum 2 letters required"
                         formControlName="email">
+                    <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger mt-2">
+                        <div *ngIf="f['email'].errors && f['email'].errors['required']">Filed is required.</div>
+                        <div *ngIf="f['email'].errors && f['email'].errors['minlength']">This should be 2
+                            character.</div>
+                    </div>
 
                     <label>Enter Mobile Number</label>
                     <input type="number" class="form-control" placeholder="minimum 2 letters required "
                         formControlName="mobile">
+                    <div *ngIf="f['mobile'].touched && f['mobile'].invalid" class="alert alert-danger mt-2">
+                        <div *ngIf="f['mobile'].errors && f['mobile'].errors['required']">Filed is required.</div>
+                        <div *ngIf="f['mobile'].errors && f['mobile'].errors['minlength']">This should be 2
+                            character.</div>
+                    </div>
 
                     <label>Enter Course</label>
-                    <input class="form-control" placeholder="minimum 2 letters" formControlName="course"
-                        >
-                        
-                        <label>Enter Qualification</label>
+                    <input class="form-control" placeholder="minimum 2 letters" formControlName="course">
+                    <div *ngIf="f['course'].touched && f['course'].invalid" class="alert alert-danger mt-2">
+                        <div *ngIf="f['course'].errors && f['course'].errors['required']">Filed is required.</div>
+                        <div *ngIf="f['course'].errors && f['course'].errors['minlength']">This should be 2
+                            character.</div>
+                    </div>
+
+                    <label>Enter Qualification</label>
                     <input type="text" class="form-control " placeholder="minimum 2 letters required"
                         formControlName="qualification">
+                    <div *ngIf="f['qualification'].touched && f['qualification'].invalid"
+                        class="alert alert-danger mt-2">
+                        <div *ngIf="f['qualification'].errors && f['qualification'].errors['required']">Filed is
+                            required.</div>
+                        <div *ngIf="f['qualification'].errors && f['qualification'].errors['minlength']">This should be
+                            2
+                            character.</div>
+                    </div>
 
                     <label>Enter Batch</label><br>
                     <select type="text" class="form-control" placeholder="minimum 2 letters required"
                         formControlName="batch">
-                      
-                        <option >KKEM</option>
-                        <option >NORKA</option>
-                        <option >KDISC</option>
-                      
-                        
-                        </select>
+
+                        <option>KKEM</option>
+                        <option>NORKA</option>
+                        <option>KDISC</option>
+
+
+                    </select>
+                    <div *ngIf="f['batch'].touched && f['batch'].invalid" class="alert alert-danger mt-2">
+                        <div *ngIf="f['batch'].errors && f['batch'].errors['required']">Filed is required.</div>
+                        <div *ngIf="f['batch'].errors && f['batch'].errors['minlength']">This should be 2
+                            character.</div>
+                    </div>
 
                     <label>Enter Placement Status</label>
                     <input type="text" class="form-control" placeholder="minimum 2 letters required "
                         formControlName="placement">
+                    <div *ngIf="f['placement'].touched && f['placement'].invalid" class="alert alert-danger mt-2">
+                        <div *ngIf="f['placement'].errors && f['placement'].errors['required']">Filed is required.</div>
+                        <div *ngIf="f['placement'].errors && f['placement'].errors['minlength']">This should be 2
+                            character.</div>
+                    </div>
 
                     <label>Enter Password</label>
                     <input class="form-control" placeholder="minimum 2 letters" formControlName="password">
-                        
+                    <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger mt-2">
+                        <div *ngIf="f['password'].errors && f['password'].errors['required']">Filed is required.</div>
+                        <div *ngIf="f['password'].errors && f['password'].errors['minlength']">This should be 2
+                            character.</div>
+                    </div>
 
 
                     <small class="text-warning"> All input field must contain atleast 2 letters</small>
 
                 </div>
 
-                <button  [disabled]="addalumniform.invalid" type="submit"
+                <button [disabled]="addalumniform.invalid" type="submit"
                     class="btn rounded my-2 btn-warning">Submit</button>
-                    <a routerLink="/alumnilogin" style="text-decoration: none;"><h4 style="color:white">Click Here  to Login</h4></a>
-            
-                </form>
+                <a routerLink="/alumnilogin" style="text-decoration: none;">
+                    <h4 style="color:white">Click Here to Login</h4>
+                </a>
+
+            </form>
 
 
         </div>

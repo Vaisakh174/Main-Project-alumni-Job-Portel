@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/admin/services/api.service';
-import { AuthService } from 'src/app/admin/services/auth.service';
+// import { AuthService } from 'src/app/admin/services/auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AlumniauthService } from 'src/app/alumni/alumniauth.service';
 
 @Component({
   selector: 'app-first-content',
@@ -11,7 +12,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class FirstContentComponent implements OnInit {
 
-  constructor(private api: ApiService, private router: Router, public auth: AuthService) { }
+  constructor(private api: ApiService, private router: Router, public auth: AlumniauthService) { }
   errmsg: any = 0;
   Back: any = 0;
   job: any = 1;
@@ -90,18 +91,18 @@ export class FirstContentComponent implements OnInit {
 
       //get date from db as string and convert into date obj and add 1day  to it
 
-      let FixedDate = new Date('2022-12-01');//set a old post date for demo
+      let FixedDate = new Date('2022-12-12');//set a old post date for demo
       // let FixedDate = new Date(i.Date);
       FixedDate.setDate(FixedDate.getDate() + 1);
 
       // if (FixedDate.getTime() > currentDate.getTime()) {
       if (currentDate.getTime() > FixedDate.getTime()) {
-        i.ApplyStatus = "false";
+        i.ApplyStatus = 0;
         // console.log('post is invalid')
 
       }
       else {
-        i.ApplyStatus = "true";
+        i.ApplyStatus = 1;
         // console.log('post is valid')
       }
       console.log("apply ", i.ApplyStatus)

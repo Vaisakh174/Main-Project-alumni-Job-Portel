@@ -10,7 +10,6 @@ import { FirstContentComponent } from './main-home/first-content/first-content.c
 import { NavComponent } from './main-home/nav/nav.component';
 import { ReadMoreComponent } from './main-home/read-more/read-more.component';
 import { AlumLoginComponent } from './alumni/alum-login/alum-login.component';
-import { AlumniRegisterComponent } from './alumni/alumni-register/alumni-register.component';
 import { PostjobComponent } from './employer/postjob/postjob.component';
 import { ViewjobComponent } from './employer/viewjob/viewjob.component';
 import { DashboardComponent } from './employer/dashboard/dashboard.component';
@@ -42,8 +41,6 @@ const routes: Routes = [
 
 
       { path: 'alumni', component: AlumSignupComponent},
-      { path: 'register', component: AlumniRegisterComponent },
-      { path: 'alumniRegister', component: AlumniRegisterComponent },
       {path:'alumnilogin',component:AlumLoginComponent}
       
 

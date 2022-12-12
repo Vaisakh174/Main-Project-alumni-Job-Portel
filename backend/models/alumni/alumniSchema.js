@@ -11,7 +11,7 @@ const alumniSchema = new schema({
     batch:{type:String,required:true},
     placement:{type:String},
     password: { type: String, requied: true },
-    Date:{type:String,default:Date.now()}
+    Date:{type:String,required:true}
 
 });
 let alumniUSERS = mongoose.model("alumniUsers", alumniSchema);

@@ -11,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class AdminLoginComponent implements OnInit {
 
-  constructor(private router:Router,private auth:AuthService) { }
+  constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -39,7 +39,7 @@ export class AdminLoginComponent implements OnInit {
       },
       error: (err) => {
 
-         // console.log("error from login ", err.error);     //to view error in browser
+        // console.log("error from login ", err.error);     //to view error in browser
         alert(`Error...  ${err.error}`);
 
       }
@@ -47,7 +47,7 @@ export class AdminLoginComponent implements OnInit {
     });
   }
 
-  signup(){
+  signup() {
     this.router.navigate(["adminsignup"])
   }
 

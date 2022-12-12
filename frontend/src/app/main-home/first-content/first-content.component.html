@@ -35,14 +35,13 @@
         <p class="card-text">{{data.Salary}} </p>
         <p class="card-text">{{data.JobType}} </p>
         <p class="card-text">{{data.Place}} </p>
-        <p class="card-text">{{data.ApplyStatus}} </p>
+        <!-- <p class="card-text">{{data.ApplyStatus}} </p> -->
 
         <div class="d-flex justify-content-center">
           <button (click)="readMore(data._id)" class="btn btn-light m-2">read more</button>
-          <div *ngIf="auth.loggedin()">
-            <button (click)="apply(data._id)" [disabled]='!false' class="btn btn-light m-2">Apply </button>
 
-          </div>
+          <button (click)="apply(data._id)" *ngIf="auth.loggedin()" [disabled]="!data.ApplyStatus"
+            class="btn btn-light m-2">Apply </button>
 
         </div>
 

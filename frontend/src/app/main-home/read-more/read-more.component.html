@@ -22,7 +22,7 @@
             <p class="align">{{viewposts.JobDescription}}</p>
             <hr>
            
-            <button (click)="apply(viewposts._id)" [disabled]="viewposts.ApplyStatus" class="btn btn-primary m-2 align-items-center" *ngIf="auth.loggedin()">Apply </button>
+            <button (click)="apply(viewposts._id)" [disabled]="!viewposts.ApplyStatus" class="btn btn-primary m-2 align-items-center" *ngIf="auth.loggedin()">Apply </button>
             <hr  *ngIf="auth.loggedin()">
         </div>
 

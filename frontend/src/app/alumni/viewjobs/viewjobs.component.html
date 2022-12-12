@@ -1,1 +1,54 @@
-<p>viewjobs works!</p>
+<div class="d-flex justify-content-center m-3 mt-5 ">
+
+    <form class="d-flex w-100" [formGroup]="searchForm" (ngSubmit)="searchData()">
+      <input class="form-control me-2 " type="search" placeholder="Enter Job Name to Search" formControlName="textData"
+        aria-label="Search">
+  
+      <button class="btn btn-info" type="button" [disabled]="searchForm.invalid" (click)="searchData()">Search</button>
+    </form>
+  </div>
+  
+  
+  <div class="d-flex justify-content-between mx-3 mt-4  ">
+  
+    <h3 class=" text-white" *ngIf="job"><i class="text-warning">{{JobSearchMsg}}</i> </h3>
+    <button (click)="back()" *ngIf="Back" class="btn btn-light">Back </button>
+  
+  </div>
+  
+  <div class="mt text-center text-warning  mt-4" *ngIf="errmsg">
+    <h1>{{message}}</h1>
+    <h4><i>(Please search meaningful keywords)</i></h4>
+  </div>
+  
+  
+  <div class="row row-cols-1 m-2 row-cols-md-3 g-3">
+  
+    <div class="col" *ngFor="let data of viewposts let i=index ">
+  
+      <div class="card h-100">
+  
+        <div class="card-body ">
+          <h5 class="card-title ">{{data.Jobname}}</h5>
+          <p class="card-text">({{data.CompanyName}}) </p>
+          <hr>
+          <p class="card-text">{{data.Salary}} </p>
+          <p class="card-text">{{data.JobType}} </p>
+          <p class="card-text">{{data.Place}} </p>
+          <!-- <p class="card-text">{{data.ApplyStatus}} </p> -->
+  
+          <div class="d-flex justify-content-center">
+            <button (click)="readMore(data._id)" class="btn btn-light m-2">read more</button>
+  
+            <button (click)="apply(data._id)" *ngIf="auth.loggedin()" [disabled]="!data.ApplyStatus"
+              class="btn btn-light m-2">Apply </button>
+  
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+  
+  
+  </div>

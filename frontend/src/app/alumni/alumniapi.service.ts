@@ -15,7 +15,9 @@ postalumni(data: any) {
 }
 
 
-
+// loginAlumni(data: any) {
+//   return this.http.post(`${this.url}/api/alumni/login`, data);
+// }
 
 
 

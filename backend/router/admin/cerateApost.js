@@ -105,7 +105,7 @@ router.post('/post', async (req, res) => {
             Language: req.body.Language,
             Contact: req.body.Contact,
             Date: Date(DateNow).toString(),
-            ApplyStatus:"true"
+            ApplyStatus:1
         }
         const newdata = new DATA(item);
         const savedata = await newdata.save();

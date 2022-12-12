@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/admin/services/api.service';
-import { AuthService } from 'src/app/admin/services/auth.service';
+// import { AuthService } from 'src/app/admin/services/auth.service';
+import { AlumniauthService } from 'src/app/alumni/alumniauth.service';
 
 @Component({
   selector: 'app-read-more',
@@ -10,7 +11,7 @@ import { AuthService } from 'src/app/admin/services/auth.service';
 })
 export class ReadMoreComponent implements OnInit {
 
-  constructor(public api: ApiService,public auth:AuthService,private router:Router) { }
+  constructor(public api: ApiService,public auth:AlumniauthService,private router:Router) { }
 
   ngOnInit(): void {this. getdata();
   }
