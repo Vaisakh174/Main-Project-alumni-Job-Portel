@@ -40,8 +40,8 @@ const routes: Routes = [
       // { path:'viewjob',component:ViewjobComponent},
 
 
-      { path: 'alumni', component: AlumSignupComponent},
-      {path:'alumnilogin',component:AlumLoginComponent}
+      { path: 'alumni', component: AlumLoginComponent},
+      {path:'alumnilogin',component:AlumSignupComponent}
       
 
     ]

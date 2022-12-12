@@ -2,12 +2,12 @@
 
   <form [formGroup]="loginform" class="MyBorder rounded  my-5 p-3">
     <div class="row g-0">
-      <div class="col text-center  p-2 mb-3 ">
+      <div class="col   p-2 mb-3 ">
         <h2>Alumni Login</h2>
         <div class="row">
           <div class="col mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" formControlName="email">
+            <input type="email" class="form-control" formControlName="email" placeholder="Enter your Email">
             <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger mt-2">
               <div *ngIf="f['email'].errors && f['email'].errors['required']">Filed is required.</div>
               <div *ngIf="f['email'].errors && f['email'].errors['minlength']">This should be 2
@@ -20,7 +20,7 @@
         <div class="row">
           <div class="col mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" formControlName="password">
+            <input type="password" class="form-control" formControlName="password" placeholder="Enter your password">
             <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger mt-2">
               <div *ngIf="f['password'].errors && f['password'].errors['required']">Filed is required.</div>
               <div *ngIf="f['password'].errors && f['password'].errors['minlength']">This should be 2
@@ -31,16 +31,21 @@
 
         </div>
 
+        <div class="d-flex justify-content-between">
+        <button type="submit" (click)="logincheck()" [disabled]="loginform.invalid"
+        class="btn btn-primary">Submit</button>
+      
+  
+      <a class="btn btn-primary" routerLink="/alumnilogin">Signup? </a>
+    </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-6 offset-3">
-        <div class="d-grid">
-          <button type="submit" (click)="logincheck()" [disabled]="loginform.invalid"
-            class="btn btn-primary">Submit</button>
-        </div>
-      </div>
-    </div>
+    <!-- <div class="row"> -->
+
+
+   
+
+    <!-- </div> -->
 
   </form>
 
