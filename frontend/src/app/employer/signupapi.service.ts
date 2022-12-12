@@ -16,9 +16,9 @@ export class SignupapiService {
     return this.http.post<any>(`${this.apiUrl}/employer/emplogin`,data)
   }
   
-  addjob(data:any){
-    return this.http.post(`${this.apiUrl}/employer/jobpost`,data)
-  }
+  // addjob(data:any){
+  //   return this.http.post(`${this.apiUrl}/employer/jobpost`,data)
+  // }
 
   getjob(){
     return this.http.get(`${this.apiUrl}/employer/joblist`)
@@ -29,4 +29,12 @@ export class SignupapiService {
   updatejob(data:any,id:any){
     return this.http.put(`${this.apiUrl}/employer/editJob`,{data,id})
   }
+
+
+
+  
+  addjob(data: any) {
+    return this.http.post(`${this.apiUrl}/jobpost/post`, data);
+  }
+
 }
