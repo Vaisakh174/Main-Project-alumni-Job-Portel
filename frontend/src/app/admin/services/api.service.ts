@@ -111,6 +111,13 @@ export class ApiService {
   }
 
 
+  // to update ApplyStatus button
+    updateapply(data: any, _id: any) {
+    return this.http.put(`${this.url}/api/jobpost/updateapply`, { data, _id });
+
+  }
+
+
 
   //for data transfer
   public mydata: any;//to pass id for reading a data insie admin

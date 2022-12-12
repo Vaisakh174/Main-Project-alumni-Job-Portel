@@ -10,15 +10,15 @@
 
 
 <div class="d-flex justify-content-between mx-3 mt-4  ">
- 
-    <h3 class=" text-white" *ngIf="job"><i class="text-warning">{{JobSearchMsg}}</i> </h3>
-    <button (click)="back()" *ngIf="Back"  class="btn btn-light">Back </button>
+
+  <h3 class=" text-white" *ngIf="job"><i class="text-warning">{{JobSearchMsg}}</i> </h3>
+  <button (click)="back()" *ngIf="Back" class="btn btn-light">Back </button>
 
 </div>
 
-<div class="mt text-center text-warning  mt-4"*ngIf="errmsg">
-<h1 >{{message}}</h1>
-<h4><i>(Please search meaningful keywords)</i></h4>
+<div class="mt text-center text-warning  mt-4" *ngIf="errmsg">
+  <h1>{{message}}</h1>
+  <h4><i>(Please search meaningful keywords)</i></h4>
 </div>
 
 
@@ -35,11 +35,15 @@
         <p class="card-text">{{data.Salary}} </p>
         <p class="card-text">{{data.JobType}} </p>
         <p class="card-text">{{data.Place}} </p>
-        <!-- <p class="card-text">{{data._id}} </p> -->
+        <p class="card-text">{{data.ApplyStatus}} </p>
 
         <div class="d-flex justify-content-center">
           <button (click)="readMore(data._id)" class="btn btn-light m-2">read more</button>
-          <button (click)="apply(data._id)" [disabled]=!data.ApplyStatus class="btn btn-light m-2" *ngIf="auth.loggedin()">Apply </button>
+          <div *ngIf="auth.loggedin()">
+            <button (click)="apply(data._id)" [disabled]='!false' class="btn btn-light m-2">Apply </button>
+
+          </div>
+
         </div>
 
       </div>

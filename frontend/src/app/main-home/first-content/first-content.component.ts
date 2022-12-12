@@ -22,7 +22,7 @@ export class FirstContentComponent implements OnInit {
 
     this.getdata();
     // setTimeout(this.checkDate, 1000);
-   
+
 
   }
 
@@ -70,27 +70,28 @@ export class FirstContentComponent implements OnInit {
   }];
 
 
-  async getdata() {
-    await this.api.getall().subscribe(res => {
+  getdata() {
+    this.api.getall().subscribe(res => {
       this.viewposts = res;
-      
+      this.checkDate()
     });
     this.errmsg = 0;
     this.Back = 0;
     this.job = 1;
-    await this.checkDate()
+
   }
 
 
-   checkDate() {
+  checkDate() {
     //set current date 
     var currentDate = new Date()
-    console.log("getall - ", this.viewposts)
+    // console.log("getall - ", this.viewposts)
     for (let i of this.viewposts) {
 
       //get date from db as string and convert into date obj and add 1day  to it
 
-      let FixedDate = new Date(i.Date);
+      let FixedDate = new Date('2022-12-01');//set a old post date for demo
+      // let FixedDate = new Date(i.Date);
       FixedDate.setDate(FixedDate.getDate() + 1);
 
       // if (FixedDate.getTime() > currentDate.getTime()) {
@@ -103,11 +104,11 @@ export class FirstContentComponent implements OnInit {
         i.ApplyStatus = "true";
         // console.log('post is valid')
       }
-      console.log("qqq", i)
-      this.api.updates(i.ApplyStatus, i._id).subscribe();
+      console.log("apply ", i.ApplyStatus)
+      this.api.updateapply(i.ApplyStatus, i._id).subscribe();
       // console.log("aaaa", currentDate, FixedDate)
       // console.log("ssss", typeof (currentDate), typeof (FixedDate))
-      
+
 
     }
 

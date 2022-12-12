@@ -30,32 +30,32 @@ function verifytoken(req, res, next) {
 
 
 
-async function checkDate() {
+// async function checkDate() {
 
-    let data = await DATA.find({ Date: { $lt: "2023-11-28T17:29:40.862+00:00" } })
-    if (data) {
-        for (let i = 0; i < data.length; i++) {
-            console.log(`error from check method ${data[i].ApplyStatus}`);
-            data[i].ApplyStatus = "false"
-            // console.log(`error from check method ${data}`);
+//     let data = await DATA.find({ Date: { $lt: "2023-11-28T17:29:40.862+00:00" } })
+//     if (data) {
+//         for (let i = 0; i < data.length; i++) {
+//             console.log(`error from check method ${data[i].ApplyStatus}`);
+//             data[i].ApplyStatus = "false"
+//             // console.log(`error from check method ${data}`);
 
-            await DATA.findByIdAndUpdate(
-                { "_id": data[i]._id },
-                { $set: data[i] }
+//             await DATA.findByIdAndUpdate(
+//                 { "_id": data[i]._id },
+//                 { $set: data[i] }
 
-            );
-        }
+//             );
+//         }
 
-    }
+//     }
 
 
-}
+// }
 
 //get all list (get) for data
 router.get('/getall', async (req, res) => {
 
     try {
-        // let ApplyStatus = await checkDate()
+        
         let list = await DATA.find();
 
         // console.log(`from get method ${list}`);
@@ -104,8 +104,8 @@ router.post('/post', async (req, res) => {
             Schedule: req.body.Schedule,
             Language: req.body.Language,
             Contact: req.body.Contact,
-            Date: Date(DateNow).toString()
-
+            Date: Date(DateNow).toString(),
+            ApplyStatus:"true"
         }
         const newdata = new DATA(item);
         const savedata = await newdata.save();
@@ -196,16 +196,40 @@ router.put('/update', async (req, res) => {
             Schedule: req.body.data.Schedule,
             Language: req.body.data.Language,
             Contact: req.body.data.Contact,
-            Date: Date(DateNow).toString()
-
+            Date: Date(DateNow).toString(),
+            // ApplyStatus:req.body.data.ApplyStatus
         }
-        console.log("incoming data from update", item);
+        // console.log("incoming data from update", req.body);
 
         let updatedata = await DATA.findByIdAndUpdate(
             { "_id": id },
             { $set: item }
         );
-        console.log(`from put method old data ${updatedata}`);
+        // console.log(`from put method old data ${updatedata}`);
+        res.send(updatedata);
+
+    } catch (error) {
+        console.log(`error from get method ${error}`);
+    }
+
+});
+
+// update data for ApplyStatus
+router.put('/updateapply', async (req, res) => {
+
+    try {let _id=req.body._id;
+        let item={
+
+            ApplyStatus:req.body.data
+        }
+        
+        // console.log("incoming data from update", req.body);
+
+        let updatedata = await DATA.findByIdAndUpdate(
+            { "_id": _id },
+            { $set: item }
+        );
+        // console.log(`from put method old data ${updatedata}`);
         res.send(updatedata);
 
     } catch (error) {
