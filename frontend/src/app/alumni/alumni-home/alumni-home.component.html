@@ -12,15 +12,17 @@
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link btn my-btn text-white m-2" routerLink="viewjob" routerLinkActive="activednav" [routerLinkActiveOptions]="{exact:true}">View New Posts</a>
+          <a class="nav-link btn my-btn text-white m-2" routerLink="viewjob" routerLinkActive="activednav"
+            [routerLinkActiveOptions]="{exact:true}">View New Posts</a>
           <!-- *ngIf="!auth.loggedin()" -->
         </li>
-        
+
         <li class="nav-item">
-          <a class="nav-link btn my-btn text-white m-2" (click)="logout()" routerLinkActive="activednav">Logout Alumni</a>
+          <a class="nav-link btn my-btn text-white m-2" (click)="logout()" routerLinkActive="activednav">Logout
+            Alumni</a>
         </li>
 
-     
+
 
       </ul>
 
@@ -44,9 +46,11 @@
     <div class="d-flex justify-content-between">
       <div>
         <h6>About</h6>
-        <p class="footer-text">ICT Academy of Kerala is a Social Enterprise created in a Public Private Partnership
-          model (PPP) for imparting ICT skills to the youths of Kerala and improve their employability opportunities in
-          the Industry. The Company is supported by Govt. of India , partnered by Govt. of Kerala and the IT industry.
+        <p class="footer-text">The ICTAK Alumni Job Portal is a web-based application that is helpful for users, alumni,
+          employers as well as the ICTAK authorities. The main objective of this system is to design or develop a
+          software portal for ICTAK To study the existing system Searching for more job seekers ( clients) is made
+          easier, reduces manual work, To develop a suitable system for Job entries and searches, to reduce errors at
+          the time of Job entries and search.
         </p>
 
 
@@ -59,12 +63,12 @@
       <div class="mx-5">
         <h6>More</h6>
         <ul class="footer-links ">
-          <li><a href="#">C</a></li>
-          <li><a href="#">UI Design</a></li>
-          <li><a href="#">PHP</a></li>
-          <li><a href="#">Java</a></li>
-          <li><a href="#">Android</a></li>
-          <li><a href="# ">Templates</a></li>
+          <li><a routerLink="alumni">Alumni</a></li>
+          <li><a routerLink="employer">Employer</a></li>
+          <li><a routerLink="faculty">Faculty</a></li>
+          <li><a routerLink="admin">Admin</a></li>
+          <!-- <li><a routerLink="">Android</a></li>
+          <li><a routerLink=" ">Templates</a></li> -->
         </ul>
 
 
@@ -79,9 +83,9 @@
 
         <h6>Quick Links</h6>
         <ul class="footer-links">
-          <li><a routerLink="">Home</a></li>
-          <li><a routerLink="signin">Sign in</a></li>
-          <li><a routerLink="login">Log in</a></li>
+          <li><a routerLink="/">Home</a></li>
+          <li><a routerLink="/">Sign in</a></li>
+          <li><a routerLink="/">Log in</a></li>
         </ul>
 
 
@@ -94,7 +98,7 @@
       <div class="row ">
         <div class="col-12">
           <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
-            <a href="#">Alumni Job Portal.</a>
+            <a href="https://github.com/Vaisakh174/Main-Project-alumni-Job-Portel.git">Alumni Job Portal.</a>
           </p>
         </div>
 
@@ -104,9 +108,3 @@
 
   </div>
 </footer>
-
-
-
-
-
-
