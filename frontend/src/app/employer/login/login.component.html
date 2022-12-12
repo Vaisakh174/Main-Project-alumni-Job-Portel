@@ -1,38 +1,39 @@
-
 <div class="container">
 
-<form [formGroup]="loginform" (ngSubmit)="login()" class="MyBorder rounded  my-5 p-3">
+  <form [formGroup]="loginform" (ngSubmit)="login()" class="MyBorder rounded  my-5 p-3">
     <div class="row g-0">
-        <div class="col text-center  p-2 mb-3 ">
-          <h2>Employer Login</h2>
-          <!-- <span class="fs-3 ">Employer LogIn</span> -->
+      <div class="col text-center  p-2 mb-3 ">
+        <h2>Employer Login</h2>
+        <!-- <span class="fs-3 ">Employer LogIn</span> -->
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your Email">
+          <div class="form-text text-danger" *ngIf="email.errors?.['required'] && (email.dirty || email.touched)">Email
+            required.</div>
+          <div class="form-text text-danger" *ngIf="email.errors?.['email'] && (email.dirty || email.touched)">Email
+            invalid.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password"
+            placeholder="Enter your Password">
+          <div class="form-text text-danger"
+            *ngIf="password.errors?.['required'] && (password.dirty || password.touched)">Password required
+            <div class="form-text text-danger"
+              *ngIf="password.errors?.['minlength'] && (password.dirty || password.touched)">Password invalid.</div>
+          </div>
         </div>
         <div class="row">
-            <div class="col mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" formControlName="email">
-              <div class="form-text text-danger" *ngIf="email.errors?.['required'] && (email.dirty || email.touched)">Email
-                required.</div>
-              <div class="form-text text-danger" *ngIf="email.errors?.['email'] && (email.dirty || email.touched)">Email
-                invalid.</div>
-            </div>
-            </div>
-         <div class="row">
-                <div class="col mb-3">
-                  <label for="password" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="password" formControlName="password" >
-                  <div class="form-text text-danger" *ngIf="password.errors?.['required'] && (password.dirty || password.touched)">Password required
-                    <div class="form-text text-danger" *ngIf="password.errors?.['minlength'] && (password.dirty || password.touched)">Password invalid.</div>
-            </div>
-           </div>
-           <div class="row">
-            <div class="col-6 offset-3">
-              <div class="d-grid">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
+          <div class="col-6 offset-3">
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Submit</button>
             </div>
           </div>
+        </div>
 
-       
-</div>
 
+      </div>

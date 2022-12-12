@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col mb-3">
           <label for="name" class="form-label">Name</label>
-          <input type="name" class="form-control" id="name" formControlName="name">
+          <input type="name" class="form-control" id="name" formControlName="name"  placeholder="Enter your Name">
           <div class="form-text text-danger" *ngIf="name.errors?.['required'] && (name.touched || name.dirty)">Name is
             required.</div>
           <div class="form-text text-danger" *ngIf="name.errors?.['minlength'] && (name.touched || name.dirty)">Name is
@@ -20,7 +20,7 @@
         </div>
         <div class="col mb-3">
           <label for="company name" class="form-label">Company Name</label>
-          <input type="company name" class="form-control" id="company name" formControlName="companyname">
+          <input type="company name" class="form-control" id="company name" formControlName="companyname"  placeholder="Enter your Company Name">
           <div class="form-text text-danger"
             *ngIf="cmpnyname.errors?.['required'] && (cmpnyname.touched || cmpnyname.dirty)">Company Name is required.</div>
           <div class="form-text text-danger"
@@ -33,7 +33,7 @@
       <div class="row">
         <div class="col mb-3">
           <label for="email" class="form-label">Email Address</label>
-          <input type="email" class="form-control" id="email" formControlName="email" formControlName="email">
+          <input type="email" class="form-control" id="email" formControlName="email" formControlName="email"  placeholder="Enter your Email">
           <div class="form-text text-danger" *ngIf="email.errors?.['required'] && (email.dirty || email.touched)">Email
             required.</div>
           <div class="form-text text-danger" *ngIf="email.errors?.['pattern'] && (email.dirty || email.touched)">Email
@@ -43,7 +43,7 @@
       <div class="row">
         <div class="col mb-3">
           <label for="phnno" class="form-label">Phone no.</label>
-          <input type="phnno" class="form-control" id="phnno" formControlName="phnno">
+          <input type="phnno" class="form-control" id="phnno" formControlName="phnno"  placeholder="Enter your Phone no">
           <div class="form-text text-danger" *ngIf="phnno.errors?.['required'] && (phnno.dirty || phnno.touched)">Phn
             no.required.</div>
           <div class="form-text text-danger" *ngIf="phnno.errors?.['pattern'] && (phnno.dirty || phnno.touched)">Phn
@@ -57,7 +57,7 @@
       <div class="row">
         <div class="col mb-3">
           <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" formControlName="password">
+          <input type="password" class="form-control" id="password" formControlName="password"  placeholder="Enter your Password">
           <div class="form-text text-danger"
             *ngIf="password.errors?.['required'] && (password.dirty || password.touched)">Password required.</div>
           <div class="form-text text-danger"
@@ -68,7 +68,7 @@
         </div>
         <div class="col mb-3">
           <label for="designation" class="form-label">Designation</label>
-          <input type="designation" class="form-control" id="designation" formControlName="designation">
+          <input type="designation" class="form-control" id="designation" formControlName="designation"  placeholder="Enter your Designation">
           <div class="form-text text-danger"
             *ngIf="designation.errors?.['required'] && (designation.touched || designation.dirty)">required.</div>
           <div class="form-text text-danger"

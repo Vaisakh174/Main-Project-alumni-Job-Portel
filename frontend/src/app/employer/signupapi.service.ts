@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SignupapiService {
+
  apiUrl:any='http://localhost:3000/api'
 //  apiUrl="/api"
   constructor(private http:HttpClient) { }

@@ -14,11 +14,10 @@ import { AlumSignupComponent } from './alumni/alum-signup/alum-signup.component'
 import { AlumniModule } from './alumni/alumni.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlumniRoutingModule } from './alumni/alumni-routing.module';
-import { ApiService } from './admin/services/api.service';
-import { AuthService } from './admin/services/auth.service';
-import { TokenInterceptorService } from './admin/services/token-interceptor.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ApplyJobComponent } from './main-home/apply-job/apply-job.component';
+import { FacultyRoutingModule } from './faculty/faculty-routing.module';
+import { FacultyModule } from './faculty/faculty.module';
 
 
 
@@ -26,22 +25,24 @@ import { ApplyJobComponent } from './main-home/apply-job/apply-job.component';
   declarations: [
     AppComponent,
     NavComponent,
-    FirstContentComponent,ReadMoreComponent,AlumSignupComponent, ApplyJobComponent
-   
-   
+    FirstContentComponent, ReadMoreComponent, AlumSignupComponent, ApplyJobComponent
+
+
   ],
   imports: [
-    BrowserModule,HttpClientModule, AppRoutingModule,
-   
-    AdminRoutingModule,AdminModule,EmployerRoutingModule,EmployerModule,
-    AlumniRoutingModule,AlumniModule,
-   FormsModule,ReactiveFormsModule
+    BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule, AppRoutingModule,
+
+    AdminRoutingModule, AdminModule,
+    // EmployerRoutingModule, EmployerModule,
+    // AlumniRoutingModule, AlumniModule,
+    // FacultyRoutingModule, FacultyModule
+
 
   ],
   providers: [
 
-  
-    ],
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

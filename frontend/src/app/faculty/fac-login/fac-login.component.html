@@ -4,7 +4,7 @@
         <!-- <div class=" d-flex justify-content-center">
             <div class="  rounded  "> -->
                 <div class="col-12">
-                    <h2>Admin Login</h2>
+                    <h2>Faculty Login</h2>
                     <form [formGroup]="loginform" (ngSubmit)="logincheck()">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Enter your Email</label>
@@ -34,7 +34,7 @@
 
                          
                             <!-- <p class="mt-2">Not An Admin..?</p> -->
-                            <button  type="button" (click)="signup()"
+                            <button  type="button" routerLink="/facsignup"
                             class="btn rounded  btn-primary">Sign up..?</button>
                         </div>
                     </form>

@@ -28,6 +28,7 @@ import { ApprovalFormComponent } from './approval-form/approval-form.component';
 import { VerifySignupComponent } from './verify-signup/verify-signup.component';
 import { AdminSignupComponent } from './admin-signup/admin-signup.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -57,7 +58,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     AdminSignupComponent
     ],
   imports: [
-    CommonModule,AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule
+    CommonModule,RouterModule,FormsModule,ReactiveFormsModule,HttpClientModule
   ],
    providers: [
     ApiService,AuthService,
