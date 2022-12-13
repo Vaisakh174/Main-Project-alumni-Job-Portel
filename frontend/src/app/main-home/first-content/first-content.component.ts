@@ -22,11 +22,11 @@ export class FirstContentComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this._loaderShow = true;
+
     this.getdata();
 
 
-    
+
 
   }
   _loaderShow: any
@@ -64,7 +64,7 @@ export class FirstContentComponent implements OnInit {
     this.job = 1;
     this.errmsg = 0;
     this.searchForm.reset();
-    
+
   }
 
 
@@ -78,6 +78,7 @@ export class FirstContentComponent implements OnInit {
 
 
   getdata() {
+    this._loaderShow = true;
     this.api.getall().subscribe(res => {
       this.viewposts = res;
       this.checkDate()
@@ -136,9 +137,9 @@ export class FirstContentComponent implements OnInit {
   }
 
   back() {
-    this._loaderShow = true;
+    
     this.getdata();
-    this._loaderShow = false;
+   
   }
 
 
