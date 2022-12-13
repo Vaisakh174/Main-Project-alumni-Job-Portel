@@ -10,7 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./admin-signup.component.scss']
 })
 export class AdminSignupComponent implements OnInit {
-
+  resp: any
   constructor(private router: Router, private api: ApiService) { }
 
   ngOnInit(): void {
@@ -28,12 +28,10 @@ export class AdminSignupComponent implements OnInit {
   signupcheck() {
     this.api.postAddAdmin(this.addAnAdmin.value).subscribe({
       next: (res) => {
-
-        alert("Data saved successfully")
+        this.resp = res;
+        alert(this.resp.status)
+        console.log("incoming data from signup res ", this.resp.status);  //to view response in browser
         this.router.navigate(['admin']);
-
-        // console.log("incoming data from signup res ",res);  //to view response in browser
-
       },
       error: (err) => {
         // console.log("error from login ", err.error);     //to view error in browser
@@ -48,7 +46,7 @@ export class AdminSignupComponent implements OnInit {
     );
   }
 
-  login(){
+  login() {
     this.router.navigate(['admin'])
   }
 

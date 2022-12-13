@@ -8,6 +8,8 @@ export class SignupapiService {
 
  apiUrl:any='http://localhost:3000/api'
 //  apiUrl="/api"
+
+
   constructor(private http:HttpClient) { }
 
   addemployer(data:any){
