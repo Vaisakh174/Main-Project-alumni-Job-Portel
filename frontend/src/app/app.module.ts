@@ -25,7 +25,7 @@ import { FacultyModule } from './faculty/faculty.module';
   declarations: [
     AppComponent,
     NavComponent,
-    FirstContentComponent, ReadMoreComponent, AlumSignupComponent, ApplyJobComponent
+    FirstContentComponent, ReadMoreComponent, AlumSignupComponent, ApplyJobComponent,
 
 
   ],

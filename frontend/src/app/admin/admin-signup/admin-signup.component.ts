@@ -46,8 +46,5 @@ export class AdminSignupComponent implements OnInit {
     );
   }
 
-  login() {
-    this.router.navigate(['admin'])
-  }
 
 }

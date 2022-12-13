@@ -6,7 +6,7 @@ import { AlumLoginComponent } from './alum-login/alum-login.component';
 import { AlumSignupComponent } from './alum-signup/alum-signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlumniHomeComponent } from './alumni-home/alumni-home.component';
-import { ViewjobsComponent } from './viewjobs/viewjobs.component';
+
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
     AlumLoginComponent,
 
       AlumniHomeComponent,
-      ViewjobsComponent
+ 
   ],
   imports: [
     CommonModule,
