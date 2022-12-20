@@ -41,10 +41,13 @@ export class ApiService {
     return this.http.get(`${this.url}/api/approve/getAllApproved`);
   }
 
+ //approved
+  deletesApprd(_id: any) {
+    return this.http.delete(`${this.url}/api/approve/deleted/${_id}`);
+  }
 
 
 
-  
   // //for job apply
   applypost(postData: any,alumniData:any) {
     return this.http.post(`${this.url}/api/approve/apply`,{postData,alumniData});
@@ -53,6 +56,12 @@ export class ApiService {
   //for file upload
   uploadPost(file: any) {
     return this.http.post(`${this.url}/api/approve/upload`,file);
+  }
+
+  
+  //for file download
+  downloadPdf(filename:any) {
+    return this.http.get(`${this.url}/api/approve/download/${filename}`,{responseType:'blob'});
   }
 
 

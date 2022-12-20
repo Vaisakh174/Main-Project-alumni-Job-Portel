@@ -24,6 +24,9 @@
           <hr>
 
           <p>Alumni Name : {{datas.Alumni_name}}</p>
+
+          <p>Alumni Resume : {{datas.filename}}</p>
+          
           <p>Alumni Phone : {{datas.Alumni_phone}}</p>
           <p>Alumni Email : {{datas.Alumni_email}}</p>
           <p>Alumni Qualifications : {{datas.Alumni_qualification}}</p>
@@ -38,8 +41,8 @@
           <p class="align">{{datas.JobDescription}}</p>
           <hr>
          
-          <!-- <button (click)="edit(datas._id)" class="btn btn-primary m-2 align-items-center" *ngIf="auth.loggedin()">Apply </button>
-          <hr  *ngIf="auth.loggedin()"> -->
+          <button (click)="downloadResume(datas.filename)" class="btn btn-warning my-2 " >View Resume</button>
+          
       </div>
 
   </div>

@@ -1,35 +1,45 @@
+<div class="" *ngIf="loaderShow">
+
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border text-light m-5" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+</div>
+
 
 <table class="table table-success table-striped text-center">
-    <thead>
-      <tr class="text-danger">
-        <th scope="col">#</th>
-        <th scope="col">Jobname</th>
-        <th scope="col">CompanyName</th>
-        <th scope="col">Place</th>
-        <th scope="col">Salary</th>
-        <th scope="col">Qualifications</th>
-        <th scope="col">Experience</th>
-        <th scope="col">Date</th>
-        <th scope="col">Function</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let data of viewposts let i=index ">
-        <th scope="row">{{i+1}}</th>
-        <td>{{data.Jobname}}</td>
-        <td>{{data.CompanyName}}</td>
-        <td>{{data.Place}}</td>
-         <td>{{data.Salary}}</td>
-        <td>{{data.Qualifications}}</td>
-        <td>{{data.Experience}}</td> 
-        <td>{{data.Date}}</td>
-        <td>
-            <button (click)="deletes(data._id)" type="button" class="btn w-100 m-1 btn-danger ">Delete</button>
-            <button (click)="edit (data._id)" type="button" class="btn w-100 m-1 btn-warning ">Edit</button>
-            
-            <button (click)="readmore (data._id)" type="button" class="btn w-100 m-1  btn-success">Read More</button>
-        </td>
-      </tr>
-      
-    </tbody>
-  </table>
+  <thead>
+    <tr class="text-danger">
+      <th scope="col">#</th>
+      <th scope="col">Jobname</th>
+      <th scope="col">CompanyName</th>
+      <th scope="col">Place</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Qualifications</th>
+      <th scope="col">Experience</th>
+      <th scope="col">Date</th>
+      <th scope="col">Function</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of viewposts let i=index ">
+      <th scope="row">{{i+1}}</th>
+      <td>{{data.Jobname}}</td>
+      <td>{{data.CompanyName}}</td>
+      <td>{{data.Place}}</td>
+      <td>{{data.Salary}}</td>
+      <td>{{data.Qualifications}}</td>
+      <td>{{data.Experience}}</td>
+      <td>{{data.Date}}</td>
+      <td>
+        <button (click)="deletes(data._id)" type="button" class="btn w-100 m-1 btn-danger ">Delete</button>
+        <button (click)="edit (data._id)" type="button" class="btn w-100 m-1 btn-warning ">Edit</button>
+
+        <button (click)="readmore (data._id)" type="button" class="btn w-100 m-1  btn-success">Read More</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>

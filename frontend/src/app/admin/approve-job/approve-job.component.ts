@@ -35,14 +35,17 @@ export class ApproveJobComponent implements OnInit {
     this.api.postApprd(this.approveposts[i]).subscribe(res => {
       // console.log("incoming data from appr ", this.approveposts);
       // alert("Data saved successfully");
-    })
+    
 
 
     this.api.deletesAppr(_id).subscribe((res) => {
 
     })
-    this.getdata()
+    this.getdata();
     alert("Data Is Now Approved")
+  })
+   
+   
   }
 
 

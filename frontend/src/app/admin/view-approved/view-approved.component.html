@@ -8,30 +8,33 @@
                 <div class="col-12 ">
 
 
-                    <h5 class="card-title text-center">{{job.Jobname}}</h5><br>
-                    <p class="card-subtitle mb-2 "><b>Company Name: </b>{{job.CompanyName}}</p>
-                    <p class="card-subtitle mb-2 "><b>Location: </b>{{job.Place}}</p>
-                    <p class="card-subtitle mb-2 "><b>Salary: </b>{{job.Salary}}</p>
-                    <p class="card-subtitle mb-2 "><b>Job Type: </b>{{job.JobType}}</p>
-                    <p class="card-subtitle mb-2 "><b>Qualifications: </b>{{job.Qualifications}}</p>
-                    <p class="card-subtitle mb-2 "><b>Experience: </b>{{job.Experience}}</p>
-                    <p class="card-subtitle mb-2 "><b>Benefits: </b>{{job.Benefits}}</p>
-                    <p class="card-subtitle mb-2 "><b>Schedule: </b>{{job.Schedule}}</p>
-                    <p class="card-subtitle mb-2 "><b>Language: </b>{{job.Language}}</p>
-                    <p class="card-subtitle mb-2 "><b>Contact: </b>{{job.Contact}}</p>
-                    <p class="card-subtitle mb-2 "><b>Posted Date: </b>{{job.Date}}</p>
-                    <p class="card-text justify"><b>Job Description : </b>{{job.JobDescription}}</p>
+                    <h5 class=" text-center">{{job.Jobname}}</h5><br>
+                    <p class=" mb-2 "><b>Company Name: </b>{{job.CompanyName}}</p>
+                    <p class=" mb-2 "><b>Location: </b>{{job.Place}}</p>
+                    <p class=" mb-2 "><b>Salary: </b>{{job.Salary}}</p>
+                    <p class=" mb-2 "><b>Job Type: </b>{{job.JobType}}</p>
+                    <p class=" mb-2 "><b>Qualifications: </b>{{job.Qualifications}}</p>
+                    <p class=" mb-2 "><b>Experience: </b>{{job.Experience}}</p>
+                    <p class=" mb-2 "><b>Benefits: </b>{{job.Benefits}}</p>
+                    <p class=" mb-2 "><b>Schedule: </b>{{job.Schedule}}</p>
+                    <p class=" mb-2 "><b>Language: </b>{{job.Language}}</p>
+                    <p class=" mb-2 "><b>Contact: </b>{{job.Contact}}</p>
+                    <p class=" mb-2 "><b>Posted Date: </b>{{job.Date}}</p>
+                    <p class="mb-2 justify"><b>Job Description : </b>{{job.JobDescription}}</p>
 
                     <hr>
 
-                    <p class="card-subtitle mb-2 "><b>Alumni Name: </b>{{job.Alumni_name}}</p>
-                    <p class="card-subtitle mb-2 "><b>Alumni Phone: </b>{{job.Alumni_phone}}</p>
-                    <p class="card-subtitle mb-2 "><b>Alumni Email: </b>{{job.Alumni_email}}</p>
-                    <p class="card-subtitle mb-2 "><b>Alumni Qualification: </b>{{job.Alumni_qualification}}</p>
-                    <p class="card-subtitle mb-2 "><b>Alumni Experience: </b>{{job.Alumni_Experience}}</p>
-                    <p class="card-subtitle mb-2 "><b>Course Taken: </b>{{job.Alumni_course}}</p>
-                    <p class="card-subtitle mb-2 "><b>Branch in ICT: </b>{{job.Alumni_branch}}</p>
+                    <p class="mb-2 "><b>Resume filename : </b>{{job.filename}}</p>
 
+                    <p class=" mb-2 "><b>Alumni Name: </b>{{job.Alumni_name}}</p>
+                    <p class=" mb-2 "><b>Alumni Phone: </b>{{job.Alumni_phone}}</p>
+                    <p class=" mb-2 "><b>Alumni Email: </b>{{job.Alumni_email}}</p>
+                    <p class=" mb-2 "><b>Alumni Qualification: </b>{{job.Alumni_qualification}}</p>
+                    <p class=" mb-2 "><b>Alumni Experience: </b>{{job.Alumni_Experience}}</p>
+                    <p class=" mb-2 "><b>Course Taken: </b>{{job.Alumni_course}}</p>
+                    <p class=" mb-2 "><b>Branch in ICT: </b>{{job.Alumni_branch}}</p>
+                    <button class="btn btn-warning my-2" (click)="download(job.filename)">Download Resume</button>
+                    <button class="btn btn-danger m-2" (click)="deleted(job._id)">Delete</button>
                 </div>
 
             </div>

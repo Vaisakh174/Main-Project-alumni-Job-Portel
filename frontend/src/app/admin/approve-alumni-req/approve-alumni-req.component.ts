@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import{saveAs} from 'file-saver'
 
 @Component({
   selector: 'app-approve-alumni-req',
@@ -30,6 +31,15 @@ Place: "", Jobname: "", JobID: ""
     this.api.getbyidappr(this._id).subscribe(res => {
       this.datas = res;
     });
+
+  }
+
+  downloadResume(filename:any){
+    this.api.downloadPdf(filename).subscribe((data:Blob | MediaSource )=>{
+
+      let downloadURL=window.URL.createObjectURL(data);
+      saveAs(downloadURL);
+    })
 
   }
 

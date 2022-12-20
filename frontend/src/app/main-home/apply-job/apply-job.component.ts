@@ -53,16 +53,17 @@ export class ApplyJobComponent implements OnInit {
     // console.log(formData)
 
     this.api.uploadPost(formData).subscribe(res => {
-      // console.log(res)f
-    });
-
-    this.api.applypost(this.postDetails, this.applyform.value).subscribe(res => {
       // console.log(res)
+
+
+      this.api.applypost(this.postDetails, this.applyform.value).subscribe(res => {
+        // console.log(res)
+      });
     });
 
     alert("Data saved Successfully");
     this.router.navigate(['/']);
-    
+
   }
 
 

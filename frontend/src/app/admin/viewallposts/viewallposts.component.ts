@@ -18,11 +18,14 @@ export class ViewallpostsComponent implements OnInit {
   viewposts: any = [{ Jobname: "", CompanyName: "", Place: "", Salary: "",
   JobType: "", Qualifications: "", JobDescription: "", Experience: "" ,
   Benefits: "", Schedule: "", Language: "", Contact: "" }];
+  loaderShow:any;
 
   getdata() {
+    this.loaderShow=true;
     this.api.getall().subscribe(res => {
       this.viewposts = res;
       // console.log("incoming data from booklist getall", this.viewposts);
+      this.loaderShow=false;
     });
   }
 

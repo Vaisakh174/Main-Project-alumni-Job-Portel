@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import{saveAs} from 'file-saver'
+
 
 @Component({
   selector: 'app-view-approved',
@@ -20,6 +22,23 @@ export class ViewApprovedComponent implements OnInit {
       this.approvedJobs=res
       console.log("ggg",res)
     })
+  }
+
+
+  download(filename:any){
+this.api.downloadPdf(filename).subscribe((data:Blob | MediaSource )=>{
+
+  let downloadURL=window.URL.createObjectURL(data);
+  saveAs(downloadURL);
+})
+
+  }
+
+
+
+  deleted(_id:any){
+this.api.deletesApprd(_id).subscribe();
+this.getjob();
   }
 
 

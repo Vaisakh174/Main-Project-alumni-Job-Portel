@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SignupapiService } from '../signupapi.service';
+import{saveAs} from 'file-saver'
 
 @Component({
   selector: 'app-approved-posts',
@@ -22,5 +23,15 @@ export class ApprovedPostsComponent implements OnInit {
     })
   }
 
+
+  viewPDF(filename:any){
+
+    this.api.downloadPdf(filename).subscribe((data:Blob | MediaSource )=>{
+
+      let downloadURL=window.URL.createObjectURL(data);
+      saveAs(downloadURL);
+    })
+
+  }
 
 }
