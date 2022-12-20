@@ -4,15 +4,15 @@
         <!-- <div class=" d-flex justify-content-center">
             <div class="  rounded  "> -->
                 <div class="col-12">
-                    <h2>Admin Login</h2>
+                    <h2 >Admin Login</h2>
                     <form [formGroup]="loginform" (ngSubmit)="logincheck()">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Enter your Email</label>
                             <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email"  placeholder="Enter your Email"
-                                aria-describedby="emailHelp" name="email">
+                                aria-describedby="emailHelp" name="email" >
                             <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger mt-2">
                                 <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
-                                <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email
+                                <div *ngIf="f['email'].errors && f['email'].errors['email']">Please enter valid email
                                     address.</div>
                             </div>
                             <br>

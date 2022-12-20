@@ -37,12 +37,21 @@ export class SignupapiService {
 
 
 
+//approved
+  getallapprd() {
+    return this.http.get(`${this.apiUrl}/approve/getAllApproved`);
+  }
+
+
+
+
+
 
   //for job posts
 
   getall() {
     return this.http.get(`${this.apiUrl}/jobpost/getall`);
-  }
+  } 
 
 
   addjob(data: any) {

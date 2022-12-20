@@ -25,6 +25,13 @@ export class AdminLoginComponent implements OnInit {
     return this.loginform.controls;
   }
 
+
+  // check(e:any){
+  //   // this. f() 
+  //   console.log( e)
+  //   // (keyup)="check($event)"
+  // }
+
   logincheck() {
     this.auth.loginuser(this.loginform.value).subscribe({
 

@@ -21,6 +21,7 @@ import { ApproveJobComponent } from './approve-job/approve-job.component';
 import { ApprovalFormComponent } from './approval-form/approval-form.component';
 import { AuthgGuard } from './guard/authg.guard';
 import { VerifySignupComponent } from './verify-signup/verify-signup.component';
+import { ViewApprovedComponent } from './view-approved/view-approved.component';
 
 
 const routes: Routes = [
@@ -73,6 +74,7 @@ const routes: Routes = [
     { path: 'readmore', component: ReaedmorepostComponent },
     { path: 'editpost', component: EditpostformComponent },
     { path: 'approvejob', component: ApproveJobComponent },
+    { path: 'approvedjob', component: ViewApprovedComponent },
     { path: 'editApproval', component: ApprovalFormComponent },
     { path: 'readmore2', component: ApproveAlumniReqComponent }]
 

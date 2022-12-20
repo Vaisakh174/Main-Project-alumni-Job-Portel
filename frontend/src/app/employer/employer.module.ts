@@ -11,6 +11,7 @@ import { ViewjobComponent } from './viewjob/viewjob.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditComponent } from './edit/edit.component';
 import { RouterModule } from '@angular/router';
+import { ApprovedPostsComponent } from './approved-posts/approved-posts.component';
 
 
 
@@ -24,6 +25,7 @@ import { RouterModule } from '@angular/router';
     PostjobComponent,
     ViewjobComponent,
     EditComponent,
+    ApprovedPostsComponent,
   ],
   imports: [
     CommonModule,

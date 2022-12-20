@@ -16,6 +16,8 @@ export class ReadMoreComponent implements OnInit {
   ngOnInit(): void {this. getdata();
   }
 
+  loaderShow: any
+
   viewposts: any = [{ Jobname: "", CompanyName: "", Place: "", Salary: "",
   JobType: "", Qualifications: "", JobDescription: "", Experience: "" ,
   Benefits: "", Schedule: "", Language: "", Contact: "" }];
@@ -23,10 +25,11 @@ export class ReadMoreComponent implements OnInit {
   _id=this.api.homeReadMoredata;
 
   getdata() {
-    
+    this.loaderShow=true;
     this.api.getbyid(this._id).subscribe(res => {
       this.viewposts = res;
       // console.log("incoming data from readbook getall", this._id);
+      this.loaderShow=false;
     });
 
 }

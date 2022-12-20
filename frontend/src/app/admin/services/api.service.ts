@@ -34,6 +34,17 @@ export class ApiService {
   }
 
 
+
+
+  //approved
+  getallapprd() {
+    return this.http.get(`${this.url}/api/approve/getAllApproved`);
+  }
+
+
+
+
+  
   // //for job apply
   applypost(postData: any,alumniData:any) {
     return this.http.post(`${this.url}/api/approve/apply`,{postData,alumniData});

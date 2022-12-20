@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ApprovedPostsComponent } from './approved-posts/approved-posts.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditComponent } from './edit/edit.component';
 import { EmployerhomeComponent } from './employerhome/employerhome.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'postjob', component: PostjobComponent },
       { path: 'viewjob', component: ViewjobComponent },
       { path: 'edit/:id', component: EditComponent },
+      { path: 'approvedposts', component: ApprovedPostsComponent },
 
       { path: "", redirectTo: "dashboard", pathMatch: 'full' },
 
