@@ -2,6 +2,19 @@
 
 
     <div class="  rounded MyBorder wid p-4 ">
+
+        <div *ngIf="_loaderShow">
+            <div class="loading">
+                <div>
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border m-4 text-light" role="status"> </div>
+                    </div>
+                    <h6>Please Wait While Loading...</h6>
+                </div>
+            </div>
+        </div>
+
+
         <div class="col-12 ">
             <h2>Job Apply Form</h2>
             <form [formGroup]="applyform" (ngSubmit)="Submit()">
@@ -49,9 +62,9 @@
 
                 </div>
 
-                <button [disabled]="applyform.invalid" type="submit"
+                <button *ngIf="auth.loggedin()" [disabled]="applyform.invalid" type="submit"
                     class="btn rounded my-2 btn-warning">Submit</button>
-                <!-- *ngIf="auth.loggedin()" -->
+                <!--  -->
             </form>
 
 

@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const DATA = require("../../models/admin/createNewJob.js");
-
+const GMT00 = require("../../convertGMT00toIST.js");
 const jwt = require('jsonwebtoken')
 
 
@@ -26,6 +26,9 @@ function verifytoken(req, res, next) {
     next();
 
 }
+
+
+
 
 
 
@@ -68,7 +71,7 @@ router.get('/getsingle/:id', async (req, res) => {
 router.post('/post', async (req, res) => {
 
     try {
-        const DateNow = Date.now();
+        // const DateNow = Date.now();
         let item = {
 
             Jobname: req.body.Jobname,
@@ -83,7 +86,8 @@ router.post('/post', async (req, res) => {
             Schedule: req.body.Schedule,
             Language: req.body.Language,
             Contact: req.body.Contact,
-            Date: Date(DateNow).toString(),
+            // Date: Date(DateNow).toString(),
+            Date: GMT00.getCurrentTimeInIST(),
             ApplyStatus:1
         }
         const newdata = new DATA(item);

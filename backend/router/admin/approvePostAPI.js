@@ -3,8 +3,9 @@ const router = express.Router();
 const approvePost = require("../../models/admin/approvePost.js");
 const approvedPost = require("../../models/admin/approvedpost.js");
 const jwt = require('jsonwebtoken')
-const multer = require('multer');
-var filenameV
+const GMT00 = require("../../convertGMT00toIST.js");
+const multerData = require("./fileUploadToLocaly.js");
+var filenameV;
 
 //middleware
 function verifytoken(req, res, next) {
@@ -30,11 +31,13 @@ function verifytoken(req, res, next) {
 
 
 
+
+
 //get all list (get) for data approved
 router.get('/getAllApproved', async (req, res) => {
 
     try {
-        let list = await approvedPost.find().sort({"Date":-1});;
+        let list = await approvedPost.find().sort({ "Date": -1 });;
 
         console.log(`from get apprd method`);
         res.send(list);
@@ -53,13 +56,13 @@ router.get('/getAllApproved', async (req, res) => {
 
 
 //add data when approved (post)
-router.post('/posted',verifytoken, async (req, res) => {
+router.post('/posted', verifytoken, async (req, res) => {
     // console.log("hr",req.body.Jobname);
     try {
-        
+
         let item = {
 
-           
+
             JobID: req.body.JobID,
             Jobname: req.body.Jobname,
             Place: req.body.Place,
@@ -73,7 +76,7 @@ router.post('/posted',verifytoken, async (req, res) => {
             Language: req.body.Language,
             Contact: req.body.Contact,
             CompanyName: req.body.CompanyName,
-            filename:req.body.filename,
+            filename: req.body.filename,
 
             Alumni_name: req.body.Alumni_name,
             Alumni_phone: req.body.Alumni_phone,
@@ -99,7 +102,7 @@ router.post('/posted',verifytoken, async (req, res) => {
 });
 
 // delete data
-router.delete('/deleted/:id',verifytoken, async (req, res) => {
+router.delete('/deleted/:id', verifytoken, async (req, res) => {
 
     try {
         let id = req.params.id;
@@ -133,7 +136,7 @@ router.delete('/deleted/:id',verifytoken, async (req, res) => {
 //         const DateNow = Date.now();
 //         let item = {
 
-           
+
 //             JobID: req.body._id,
 //             Jobname: req.body.Jobname,
 //             Place: req.body.Place,
@@ -147,7 +150,7 @@ router.delete('/deleted/:id',verifytoken, async (req, res) => {
 //             Language: req.body.Language,
 //             Contact: req.body.Contact,
 //             CompanyName: req.body.CompanyName,
-       
+
 
 //             Alumni_name: req.body.Alumni_name,
 //             Alumni_phone: req.body.Alumni_phone,
@@ -158,9 +161,9 @@ router.delete('/deleted/:id',verifytoken, async (req, res) => {
 //             Alumni_branch: req.body.Alumni_branch,
 //             Alumni_Placement: req.body.Alumni_Placement,
 //             Placed_company: req.body.Placed_company,
-//             Date: Date(DateNow).toString()
+//             Date: getCurrentTimeInIST()
 
-            
+
 
 //         }
 //         const newdata = new approvePost(item);
@@ -176,10 +179,10 @@ router.delete('/deleted/:id',verifytoken, async (req, res) => {
 
 
 //get all list (get) for data
-router.get('/getall',verifytoken, async (req, res) => {
+router.get('/getall', verifytoken, async (req, res) => {
 
     try {
-        let list = await approvePost.find().sort({"Date":-1});;
+        let list = await approvePost.find().sort({ "Date": -1 });
 
         // console.log(`from get method ${list}`);
         res.send(list);
@@ -192,7 +195,7 @@ router.get('/getall',verifytoken, async (req, res) => {
 });
 
 // fetch single data (get)
-router.get('/getsingle/:id',verifytoken, async (req, res) => {
+router.get('/getsingle/:id', verifytoken, async (req, res) => {
 
     try {
         let id = req.params.id;
@@ -205,112 +208,103 @@ router.get('/getsingle/:id',verifytoken, async (req, res) => {
 
 });
 
-//apply job
-router.post('/apply', async (req, res) => {
-    // console.log("*****", req.body.alumniData);
-    // console.log("*****", req.body.postData);
-    try {
-        const DateNow = Date.now();
-        let item = {
 
-      
 
-            JobID: req.body.postData._id,
-            Jobname: req.body.postData.Jobname,
-            Place: req.body.postData.Place,
-            Salary: req.body.postData.Salary,
-            JobType: req.body.postData.JobType,
-            Qualifications: req.body.postData.Qualifications,
-            JobDescription: req.body.postData.JobDescription,
-            Experience: req.body.postData.Experience,
-            Benefits: req.body.postData.Benefits,
-            Schedule: req.body.postData.Schedule,
-            Language: req.body.postData.Language,
-            Contact: req.body.postData.Contact,
-            CompanyName: req.body.postData.CompanyName,
-            
-
-            Alumni_name: req.body.alumniData.Alumni_name,
-            Alumni_phone: req.body.alumniData.Alumni_phone,
-            Alumni_email: req.body.alumniData.Alumni_email,
-            Alumni_qualification: req.body.alumniData.Alumni_qualification,
-            Alumni_Experience: req.body.alumniData.Alumni_Experience,
-            Alumni_course: req.body.alumniData.Alumni_course,
-            Alumni_branch: req.body.alumniData.Alumni_branch,
-            Alumni_Placement: req.body.alumniData.Alumni_Placement,
-            Placed_company: req.body.alumniData.Placed_company,
-            filename:filenameV,
-            Date: Date(DateNow).toString()
-
-        }
-        const newdata = new approvePost(item);
-        const savedata = await newdata.save();
-        console.log(`from apply method ${item.filename}`);
-       
-        res.send(savedata);
-
-    } catch (error) {
-        console.log(`error from get method ${error}`);
-    }
-
-});
+// for local upload 
+// router.post('/upload', multerData.upload.single('file'), async (req, res,) => {
 
 
 
-//file upload
-const storage = multer.diskStorage({
-    
-    destination: (req, file, callBack) => {
-        callBack(null, 'Uploaded_Files')
-    },
-    filename: (req, file, callBack) => {
-      
-   
+
+
+//     filenameV = ""
+//     try {
+//         const file = req.file;
+
+//         filenameV = file.filename
+//         console.log("upld file: ", filenameV);
+
+//         let postData=JSON.parse(req.body.postData);
+//         let alumniData=JSON.parse(req.body.alumniData);
+        
+//         if (!file) {
+           
+//             res.send({ "status": "Upload Error" });
      
-        callBack(null,`alumni_resp ${file.originalname} ${Date.now()}.pdf` )
-    }
-})
+//         }
+//         else {
 
-const upload = multer({ storage: storage })
+//             let  item = {
 
-router.post('/upload',upload.single('file'), (req, res, next) => {
-
-    filenameV=""
-    const file = req.file;
-   
-    filenameV=file.filename
-    console.log("upld",filenameV);
+//                 JobID:postData._id,
+//                 Jobname:postData.Jobname,
+//                 Place:postData.Place,
+//                 Salary:postData.Salary,
+//                 JobType:postData.JobType,
+//                 Qualifications:postData.Qualifications,
+//                 JobDescription:postData.JobDescription,
+//                 Experience:postData.Experience,
+//                 Benefits:postData.Benefits,
+//                 Schedule:postData.Schedule,
+//                 Language:postData.Language,
+//                 Contact:postData.Contact,
+//                 CompanyName:postData.CompanyName,
     
-    if (!file) {
-        const error = new Error('No File')
-        error.httpStatusCode = 400
-        return next(error)
-    }
-    res.send(file);
-    // console.log("fffff",fileName)
-})
+    
+//                 Alumni_name:alumniData.Alumni_name,
+//                 Alumni_phone:alumniData.Alumni_phone,
+//                 Alumni_email:alumniData.Alumni_email,
+//                 Alumni_qualification:alumniData.Alumni_qualification,
+//                 Alumni_Experience:alumniData.Alumni_Experience,
+//                 Alumni_course:alumniData.Alumni_course,
+//                 Alumni_branch:alumniData.Alumni_branch,
+//                 Alumni_Placement:alumniData.Alumni_Placement,
+//                 Placed_company:alumniData.Placed_company,
+//                 filename:  req.file.filename,
+//                 // Date: Date(DateNow).toString()
+//                 Date: GMT00.getCurrentTimeInIST()
+    
+//             }
+
+//             const newdata = new approvePost(item);
+//             const savedata = await newdata.save();
+//             console.log('from apply method item: ', item);
+//             // res.send(savedata);
+//             res.send({ "status": "Upload Success" });
+//             // console.log("fffff",fileName)
+
+//         }
+//     } catch (error) {
+//         console.log("Err 123 file upload ");
+//         console.log(error);
+//     }
+
+// })
 
 
 
 
-//for pdf download in angular
-router.get('/download/:filename', (req, res, next) => {
-    console.log('dwnld',req.params.filename)
-    res.download(`./Uploaded_Files/${req.params.filename}`,(err)=>{
+// //for local file download in angular
+// router.get('/download/:filename', (req, res, next) => {
+//     console.log('dwnld', req.params.filename)
+//     res.download(`${__dirname}../../../Uploaded_Files/${req.params.filename}`, (err) => {
 
-        if(err){
-            console.log("download err  ",err)
-            res.send({msg:err});
-        }
-    });
+//         if (err) {
+//             console.log("download err  ", err)
+//             res.send({ msg: err });
+//         }
+//     });
 
-})
+// })
+
+
+
 
 
 
 
 // delete data
-router.delete('/delete/:id',verifytoken, async (req, res) => {
+router.delete('/delete/:id', verifytoken, async (req, res) => {
 
     try {
         let id = req.params.id;
@@ -325,14 +319,14 @@ router.delete('/delete/:id',verifytoken, async (req, res) => {
 });
 
 // update data
-router.put('/update',verifytoken, async (req, res) => {
+router.put('/update', verifytoken, async (req, res) => {
 
     try {
         let id = req.body._id;
 
         let item = { //remove 'data' from below if we not pass data object from frontend
 
-            
+
             JobID: req.body.data.JobID,
             Jobname: req.body.data.Jobname,
             Place: req.body.data.Place,
@@ -357,7 +351,7 @@ router.put('/update',verifytoken, async (req, res) => {
             Alumni_branch: req.body.data.Alumni_branch,
             Alumni_Placement: req.body.data.Alumni_Placement,
             Placed_company: req.body.data.Placed_company
-            
+
 
         }
         // console.log("incoming data from update", item);

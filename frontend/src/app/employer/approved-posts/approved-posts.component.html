@@ -1,34 +1,48 @@
+<h2 class="text-center text-white  mt-4">Approved Posts</h2>
+
+<div class="card  mt-5 h-80" *ngFor="let job of approvedJobs" style="width: 50rem;  ">
+  <div class="card-body">
+    <h5 class="card-title text-center">{{job.Jobname}}</h5><br>
+    <h6 class="card-subtitle mb-2 ">Company Name:{{job.CompanyName}}</h6>
+    <h6 class="card-subtitle mb-2 ">Location:{{job.Place}}</h6>
+    <h6 class="card-subtitle mb-2 ">Salary:{{job.Salary}}</h6>
+    <h6 class="card-subtitle mb-2 ">Job Type:{{job.JobType}}</h6>
+    <h6 class="card-subtitle mb-2 ">Qualifications:{{job.Qualifications}}</h6>
+    <h6 class="card-subtitle mb-2 ">Experience:{{job.Experience}}</h6>
+    <h6 class="card-subtitle mb-2 ">Benefits:{{job.Benefits}}</h6>
+    <h6 class="card-subtitle mb-2 ">Schedule:{{job.Schedule}}</h6>
+    <h6 class="card-subtitle mb-2 ">Language:{{job.Language}}</h6>
+    <h6 class="card-subtitle mb-2 ">Contact:{{job.Contact}}</h6>
+    <h6 class="card-subtitle mb-2 ">Posted Date:{{job.Date}}</h6>
+    <p class="card-text"><b>Job Description: </b>{{job.JobDescription}}</p>
+
+    <hr>
+
+    <h6 class="card-subtitle mb-2 ">Alumni Name:{{job.Alumni_name}}</h6>
+    <h6 class="card-subtitle mb-2 ">Alumni Phone:{{job.Alumni_phone}}</h6>
+    <h6 class="card-subtitle mb-2 ">Alumni Email:{{job.Alumni_email}}</h6>
+    <h6 class="card-subtitle mb-2 ">Alumni Qualification:{{job.Alumni_qualification}}</h6>
+    <h6 class="card-subtitle mb-2 ">Alumni Experience:{{job.Alumni_Experience}}</h6>
+    <h6 class="card-subtitle mb-2 ">Course Taken:{{job.Alumni_course}}</h6>
+    <h6 class="card-subtitle mb-2 ">Branch in ICT:{{job.Alumni_branch}}</h6>
+
+    <button (click)="viewPDF(job.filename)" class="btn btn-primary">View Resume</button>
+
+  </div>
+</div>
 
 
-    <h2 class="text-center text-white  mt-4">Approved Posts</h2>
 
-    <div class="card  mt-5 h-80" *ngFor="let job of approvedJobs" style="width: 50rem;  "  >
-       <div class="card-body">
-         <h5 class="card-title text-center">{{job.Jobname}}</h5><br>
-         <h6 class="card-subtitle mb-2 ">Company Name:{{job.CompanyName}}</h6>
-         <h6 class="card-subtitle mb-2 ">Location:{{job.Place}}</h6>
-         <h6 class="card-subtitle mb-2 ">Salary:{{job.Salary}}</h6>
-         <h6 class="card-subtitle mb-2 ">Job Type:{{job.JobType}}</h6>
-         <h6 class="card-subtitle mb-2 ">Qualifications:{{job.Qualifications}}</h6>
-         <h6 class="card-subtitle mb-2 ">Experience:{{job.Experience}}</h6>
-         <h6 class="card-subtitle mb-2 ">Benefits:{{job.Benefits}}</h6>
-         <h6 class="card-subtitle mb-2 ">Schedule:{{job.Schedule}}</h6>
-         <h6 class="card-subtitle mb-2 ">Language:{{job.Language}}</h6>
-         <h6 class="card-subtitle mb-2 ">Contact:{{job.Contact}}</h6>
-         <h6 class="card-subtitle mb-2 ">Posted Date:{{job.Date}}</h6>
-         <p class="card-text"><b>Job Description:  </b>{{job.JobDescription}}</p>
 
-         <hr>
-         
-         <h6 class="card-subtitle mb-2 ">Alumni Name:{{job.Alumni_name}}</h6>
-         <h6 class="card-subtitle mb-2 ">Alumni Phone:{{job.Alumni_phone}}</h6>
-         <h6 class="card-subtitle mb-2 ">Alumni Email:{{job.Alumni_email}}</h6>
-         <h6 class="card-subtitle mb-2 ">Alumni Qualification:{{job.Alumni_qualification}}</h6>
-         <h6 class="card-subtitle mb-2 ">Alumni Experience:{{job.Alumni_Experience}}</h6>
-         <h6 class="card-subtitle mb-2 ">Course Taken:{{job.Alumni_course}}</h6>
-         <h6 class="card-subtitle mb-2 ">Branch in ICT:{{job.Alumni_branch}}</h6>
 
-<button (click)="viewPDF(job.filename)" class="btn btn-primary">View Resume</button>
-          
-       </div>
-     </div> 
+
+<div *ngIf="_loaderShow">
+  <div class="loading">
+    <div>
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border m-4 text-light" role="status"> </div>
+      </div>
+      <h6>Please Wait While Loading...</h6>
+    </div>
+  </div>
+</div>

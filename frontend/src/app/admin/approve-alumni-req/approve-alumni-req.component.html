@@ -1,50 +1,61 @@
-
 <div class="p-3 rounded MyBorder m-4">
 
   <div class="  rounded  p-3 ">
 
-      <div  class="col-12 line">
-          <h2>{{datas.Jobname}}</h2>
-          <p>Company : {{datas.CompanyName}}</p>
-         
-          <hr>
+    <div class="col-12 line">
+      <h2>{{datas.Jobname}}</h2>
+      <p>Company : {{datas.CompanyName}}</p>
 
-          <p>Job Place : {{datas.Place}}</p>
-          <p>Job Salary : {{datas.Salary}}</p>
-          <p>Job Type : {{datas.JobType}}</p>
-          <p>Job Qualifications : {{datas.Qualifications}}</p>
-          <p>Job Experience : {{datas.Experience}}</p>
-          <p>Job Benefits : {{datas.Benefits}}</p>
-          <p>Job Schedule : {{datas.Schedule}}</p>
-          <p>Job Language : {{datas.Language}}</p>
-          <p>Job Posted Date: {{datas.Date}}</p>
-          <p>Job ID: {{datas.JobID}}</p>
-          <p>Job Contact Details : {{datas.Contact}}</p> 
-          
-          <hr>
+      <hr>
 
-          <p>Alumni Name : {{datas.Alumni_name}}</p>
+      <p>Job Place : {{datas.Place}}</p>
+      <p>Job Salary : {{datas.Salary}}</p>
+      <p>Job Type : {{datas.JobType}}</p>
+      <p>Job Qualifications : {{datas.Qualifications}}</p>
+      <p>Job Experience : {{datas.Experience}}</p>
+      <p>Job Benefits : {{datas.Benefits}}</p>
+      <p>Job Schedule : {{datas.Schedule}}</p>
+      <p>Job Language : {{datas.Language}}</p>
+      <p>Job Posted Date: {{datas.Date}}</p>
+      <p>Job ID: {{datas.JobID}}</p>
+      <p>Job Contact Details : {{datas.Contact}}</p>
+ 
+      <hr>
 
-          <p>Alumni Resume : {{datas.filename}}</p>
-          
-          <p>Alumni Phone : {{datas.Alumni_phone}}</p>
-          <p>Alumni Email : {{datas.Alumni_email}}</p>
-          <p>Alumni Qualifications : {{datas.Alumni_qualification}}</p>
-          <p>Alumni Experience : {{datas.Alumni_Experience}}</p>
-          <p>Alumni Course : {{datas.Alumni_course}}</p>
-          <p>Alumni Branch : {{datas.Alumni_branch}}</p>
-          <p>Alumni Placement Status : {{datas.Alumni_Placement}}</p>
-          <p>Alumni Placed Company: {{datas.Placed_company}}</p>
-         
-          <hr>
-          <h5 class="py-2  ">Job Description</h5>
-          <p class="align">{{datas.JobDescription}}</p>
-          <hr>
-         
-          <button (click)="downloadResume(datas.filename)" class="btn btn-warning my-2 " >View Resume</button>
-          
-      </div>
+      <p>Alumni Name : {{datas.Alumni_name}}</p>
+
+      <p>Alumni Resume : {{datas.filename}}</p>
+
+      <p>Alumni Phone : {{datas.Alumni_phone}}</p>
+      <p>Alumni Email : {{datas.Alumni_email}}</p>
+      <p>Alumni Qualifications : {{datas.Alumni_qualification}}</p>
+      <p>Alumni Experience : {{datas.Alumni_Experience}}</p>
+      <p>Alumni Course : {{datas.Alumni_course}}</p>
+      <p>Alumni Branch : {{datas.Alumni_branch}}</p>
+      <p>Alumni Placement Status : {{datas.Alumni_Placement}}</p>
+      <p>Alumni Placed Company: {{datas.Placed_company}}</p>
+
+      <hr>
+      <h5 class="py-2  ">Job Description</h5>
+      <p class="align">{{datas.JobDescription}}</p>
+      <hr>
+
+      <button (click)="downloadResume(datas.filename)" class="btn btn-warning my-2 ">View Resume</button>
+
+    </div>
 
   </div>
 
+</div>
+
+
+<div *ngIf="_loaderShow">
+  <div class="loading">
+      <div>
+          <div class="d-flex justify-content-center">
+              <div class="spinner-border m-4 text-light" role="status"> </div>
+          </div>
+          <h6>Please Wait While Loading...</h6>
+      </div>
+  </div>
 </div>

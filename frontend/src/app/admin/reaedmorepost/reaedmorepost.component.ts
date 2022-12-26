@@ -19,12 +19,14 @@ export class ReaedmorepostComponent implements OnInit {
   Benefits: "", Schedule: "", Language: "", Contact: "" }];
 
   _id=this.api.mydata;
+  _loaderShow:any;
 
   getdata() {
-    
+    this._loaderShow=true;
     this.api.getbyid(this._id).subscribe(res => {
       this.viewposts = res;
       // console.log("incoming data from readbook getall", this._id);
+      this._loaderShow=false;
     });
   }
 

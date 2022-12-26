@@ -2,53 +2,58 @@ const express = require("express");
 const router = express.Router();
 const jwt = require('jsonwebtoken')
 const admin = require("../../models/admin/adminUsers.js");
+const GMT00 = require("../../convertGMT00toIST.js");
+
+
+
+
 
 
 
 //signup
 // add data (post) for users
 router.post('/signup', async (req, res) => {
-    const DateNow = Date.now();
+    // const DateNow = Date.now();
     let item = {
 
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
-        Date: Date(DateNow).toString()
-
+        // Date: Date(DateNow).toString()
+        Date: GMT00.getCurrentTimeInIST()
     }
 
 
-    let foundResults=await admin.findOne({ email: item.email })
-        
-        // , async (err, foundResults) => {
+    let foundResults = await admin.findOne({ email: item.email })
 
-        // console.log("data from signup body", foundResults)
-        
-        if (foundResults == null) {
-            console.log("no matching email found");
+    // , async (err, foundResults) => {
+
+    // console.log("data from signup body", foundResults)
+
+    if (foundResults == null) {
+        console.log("no matching email found");
 
         //     try {
- 
+
         //         // const newdata = new adminappr(item);
         //         // const savedata = await newdata.save();
         //         // console.log(`from post method, signup ${savedata}`);
         //         // res.send(savedata);
-    
-                res.status(200).send({"status":'Data Received and Waiting for Super Admin Approoval'});
+
+        res.status(200).send({ "status": 'Data Received and Waiting for Super Admin Approoval' });
 
         //     } catch (error) {
         //         console.log(`error from post, signup method ${error}`);
         //     }
 
 
-        }
-        else {
-            console.log("matching email found");
-            res.status(401).send("Email already registered");
+    }
+    else {
+        console.log("matching email found");
+        res.status(401).send("Email already registered");
 
 
-        } 
+    }
 
 
     // });

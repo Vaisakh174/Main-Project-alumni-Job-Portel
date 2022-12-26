@@ -31,26 +31,29 @@ export class ViewallpostsComponent implements OnInit {
 
   
   readmore(_id: any) {
-
+    this.loaderShow=true
     this.api.mydata = _id;
     // console.log(_id)
     this.router.navigate(['adminhome/managepost/readmore']);
-
+    this.loaderShow=false
   }
 
   deletes(_id: any) {
-
+    this.loaderShow=true
     this.api.deletes(_id).subscribe((res) => {
       // this.blogerDatas = res;
       // console.log("incoming data from updatecount ", res);
       alert("Data Deleted Successfully");
       this.getdata()
+      this.loaderShow=false
     })
   }
 
   edit(_id : any){
+    this.loaderShow=true
     this.api.formupdate = _id;
     this.router.navigate(['adminhome/managepost/editpost']);
+    this.loaderShow=false
   }
 
   

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/admin/services/api.service';
-import { AuthService } from 'src/app/admin/services/auth.service';
-
+import { AlumniauthService } from 'src/app/alumni/alumniauth.service';
+// import { HttpEventType } from '@angular/common/http'; 
 @Component({
   selector: 'app-apply-job',
   templateUrl: './apply-job.component.html',
@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/admin/services/auth.service';
 })
 export class ApplyJobComponent implements OnInit {
 
-  constructor(private api: ApiService, private router: Router, public auth: AuthService) { }
+  constructor(private api: ApiService, private router: Router, public auth: AlumniauthService) { }
 
   ngOnInit(): void {
     this.getdata();
@@ -20,7 +20,8 @@ export class ApplyJobComponent implements OnInit {
   _id = this.api.applyAjobID;
   pdf: any;
   postDetails: any;
-
+  _loaderShow: any
+  response: any;
   applyform: any = new FormGroup({
     Alumni_phone: new FormControl("", [Validators.required, Validators.minLength(2)]),
     Alumni_email: new FormControl("", [Validators.required, Validators.minLength(2)]),
@@ -37,10 +38,10 @@ export class ApplyJobComponent implements OnInit {
 
 
   getdata() {
-
+    this._loaderShow = true;
     this.api.getbyid(this._id).subscribe(res => {
       this.postDetails = res;
-
+      this._loaderShow = false;
     });
 
   }
@@ -48,21 +49,26 @@ export class ApplyJobComponent implements OnInit {
 
 
   Submit() {
+    this._loaderShow = true;
     const formData = new FormData();
     formData.append('file', this.pdf);
-    // console.log(formData)
+    formData.append('postData', JSON.stringify(this.postDetails));
+    formData.append('alumniData', JSON.stringify(this.applyform.value));
+
 
     this.api.uploadPost(formData).subscribe(res => {
-      // console.log(res)
+      console.log('res:', res)
+      this.response = res;
+      console.log('from upld: ', this.response.status)
 
+      this._loaderShow = false;
+      alert(this.response.status);
 
-      this.api.applypost(this.postDetails, this.applyform.value).subscribe(res => {
-        // console.log(res)
-      });
+      this.router.navigate(['/']);
+
     });
 
-    alert("Data saved Successfully");
-    this.router.navigate(['/']);
+
 
   }
 

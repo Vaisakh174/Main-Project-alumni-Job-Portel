@@ -14,6 +14,7 @@ export class ApproveJobComponent implements OnInit {
   ngOnInit(): void {
     this.getdata();
   }
+  _loaderShow:any;
 
   approveposts: any = [{
     Alumni_Placement: "", Placed_company: "", Alumni_branch: "", Alumni_course: "",
@@ -24,14 +25,17 @@ export class ApproveJobComponent implements OnInit {
   }];
 
   getdata() {
+    this._loaderShow=true
     this.api.getallapprove().subscribe(res => {
       this.approveposts = res;
       // console.log("incoming data from booklist getall", this.approveposts);
+      this._loaderShow = false;
     });
   }
 
 
   approve(_id: any, i: any) {
+    this._loaderShow=true
     this.api.postApprd(this.approveposts[i]).subscribe(res => {
       // console.log("incoming data from appr ", this.approveposts);
       // alert("Data saved successfully");
@@ -43,6 +47,7 @@ export class ApproveJobComponent implements OnInit {
     })
     this.getdata();
     alert("Data Is Now Approved")
+    this._loaderShow = false;
   })
    
    
@@ -51,22 +56,27 @@ export class ApproveJobComponent implements OnInit {
 
 
   deletes(_id: any) {
-
+    this._loaderShow=true
     this.api.deletesAppr(_id).subscribe((res) => {
       // this.approveposts = res;
       // console.log("incoming data from updatecount ", res);
       alert("Data Deleted Successfully");
       this.getdata()
+      this._loaderShow = false;
     })
   }
 
   edit(_id: any) {
+    this._loaderShow=true
     this.api.approveForm = _id;
     this.router.navigate(['/adminhome/managepost/editApproval']);
+    this._loaderShow = false;
   }
   readmore(_id:any){
+    this._loaderShow=true
     this.api.readapproovalform=_id;
     this.router.navigate(['/adminhome/managepost/readmore2']);
+    this._loaderShow = false;
   }
 
 

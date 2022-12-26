@@ -45,7 +45,7 @@ export class SignupapiService {
 
   //for file download
   downloadPdf(filename:any) {
-    return this.http.get(`${this.apiUrl}/approve/download/${filename}`,{responseType:'blob'});
+    return this.http.get(`${this.apiUrl}/upload/${filename}`,{responseType:'blob'});
   }
 
 

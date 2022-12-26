@@ -15,7 +15,7 @@ export class ApprovedPostsComponent implements OnInit {
   }
 
   approvedJobs:any
-
+  _loaderShow:any
   getjob(){
     this.api.getallapprd().subscribe(res=>{
       this.approvedJobs=res
@@ -26,10 +26,20 @@ export class ApprovedPostsComponent implements OnInit {
 
   viewPDF(filename:any){
 
-    this.api.downloadPdf(filename).subscribe((data:Blob | MediaSource )=>{
+    this._loaderShow = true;
+    this.api.downloadPdf(filename).subscribe({
+      next: (data: Blob | MediaSource) => {
 
-      let downloadURL=window.URL.createObjectURL(data);
-      saveAs(downloadURL);
+        let downloadURL = URL.createObjectURL(data);
+        // window.open(downloadURL);
+        saveAs(downloadURL, filename);
+        this._loaderShow = false;
+      },
+      error: (err) => {
+        console.log("File " + err.statusText)
+        this._loaderShow = false;
+        alert("File " + err.statusText)
+      }
     })
 
   }

@@ -54,14 +54,14 @@ export class ApiService {
   }
   
   //for file upload
-  uploadPost(file: any) {
-    return this.http.post(`${this.url}/api/approve/upload`,file);
+  uploadPost(Fdata: any) {
+    return this.http.post(`${this.url}/api/upload`,Fdata,)
   }
 
   
   //for file download
   downloadPdf(filename:any) {
-    return this.http.get(`${this.url}/api/approve/download/${filename}`,{responseType:'blob'});
+    return this.http.get(`${this.url}/api/upload/${filename}`,{responseType:'blob'});
   }
 
 
