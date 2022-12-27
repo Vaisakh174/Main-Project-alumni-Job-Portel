@@ -90,11 +90,17 @@ export class FirstContentComponent implements OnInit {
 
   }
 
+  currentDate: any;
+ 
 
   checkDate() {
     //set current date 
-    var currentDate = new Date()
-    // console.log("getall - ", this.viewposts)
+    this.currentDate = new Date()
+
+    console.log('Current time ',this.currentDate)
+   
+
+
     for (let i of this.viewposts) {
 
       //get date from db as string and convert into date obj and add 1day  to it
@@ -104,7 +110,7 @@ export class FirstContentComponent implements OnInit {
       FixedDate.setDate(FixedDate.getDate() + 7);
 
 
-      if (currentDate.getTime() > FixedDate.getTime()) {
+      if (this.currentDate.getTime() > FixedDate.getTime()) {
         i.ApplyStatus = 0;
         // console.log('post is invalid')
 
@@ -113,7 +119,7 @@ export class FirstContentComponent implements OnInit {
         i.ApplyStatus = 1;
         // console.log('post is valid')
       }
-      console.log("apply ", i.ApplyStatus)
+      console.log("Post Dates: ", i.Date)
       this.api.updateapply(i.ApplyStatus, i._id).subscribe();
       // console.log("aaaa", currentDate, FixedDate)
       // console.log("ssss", typeof (currentDate), typeof (FixedDate))
@@ -137,9 +143,9 @@ export class FirstContentComponent implements OnInit {
   }
 
   back() {
-    
+
     this.getdata();
-   
+
   }
 
 
