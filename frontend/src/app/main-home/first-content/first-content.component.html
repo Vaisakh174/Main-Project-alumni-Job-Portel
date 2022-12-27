@@ -1,4 +1,3 @@
-
 <div class="d-flex justify-content-center m-3 mt-5 ">
 
   <form class="d-flex w-100" [formGroup]="searchForm" (ngSubmit)="searchData()">
@@ -29,12 +28,12 @@
 
 <div *ngIf="_loaderShow">
   <div class="loading">
-      <div>
-          <div class="d-flex justify-content-center">
-              <div class="spinner-border m-4 text-light" role="status"> </div>
-          </div>
-          <h6>Please Wait While Loading...</h6>
+    <div>
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border m-4 text-light" role="status"> </div>
       </div>
+      <h6>Please Wait While Loading...</h6>
+    </div>
   </div>
 </div>
 
@@ -62,8 +61,12 @@
         <div class="d-flex justify-content-center">
           <button (click)="readMore(data._id)" class="btn btn-light m-2">read more</button>
 
-          <button (click)="apply(data._id)" *ngIf="auth.loggedin()" [disabled]="!data.ApplyStatus"
-            class="btn btn-light m-2">Apply </button>
+          <div class="aply"
+            [title]="data.ApplyStatus ? 'Job Date Less Than 7 Days Old' : 'Job Date Greater Than 7 Days Old. So Disabled'"> <button
+              (click)="apply(data._id)" *ngIf="auth.loggedin()" [disabled]="!data.ApplyStatus"
+              class="btn btn-light  m-2">Apply </button>
+          </div>
+
 
         </div>
 

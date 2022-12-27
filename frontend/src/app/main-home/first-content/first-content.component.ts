@@ -91,35 +91,38 @@ export class FirstContentComponent implements OnInit {
   }
 
   currentDate: any;
- 
+
 
   checkDate() {
     //set current date 
     this.currentDate = new Date()
 
-    console.log('Current time ',this.currentDate)
-   
+    console.log('Current time ', this.currentDate)
+
 
 
     for (let i of this.viewposts) {
 
       //get date from db as string and convert into date obj and add 1day  to it
-
-      // let FixedDate = new Date('2022-12-12');//set a old post date for demo
-      let FixedDate = new Date(i.Date);
+      
+      const formattedDateString = i.Date.replace('IST', '');
+      // let FixedDate = new Date('Dec 20, 2022, 9:39:49 PM  ');//set a old post date for demo
+      const FixedDate = new Date(formattedDateString);
       FixedDate.setDate(FixedDate.getDate() + 7);
-
+      // console.log('Each post last date ', FixedDate)
 
       if (this.currentDate.getTime() > FixedDate.getTime()) {
         i.ApplyStatus = 0;
         // console.log('post is invalid')
-
+        
       }
       else {
         i.ApplyStatus = 1;
         // console.log('post is valid')
+        
+        console.log(`${i.Jobname} last date: `, FixedDate)
       }
-      console.log("Post Dates: ", i.Date)
+      // console.log("apply?: ", i.ApplyStatus)
       this.api.updateapply(i.ApplyStatus, i._id).subscribe();
       // console.log("aaaa", currentDate, FixedDate)
       // console.log("ssss", typeof (currentDate), typeof (FixedDate))

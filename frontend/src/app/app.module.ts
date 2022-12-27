@@ -21,6 +21,7 @@ import { FacultyModule } from './faculty/faculty.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,7 @@ import { FacultyModule } from './faculty/faculty.module';
 
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule, AppRoutingModule,
+    BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule, AppRoutingModule,   
 
     AdminRoutingModule, AdminModule,
     // EmployerRoutingModule, EmployerModule,
