@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { saveAs } from 'file-saver'
-import * as PDFJS from 'pdfjs-dist';
-import { PdfJsViewerComponent  } from 'ng2-pdfjs-viewer';
+// import { saveAs } from 'file-saver'
+
+
 
 @Component({
   selector: 'app-approve-alumni-req',
@@ -18,7 +18,7 @@ export class ApproveAlumniReqComponent implements OnInit {
   }
 
   _id: any = this.api.readapproovalform;
-  _loaderShow:any;
+  _loaderShow: any;
 
   datas: any = {
     Alumni_Placement: "", Placed_company: "", Alumni_branch: "", Alumni_course: "",
@@ -30,24 +30,30 @@ export class ApproveAlumniReqComponent implements OnInit {
 
 
   getdata() {
-    this._loaderShow=true;
+    this._loaderShow = true;
     this.api.getbyidappr(this._id).subscribe(res => {
       this.datas = res;
-      this._loaderShow=false;
+      this._loaderShow = false;
     });
 
   }
 
- 
- 
+
+
 
   downloadResume(filename: any) {
     this._loaderShow = true;
     this.api.downloadPdf(filename).subscribe({
-      next: (data: Blob | MediaSource) => {
-        let downloadURL =URL.createObjectURL(data);
-        // window.open(downloadURL);
-        saveAs(downloadURL, filename);
+      next: (data) => {
+
+
+        // console.log('data received1: ',data);
+
+        const file = new Blob([data], { type: 'application/pdf' });
+        const fileUrl = URL.createObjectURL(file);
+        window.open(fileUrl);
+
+        // console.log('data received2: ',file);
         this._loaderShow = false;
       },
       error: (err) => {
@@ -57,13 +63,13 @@ export class ApproveAlumniReqComponent implements OnInit {
       }
     })
 
-    }
-
-
-
   }
 
 
 
+}
 
-    
+
+
+
+

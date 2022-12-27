@@ -30,8 +30,7 @@ import { AdminSignupComponent } from './admin-signup/admin-signup.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { RouterModule } from '@angular/router';
 import { ViewApprovedComponent } from './view-approved/view-approved.component';
-import { PdfJsViewerModule  } from 'ng2-pdfjs-viewer';
-import { PdfJsViewerComponent } from 'ng2-pdfjs-viewer';
+
 
 
 
@@ -62,7 +61,7 @@ import { PdfJsViewerComponent } from 'ng2-pdfjs-viewer';
     ViewApprovedComponent,
     ],
   imports: [
-    CommonModule,RouterModule,FormsModule,ReactiveFormsModule,HttpClientModule,PdfJsViewerModule 
+    CommonModule,RouterModule,FormsModule,ReactiveFormsModule,HttpClientModule
   ],
    providers: [
     ApiService,AuthService,

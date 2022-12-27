@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { saveAs } from 'file-saver'
+// import { saveAs } from 'file-saver'
 
 
 @Component({
@@ -32,11 +32,14 @@ export class ViewApprovedComponent implements OnInit {
   download(filename: any) {
     this._loaderShow = true;
     this.api.downloadPdf(filename).subscribe({
-      next: (data: Blob | MediaSource) => {
+      next: (data) => {
 
-        let downloadURL = URL.createObjectURL(data);
+        // let downloadURL = URL.createObjectURL(data);
         // window.open(downloadURL);
-        saveAs(downloadURL, filename);
+        // saveAs(downloadURL, filename);
+        const file = new Blob([data], { type: 'application/pdf' });
+        const fileUrl = URL.createObjectURL(file);
+        window.open(fileUrl);
         this._loaderShow = false;
       },
       error: (err) => {

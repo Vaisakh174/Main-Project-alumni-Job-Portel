@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SignupapiService } from '../signupapi.service';
-import{saveAs} from 'file-saver'
+// import { saveAs } from 'file-saver'
 
 @Component({
   selector: 'app-approved-posts',
@@ -9,30 +9,34 @@ import{saveAs} from 'file-saver'
 })
 export class ApprovedPostsComponent implements OnInit {
 
-  constructor(private api:SignupapiService) { }
+  constructor(private api: SignupapiService) { }
 
-  ngOnInit(): void {this.getjob();
+  ngOnInit(): void {
+    this.getjob();
   }
 
-  approvedJobs:any
-  _loaderShow:any
-  getjob(){
-    this.api.getallapprd().subscribe(res=>{
-      this.approvedJobs=res
-      console.log("ggg",res)
+  approvedJobs: any
+  _loaderShow: any
+  getjob() {
+    this.api.getallapprd().subscribe(res => {
+      this.approvedJobs = res
+      console.log("ggg", res)
     })
   }
 
 
-  viewPDF(filename:any){
+  viewPDF(filename: any) {
 
     this._loaderShow = true;
     this.api.downloadPdf(filename).subscribe({
-      next: (data: Blob | MediaSource) => {
+      next: (data) => {
 
-        let downloadURL = URL.createObjectURL(data);
+        // let downloadURL = URL.createObjectURL(data);
         // window.open(downloadURL);
-        saveAs(downloadURL, filename);
+        // saveAs(downloadURL, filename);
+        const file = new Blob([data], { type: 'application/pdf' });
+        const fileUrl = URL.createObjectURL(file);
+        window.open(fileUrl);
         this._loaderShow = false;
       },
       error: (err) => {
