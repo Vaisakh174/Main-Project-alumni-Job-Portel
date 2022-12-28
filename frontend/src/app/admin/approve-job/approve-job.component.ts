@@ -14,7 +14,7 @@ export class ApproveJobComponent implements OnInit {
   ngOnInit(): void {
     this.getdata();
   }
-  _loaderShow:any;
+  _loaderShow: any;
 
   approveposts: any = [{
     Alumni_Placement: "", Placed_company: "", Alumni_branch: "", Alumni_course: "",
@@ -25,7 +25,7 @@ export class ApproveJobComponent implements OnInit {
   }];
 
   getdata() {
-    this._loaderShow=true
+    this._loaderShow = true
     this.api.getallapprove().subscribe(res => {
       this.approveposts = res;
       // console.log("incoming data from booklist getall", this.approveposts);
@@ -35,31 +35,23 @@ export class ApproveJobComponent implements OnInit {
 
 
   approve(_id: any, i: any) {
-    this._loaderShow=true
+    this._loaderShow = true
     this.api.postApprd(this.approveposts[i]).subscribe(res => {
       // console.log("incoming data from appr ", this.approveposts);
-      // alert("Data saved successfully");
-    
-
-
-    this.api.deletesAppr(_id).subscribe((res) => {
-
+      this.api.deletesAppr(_id).subscribe()
+      this.getdata();
+      alert("Data Is Now Approved")
+      this._loaderShow = false;
     })
-    this.getdata();
-    alert("Data Is Now Approved")
-    this._loaderShow = false;
-  })
-   
-   
   }
 
 
 
-  deletes(_id: any) {
-    this._loaderShow=true
+  deletes(_id: any, filename: any) {
+    this._loaderShow = true
     this.api.deletesAppr(_id).subscribe((res) => {
-      // this.approveposts = res;
       // console.log("incoming data from updatecount ", res);
+      this.api.deletePdf(filename).subscribe();
       alert("Data Deleted Successfully");
       this.getdata()
       this._loaderShow = false;
@@ -67,17 +59,39 @@ export class ApproveJobComponent implements OnInit {
   }
 
   edit(_id: any) {
-    this._loaderShow=true
+    this._loaderShow = true
     this.api.approveForm = _id;
     this.router.navigate(['/adminhome/managepost/editApproval']);
     this._loaderShow = false;
   }
-  readmore(_id:any){
-    this._loaderShow=true
-    this.api.readapproovalform=_id;
+  readmore(_id: any) {
+    this._loaderShow = true
+    this.api.readapproovalform = _id;
     this.router.navigate(['/adminhome/managepost/readmore2']);
     this._loaderShow = false;
   }
+  viewResume(filename: any) {
+    this._loaderShow = true;
+    this.api.downloadPdf(filename).subscribe({
+      next: (data) => {
 
+
+        // console.log('data received1: ',data);
+
+        const file = new Blob([data], { type: 'application/pdf' });
+        const fileUrl = URL.createObjectURL(file);
+        window.open(fileUrl);
+
+        // console.log('data received2: ',file);
+        this._loaderShow = false;
+      },
+      error: (err) => {
+        console.log("File " + err.statusText)
+        this._loaderShow = false;
+        alert("File " + err.statusText)
+      }
+    })
+
+  }
 
 }

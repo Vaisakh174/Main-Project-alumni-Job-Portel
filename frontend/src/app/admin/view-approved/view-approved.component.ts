@@ -52,11 +52,15 @@ export class ViewApprovedComponent implements OnInit {
 
 
 
-  deleted(_id: any) {
+  deleted(_id: any,filename:any) {
     this._loaderShow = true;
-    this.api.deletesApprd(_id).subscribe();
-    this.getjob();
-    this._loaderShow = false;
+    this.api.deletesApprd(_id).subscribe(res=>{
+      this.api.deletePdf(filename).subscribe();
+      this.getjob();
+      this._loaderShow = false;
+      alert('Data Deleted Successfully')
+    });
+   
   }
 
 

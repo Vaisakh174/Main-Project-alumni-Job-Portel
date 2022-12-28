@@ -34,7 +34,7 @@
                     <p class=" mb-2 "><b>Course Taken: </b>{{job.Alumni_course}}</p>
                     <p class=" mb-2 "><b>Branch in ICT: </b>{{job.Alumni_branch}}</p>
                     <button class="btn btn-warning my-2" (click)="download(job.filename)">Download Resume</button>
-                    <button class="btn btn-danger m-2" (click)="deleted(job._id)">Delete</button>
+                    <button class="btn btn-danger m-2" (click)="deleted(job._id,job.filename)">Delete</button>
                 </div>
 
             </div>
