@@ -1,0 +1,7 @@
+
+frontend/src/app/admin/services/auth.service.ts
+frontend/src/app/admin/services/api.service.ts
+frontend/src/app/alumni/alumniapi.service.ts
+frontend/src/app/alumni/alumniauth.service.ts
+frontend/src/app/employer/signupapi.service.ts
+frontend/src/app/faculty/fac-auth-service.service.ts
