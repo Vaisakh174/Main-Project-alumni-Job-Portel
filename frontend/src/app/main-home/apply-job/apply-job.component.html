@@ -10,9 +10,19 @@
                         <div class="spinner-border m-4 text-light" role="status"> </div>
                     </div>
                     <h6>Please Wait While Loading...</h6>
+
+                    <div class="progress mt-4  " *ngIf="progress_Show">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                            [attr.aria-valuenow]="this.uploadProgress" aria-valuemin="0" aria-valuemax="100"
+                            [style.width]="this.uploadProgress + '%'">{{ this.uploadProgress }}% Completed
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
+
 
 
         <div class="col-12 ">

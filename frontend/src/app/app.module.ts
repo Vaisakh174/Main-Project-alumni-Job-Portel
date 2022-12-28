@@ -18,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApplyJobComponent } from './main-home/apply-job/apply-job.component';
 import { FacultyRoutingModule } from './faculty/faculty-routing.module';
 import { FacultyModule } from './faculty/faculty.module';
-import { MatProgressBarModule } from '@angular/material';
+
 
 
 
@@ -31,7 +31,7 @@ import { MatProgressBarModule } from '@angular/material';
 
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule, AppRoutingModule,MatProgressBarModule,   
+    BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule, AppRoutingModule,   
 
     AdminRoutingModule, AdminModule,
     // EmployerRoutingModule, EmployerModule,

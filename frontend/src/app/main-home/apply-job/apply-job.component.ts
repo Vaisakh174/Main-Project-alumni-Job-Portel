@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/admin/services/api.service';
 import { AlumniauthService } from 'src/app/alumni/alumniauth.service';
-// import { HttpEventType } from '@angular/common/http'; 
+import { HttpEventType, HttpResponse } from '@angular/common/http';
 @Component({
   selector: 'app-apply-job',
   templateUrl: './apply-job.component.html',
@@ -22,6 +22,10 @@ export class ApplyJobComponent implements OnInit {
   postDetails: any;
   _loaderShow: any
   response: any;
+  myEvent: any
+  uploadProgress: any
+  progress_Show: any
+
   applyform: any = new FormGroup({
     Alumni_phone: new FormControl("", [Validators.required, Validators.minLength(2)]),
     Alumni_email: new FormControl("", [Validators.required, Validators.minLength(2)]),
@@ -38,6 +42,7 @@ export class ApplyJobComponent implements OnInit {
 
 
   getdata() {
+    this.progress_Show = false
     this._loaderShow = true;
     this.api.getbyid(this._id).subscribe(res => {
       this.postDetails = res;
@@ -48,29 +53,56 @@ export class ApplyJobComponent implements OnInit {
 
 
 
+
+
   Submit() {
+    this.progress_Show = true
     this._loaderShow = true;
     const formData = new FormData();
     formData.append('file', this.pdf);
     formData.append('postData', JSON.stringify(this.postDetails));
     formData.append('alumniData', JSON.stringify(this.applyform.value));
 
+    // Subscribe to the uploadProgress observable
+    this.api.uploadPost(formData).subscribe(event => {
+      this.myEvent = event
+      if (this.myEvent.type === HttpEventType.UploadProgress) {
+        // Calculate the upload percentage and update the progress bar
+        const percentDone = Math.round(100 * this.myEvent.loaded / this.myEvent.total);
+        this.uploadProgress = percentDone;
+      } else if (event instanceof HttpResponse) {
+        // The upload is complete, update the progress bar to 100% and set the response
+        this.uploadProgress = 100;
+        this.response = event;
 
-    this.api.uploadPost(formData).subscribe(res => {
-      console.log('res:', res)
-      this.response = res;
-      console.log('from upld: ', this.response.status)
+      }
 
-      this._loaderShow = false;
-      alert(this.response.status);
+      if (this.response) {
+        // console.log(this.response)
+        if (this.response.status == 200) {
+          this.progress_Show = false
+          this._loaderShow = false;
+          alert('Upload Success');
+          this.router.navigate(['/']);
+        }
+        else {
+          this.progress_Show = false
+          this._loaderShow = false;
+          alert('Error While Uploading Please Try Again....');
 
-      this.router.navigate(['/']);
+
+        }
+      }
+
+
+
 
     });
 
 
 
   }
+
 
 
 
