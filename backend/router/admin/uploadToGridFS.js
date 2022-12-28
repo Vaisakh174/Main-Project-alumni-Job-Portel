@@ -136,30 +136,39 @@ router.get('/:filename', async (req, res) => {
 });
 
 
-router.post('/del', async (req, res) => {
-    console.log(' req.body', req.body)
-    await gfg.find({ filename: req.body.filename }).toArray((err, data) => {
-        console.log('finded :  ', data)
+router.delete('/del/:filename', async (req, res) => {
+    console.log(' req.params', req.params.filename)
 
-        if (data.length > 0) {
+    try {
+        await gfg.find({ filename: req.params.filename }).toArray((err, data) => {
+            console.log('finded :  ', data)
 
-            gfg.delete(data[0]._id, (err) => {
-                if (err) {
-                    console.log('del err', err)
-                    res.status(404).send({ status: err.message })
-                }
-                else {
-                    res.status(200).send({ status: "File Deleted" })
-                }
-            })
+            if (data.length > 0) {
 
-        } else {
-            console.log('filename err')
-            res.status(404).send({ status: "Incorrect File Name" })
+                gfg.delete(data[0]._id, (err) => {
+                    if (err) {
+                        console.log('del err', err)
+                        res.status(404).send({ status: err.message })
+                    }
+                    else {
+                        res.status(200).send({ status: "File Deleted" })
+                    }
+                })
 
-        }
+            } else {
+                console.log('filename err')
+                res.status(404).send({ status: "Incorrect File Name" })
 
-    })
+            }
+
+        })
+    } catch (error) {
+        console.log('del catch err',error)
+    }
+
+
+
+
 
 })
 
