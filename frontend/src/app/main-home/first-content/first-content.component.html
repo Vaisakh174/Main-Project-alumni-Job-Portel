@@ -3,8 +3,9 @@
   <form class="d-flex w-100" [formGroup]="searchForm" (ngSubmit)="searchData()">
     <input class="form-control me-2 " type="search" placeholder="Enter Job Name to Search" formControlName="textData"
       aria-label="Search">
-
+<div [title]="searchForm.invalid? 'Please Input any Phrase To Enable This Button' : 'Click Here To Search'">
     <button class="btn btn-info" type="button" [disabled]="searchForm.invalid" (click)="searchData()">Search</button>
+  </div>
   </form>
 </div>
 
@@ -59,12 +60,12 @@
         <!-- <p class="card-text">{{data.ApplyStatus}} </p> -->
 
         <div class="d-flex justify-content-center">
-          <button (click)="readMore(data._id)" class="btn btn-light m-2">read more</button>
+          <button (click)="readMore(data._id)" class="btn btn-light m-2" title="Click Here To Read More">read
+            more</button>
 
-          <div class="aply"
-            [title]="data.ApplyStatus ? 'Job Date Less Than 7 Days Old' : 'Job Date Greater Than 7 Days Old. So Disabled'"> <button
-              (click)="apply(data._id)" *ngIf="auth.loggedin()" [disabled]="!data.ApplyStatus"
-              class="btn btn-light  m-2">Apply </button>
+          <div *ngIf="auth.loggedin()"
+            [title]="data.ApplyStatus ? 'Job Date Less Than 7 Days Old' : 'Job Date Greater Than 7 Days Old. So Disabled'">
+            <button (click)="apply(data._id)" [disabled]="!data.ApplyStatus" class="btn btn-light  m-2">Apply </button>
           </div>
 
 

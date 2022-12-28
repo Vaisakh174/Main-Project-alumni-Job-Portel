@@ -5,14 +5,14 @@
 
     <div *ngIf="loaderShow">
       <div class="loading">
-          <div>
-              <div class="d-flex justify-content-center">
-                  <div class="spinner-border m-4 text-light" role="status"> </div>
-              </div>
-              <h6>Please Wait While Loading...</h6>
+        <div>
+          <div class="d-flex justify-content-center">
+            <div class="spinner-border m-4 text-light" role="status"> </div>
           </div>
+          <h6>Please Wait While Loading...</h6>
+        </div>
       </div>
-  </div>
+    </div>
 
 
 
@@ -35,8 +35,14 @@
       <p class="align">{{viewposts.JobDescription}}</p>
       <hr>
 
-      <button (click)="apply(viewposts._id)" [disabled]="!viewposts.ApplyStatus"
-        class="btn btn-primary m-2 align-items-center" *ngIf="auth.loggedin()">Apply </button>
+
+
+      <div *ngIf="auth.loggedin()"
+        [title]="viewposts.ApplyStatus ? 'Job Date Less Than 7 Days Old' : 'Job Date Greater Than 7 Days Old. So Disabled'">
+        <button (click)="apply(viewposts._id)" [disabled]="!viewposts.ApplyStatus"
+          class="btn btn-primary m-2 align-items-center">Apply </button>
+      </div>
+
       <hr *ngIf="auth.loggedin()">
     </div>
 
