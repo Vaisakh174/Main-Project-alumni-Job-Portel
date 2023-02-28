@@ -1,16 +1,16 @@
-<div class="container">
-
-
+<div class=" container  mt-5 mb-5 ">
   <form [formGroup]="registerform" (ngSubmit)="sign()" class="MyBorder rounded  my-5 p-3">
     <div class="row g-0">
+
       <div class="col text-center p-2 mb-3 ">
-        <h2>Employer Register</h2>
-        <!-- <span class="fs-3">Employer Register</span> -->
+        <h2>Employer Signup</h2>
       </div>
+
       <div class="row">
+
         <div class="col mb-3">
           <label for="name" class="form-label">Name</label>
-          <input type="name" class="form-control" id="name" formControlName="name"  placeholder="Enter your Name">
+          <input type="name" class="form-control" id="name" formControlName="name" placeholder="Enter your Name">
           <div class="form-text text-danger" *ngIf="name.errors?.['required'] && (name.touched || name.dirty)">Name is
             required.</div>
           <div class="form-text text-danger" *ngIf="name.errors?.['minlength'] && (name.touched || name.dirty)">Name is
@@ -18,32 +18,39 @@
           <div class="form-text text-danger" *ngIf="name.errors?.['pattern'] && (name.dirty || name.touched)">Name
             should start with alphabet.</div>
         </div>
+
         <div class="col mb-3">
           <label for="company name" class="form-label">Company Name</label>
-          <input type="company name" class="form-control" id="company name" formControlName="companyname"  placeholder="Enter your Company Name">
+          <input type="company name" class="form-control" id="company name" formControlName="companyname"
+            placeholder="Enter your Company Name">
           <div class="form-text text-danger"
-            *ngIf="cmpnyname.errors?.['required'] && (cmpnyname.touched || cmpnyname.dirty)">Company Name is required.</div>
+            *ngIf="cmpnyname.errors?.['required'] && (cmpnyname.touched || cmpnyname.dirty)">Company Name is required.
+          </div>
           <div class="form-text text-danger"
             *ngIf="cmpnyname.errors?.['minlength'] && (cmpnyname.touched || cmpnyname.dirty)">too short.</div>
           <div class="form-text text-danger"
             *ngIf="cmpnyname.errors?.['pattern'] && (cmpnyname.dirty || cmpnyname.touched)">Name should start with
             alphabet.</div>
         </div>
+
       </div>
+
       <div class="row">
         <div class="col mb-3">
           <label for="email" class="form-label">Email Address</label>
-          <input type="email" class="form-control" id="email" formControlName="email" formControlName="email"  placeholder="Enter your Email">
+          <input type="email" class="form-control" id="email" formControlName="email" formControlName="email"
+            placeholder="Enter your Email">
           <div class="form-text text-danger" *ngIf="email.errors?.['required'] && (email.dirty || email.touched)">Email
             required.</div>
           <div class="form-text text-danger" *ngIf="email.errors?.['pattern'] && (email.dirty || email.touched)">Email
             invalid.</div>
         </div>
       </div>
+
       <div class="row">
         <div class="col mb-3">
           <label for="phnno" class="form-label">Phone no.</label>
-          <input type="phnno" class="form-control" id="phnno" formControlName="phnno"  placeholder="Enter your Phone no">
+          <input type="phnno" class="form-control" id="phnno" formControlName="phnno" placeholder="Enter your Phone no">
           <div class="form-text text-danger" *ngIf="phnno.errors?.['required'] && (phnno.dirty || phnno.touched)">Phn
             no.required.</div>
           <div class="form-text text-danger" *ngIf="phnno.errors?.['pattern'] && (phnno.dirty || phnno.touched)">Phn
@@ -54,21 +61,25 @@
             no. is long.</div>
         </div>
       </div>
+
       <div class="row">
+
         <div class="col mb-3">
           <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" formControlName="password"  placeholder="Enter your Password">
+          <input type="password" class="form-control" id="password" formControlName="password"
+            placeholder="Enter your Password">
           <div class="form-text text-danger"
             *ngIf="password.errors?.['required'] && (password.dirty || password.touched)">Password required.</div>
           <div class="form-text text-danger"
             *ngIf="password.errors?.['minlength'] && (password.dirty || password.touched)">Password is short.</div>
           <div class="form-text text-danger"
             *ngIf="password.errors?.['maxlength'] && (password.dirty || password.touched)">Phn no. is long.</div>
-
         </div>
+
         <div class="col mb-3">
           <label for="designation" class="form-label">Designation</label>
-          <input type="designation" class="form-control" id="designation" formControlName="designation"  placeholder="Enter your Designation">
+          <input type="designation" class="form-control" id="designation" formControlName="designation"
+            placeholder="Enter your Designation">
           <div class="form-text text-danger"
             *ngIf="designation.errors?.['required'] && (designation.touched || designation.dirty)">required.</div>
           <div class="form-text text-danger"
@@ -78,22 +89,64 @@
             *ngIf="designation.errors?.['pattern'] && (designation.dirty || designation.touched)">Name should start with
             alphabet.</div>
         </div>
+
       </div>
 
       <div class="row">
-        <div class="col-6 offset-3">
-          <div class="d-grid">
-            <button type="submit" [disabled]="!registerform.valid" class="btn btn-primary">Submit</button>
+        <div class="col mb-3">
+          <label>Enter Your OTP Here</label>
+
+          <input type="text" class="form-control" formControlName="otp"
+            placeholder="Enter your 6 digit OTP From Your Email">
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="generateOtp()"
+              class="btn rounded my-2 btn-success btn-sm">{{textForGenerateOtp}}</button>
+
+            <button type="button" (click)="verifyOtp()" class="btn rounded my-2 btn-success btn-sm">Verify
+              OTP</button>
+          </div>
+
+          <div *ngIf="showTimer">
+            <p>Time left: {{ countdown }} seconds</p>
+          </div>
+
+          <div *ngIf="otp.touched && otp.invalid" class="alert alert-danger mt-2">
+            <div *ngIf="otp.errors && otp.errors['required']">OTP is
+              required.</div>
+            <div *ngIf="otp.errors && otp.errors['minlength']">OTP should
+              be 6 character.</div>
+
+            <div *ngIf="otp.errors && otp.errors['maxlength']">OTP Exceeded 6 character.</div>
+
           </div>
         </div>
       </div>
-    </div>
-    <div class="row mb-3">
-      <div class="col">
-        <p>Already have an account?</p>
-        <button class="btn btn-primary" (click)="login()">Login</button>
+
+      <div class="row">
+        <div class="col-12">
+
+          <button type="submit" [disabled]="!registerform.valid" class="btn w-100 btn-primary">Submit</button>
+
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col">
+          <p>Already have an account?</p>
+          <button class="btn btn-primary" routerLink="/login">Login</button>
+        </div>
+
       </div>
 
     </div>
   </form>
+</div>
+
+<div *ngIf="loaderShow">
+  <div class="loading">
+    <div class="text-center">
+      <div class="spinner-border m-3 text-light " style="width: 3rem; height: 3rem;" role="status"> </div>
+      <h6>Please Wait While Loading...</h6>
+    </div>
+  </div>
 </div>

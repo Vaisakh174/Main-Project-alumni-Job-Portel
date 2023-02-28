@@ -49,7 +49,11 @@ const routes: Routes = [
   {
     path: 'employerhome',
     loadChildren: () => import('./employer/employer.module').then(m => m.EmployerModule)
-  },
+  }, 
+  //  {
+  //   path: 'adminhome',
+  //   loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  // },
   {
     path: 'alumnihome',
     loadChildren: () => import('./alumni/alumni.module').then(m => m.AlumniModule)

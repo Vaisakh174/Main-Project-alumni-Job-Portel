@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AlumniapiService } from '../alumniapi.service';
-import { AlumniauthService } from '../alumniauth.service';
 
 @Component({
   selector: 'app-alum-login',
@@ -12,7 +11,7 @@ import { AlumniauthService } from '../alumniauth.service';
 export class AlumLoginComponent implements OnInit {
 
 
-  constructor(private router: Router, private auth: AlumniauthService) { }
+  constructor(private router: Router, private api: AlumniapiService) { }
 
   ngOnInit(): void {
   }
@@ -32,21 +31,21 @@ export class AlumLoginComponent implements OnInit {
 
 
   logincheck() {
-    this.auth.loginuser(this.loginform.value).subscribe({
+    this.api.loginAlumni(this.loginform.value).subscribe({
 
       next: (res) => {
 
-        localStorage.setItem('alumnitoken', res.token);
+        localStorage.setItem('alumni_token', res.alumni_token);
+        localStorage.setItem('alumni_name', res.alumni_name);
         // console.log("success from login  ", res.token,res.USER);   //to view token in browser
-        alert("Login success");
-        localStorage.setItem('alumniuser', res.USER);
+        alert(res.message);
         this.router.navigate(['/alumnihome']);
 
       },
       error: (err) => {
 
         // console.log("error from login ", err.error);     //to view error in browser
-        alert(`Error...  ${err.error}`);
+        alert(`Error...  ${err.error.message}`);
 
       }
 

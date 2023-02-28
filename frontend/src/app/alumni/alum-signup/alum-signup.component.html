@@ -88,22 +88,57 @@
                             character.</div>
                     </div>
 
+                    <label>Enter Your OTP Here</label>
+
+                    <input type="text" class="form-control" formControlName="otp"
+                        placeholder="Enter your 6 digit OTP From Your Email">
+                    <div class="d-flex justify-content-between">
+                        <button type="button" (click)="generateOtp()"
+                            class="btn rounded my-2 btn-success btn-sm">{{textForGenerateOtp}}</button>
+
+                        <button type="button" (click)="verifyOtp()" class="btn rounded my-2 btn-success btn-sm">Verify
+                            OTP</button>
+                    </div>
+
+                    <div *ngIf="showTimer">
+                        <p>Time left: {{ countdown }} seconds</p>
+                    </div>
+
+                    <div *ngIf="f['otp'].touched && f['otp'].invalid" class="alert alert-danger mt-2">
+                        <div *ngIf="f['otp'].errors && f['otp'].errors['required']">OTP is
+                            required.</div>
+                        <div *ngIf="f['otp'].errors && f['otp'].errors['minlength']">OTP should
+                            be 6 character.</div>
+
+                        <div *ngIf="f['otp'].errors && f['otp'].errors['maxlength']">OTP Exceeded 6 character.</div>
+
+                    </div>
 
                     <small class="text-warning"> All input field must contain atleast 2 letters</small>
 
                 </div>
                 <br>
                 <div class="d-flex justify-content-between">
-                <button [disabled]="addalumniform.invalid" type="submit"
-                    class="btn rounded  btn-warning">Submit</button>
+                    <button [disabled]="addalumniform.invalid" type="submit"
+                        class="btn rounded  btn-warning">Submit</button>
 
-                <a routerLink="/alumni" class="btn rounded  btn-warning">
-                    Click Here to Login
-                </a>
-            </div>
+                    <a routerLink="/alumni" class="btn rounded  btn-warning">
+                        Click Here to Login
+                    </a>
+                </div>
             </form>
 
 
         </div>
     </div>
 </div>
+
+
+<div *ngIf="loaderShow">
+    <div class="loading">
+      <div class="text-center">
+        <div class="spinner-border m-3 text-light " style="width: 3rem; height: 3rem;" role="status"> </div>
+        <h6>Please Wait While Loading...</h6>
+      </div>
+    </div>
+  </div>

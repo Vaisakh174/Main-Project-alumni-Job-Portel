@@ -3,17 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { ApprovedPostsComponent } from './approved-posts/approved-posts.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditComponent } from './edit/edit.component';
+import { EmpAuthGuard } from './emp-auth.guard';
 import { EmployerhomeComponent } from './employerhome/employerhome.component';
-import { LoginComponent } from './login/login.component';
 import { PostjobComponent } from './postjob/postjob.component';
-import { SignupComponent } from './signup/signup.component';
 import { ViewjobComponent } from './viewjob/viewjob.component';
 
 const routes: Routes = [
 
 
   {
-    path: '', component: EmployerhomeComponent,
+    path: '', component: EmployerhomeComponent, canActivate: [EmpAuthGuard],
 
     children: [
 

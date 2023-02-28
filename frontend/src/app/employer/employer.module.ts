@@ -8,10 +8,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployerhomeComponent } from './employerhome/employerhome.component';
 import { PostjobComponent } from './postjob/postjob.component';
 import { ViewjobComponent } from './viewjob/viewjob.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
 import { EditComponent } from './edit/edit.component';
 import { RouterModule } from '@angular/router';
 import { ApprovedPostsComponent } from './approved-posts/approved-posts.component';
+import { SignupapiService } from './signupapi.service';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 
 
@@ -25,7 +27,7 @@ import { ApprovedPostsComponent } from './approved-posts/approved-posts.componen
     PostjobComponent,
     ViewjobComponent,
     EditComponent,
-    ApprovedPostsComponent,
+    ApprovedPostsComponent
   ],
   imports: [
     CommonModule,
@@ -33,6 +35,12 @@ import { ApprovedPostsComponent } from './approved-posts/approved-posts.componen
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,RouterModule
-  ]
+  ],
+  providers: [SignupapiService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass:TokenInterceptorService ,
+      multi:true
+    }]
 })
 export class EmployerModule { }

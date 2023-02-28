@@ -21,18 +21,29 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+loaderShow=false
+login(){
+  this.loaderShow = true
+  this.api.login(this.loginform.value).subscribe({
+    // console.log('res from reg. : ',res)
+    next: (res) => {
+      localStorage.setItem('employer_token', res.token);
+      // console.log(  "res from login  ", res);   //to view token in browser
+      localStorage.setItem('employer_name', res.employer_name);
 
-login(){this.api.login(this.loginform.value).subscribe(res=>{
-  if(res.message){
-    alert(res.message)
-    this.router.navigate(['/login'])
-  }
-  else{
-    alert("Successfully logged in")
-    this.router.navigate(['/employerhome'])
-  }
-  // this.router.navigate(['/employerhome'])
-})
+      alert(res.message);
+      this.loaderShow = false
+      this.router.navigate(['/employerhome']);
+    },
+    error: (err) => {
+      // console.log("error from login ", err); 
+      this.loaderShow = false    //to view error in browser
+      alert(`Error...  ${err.error.message}`);
+      // this.loginform.reset()
+    }
+  })
+
+
 }
   get email(): FormControl{
     return this.loginform.get("email") as FormControl;

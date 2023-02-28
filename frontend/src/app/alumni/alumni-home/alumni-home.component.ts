@@ -14,8 +14,8 @@ export class AlumniHomeComponent implements OnInit {
   }
 
   logout() {
-    localStorage.removeItem('alumnitoken');
-    localStorage.removeItem('alumniuser');
+    localStorage.clear()
+   
     this.router.navigate(["/"]);
 
   }

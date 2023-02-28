@@ -1,13 +1,13 @@
-import { Component, NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FirstContentComponent } from '../main-home/first-content/first-content.component';
-import { AlumLoginComponent } from './alum-login/alum-login.component';
+import { AlumniAuthGuard } from './alumni-auth.guard';
 import { AlumniHomeComponent } from './alumni-home/alumni-home.component';
 
 
 const routes: Routes = [
   {
-    path: "", component: AlumniHomeComponent,
+    path: "", component: AlumniHomeComponent,canActivate: [AlumniAuthGuard],
 
     children: [
       { path: "", component: FirstContentComponent },

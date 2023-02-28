@@ -48,20 +48,29 @@ export class ApiService {
 
 
 
-  // //for job apply
-  applypost(postData: any,alumniData:any) {
-    return this.http.post(`${this.url}/api/approve/apply`,{postData,alumniData});
-  }
+  // // //for job apply
+  // applypost(postData: any,alumniData:any) {
+  //   return this.http.post(`${this.url}/api/approve/apply`,{postData,alumniData});
+  // }
   
   //for file upload
   uploadPost(Fdata: any) {
-    return this.http.post(`${this.url}/api/upload`,Fdata,)
+    return this.http.post(`${this.url}/api/upload`,Fdata, {
+      reportProgress: true,
+      observe: 'events'
+    })
   }
 
   
   //for file download
   downloadPdf(filename:any) {
     return this.http.get(`${this.url}/api/upload/${filename}`,{responseType:'blob'});
+  } 
+  
+  //for file delete
+  deletePdf(filename:any) {
+    // let filename={filename:name}
+    return this.http.delete(`${this.url}/api/upload/del/${filename}`);
   }
 
 

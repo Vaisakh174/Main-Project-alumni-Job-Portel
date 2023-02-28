@@ -6,18 +6,12 @@ import { AppComponent } from './app.component';
 import { AdminRoutingModule } from './admin/admin-routing.module';
 import { AdminModule } from './admin/admin.module';
 import { NavComponent } from './main-home/nav/nav.component';
-import { EmployerRoutingModule } from './employer/employer-routing.module';
-import { EmployerModule } from './employer/employer.module';
 import { FirstContentComponent } from './main-home/first-content/first-content.component';
 import { ReadMoreComponent } from './main-home/read-more/read-more.component';
 import { AlumSignupComponent } from './alumni/alum-signup/alum-signup.component';
-import { AlumniModule } from './alumni/alumni.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AlumniRoutingModule } from './alumni/alumni-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ApplyJobComponent } from './main-home/apply-job/apply-job.component';
-import { FacultyRoutingModule } from './faculty/faculty-routing.module';
-import { FacultyModule } from './faculty/faculty.module';
 
 
 

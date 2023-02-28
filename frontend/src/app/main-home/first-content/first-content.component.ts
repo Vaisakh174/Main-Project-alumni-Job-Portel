@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/admin/services/api.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AlumniauthService } from 'src/app/alumni/alumniauth.service';
+import { AlumniapiService } from 'src/app/alumni/alumniapi.service';
 
 
 
@@ -13,7 +13,7 @@ import { AlumniauthService } from 'src/app/alumni/alumniauth.service';
 })
 export class FirstContentComponent implements OnInit {
 
-  constructor(private api: ApiService, private router: Router, public auth: AlumniauthService) { }
+  constructor(private api: ApiService, private router: Router, public auth: AlumniapiService) { }
 
   errmsg: any = 0;
   Back: any = 0;
@@ -22,15 +22,10 @@ export class FirstContentComponent implements OnInit {
 
 
   ngOnInit(): void {
-
     this.getdata();
-
-
-
-
   }
-  _loaderShow: any
 
+  _loaderShow: any
   searchForm: any = new FormGroup({
     textData: new FormControl("", [Validators.required, Validators.minLength(1)])
 
@@ -97,14 +92,14 @@ export class FirstContentComponent implements OnInit {
     //set current date 
     this.currentDate = new Date()
 
-    console.log('Current time ', this.currentDate)
+    // console.log('Current time ', this.currentDate)
 
 
 
     for (let i of this.viewposts) {
 
       //get date from db as string and convert into date obj and add 1day  to it
-      
+
       const formattedDateString = i.Date.replace('IST', '');
       // let FixedDate = new Date('Dec 20, 2022, 9:39:49 PM  ');//set a old post date for demo
       const FixedDate = new Date(formattedDateString);
@@ -114,13 +109,13 @@ export class FirstContentComponent implements OnInit {
       if (this.currentDate.getTime() > FixedDate.getTime()) {
         i.ApplyStatus = 0;
         // console.log('post is invalid')
-        
+
       }
       else {
         i.ApplyStatus = 1;
         // console.log('post is valid')
-        
-        console.log(`${i.Jobname} last date: `, FixedDate)
+
+        // console.log(`${i.Jobname} last date: `, FixedDate)
       }
       // console.log("apply?: ", i.ApplyStatus)
       this.api.updateapply(i.ApplyStatus, i._id).subscribe();

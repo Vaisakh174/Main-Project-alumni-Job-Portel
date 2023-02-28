@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/admin/services/api.service';
-import { AlumniauthService } from 'src/app/alumni/alumniauth.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
+import { AlumniapiService } from 'src/app/alumni/alumniapi.service';
 @Component({
   selector: 'app-apply-job',
   templateUrl: './apply-job.component.html',
@@ -11,7 +11,7 @@ import { HttpEventType, HttpResponse } from '@angular/common/http';
 })
 export class ApplyJobComponent implements OnInit {
 
-  constructor(private api: ApiService, private router: Router, public auth: AlumniauthService) { }
+  constructor(private api: ApiService, private router: Router, public auth: AlumniapiService) { }
 
   ngOnInit(): void {
     this.getdata();
